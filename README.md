@@ -1,15 +1,25 @@
-# Bitácora de Automatización: Mi Casa
+# BITACORA DE ACTUALIZACION: Mi Casa
 
-## Proyectos Activos
-- [ ] **Monitoreo de Gas**: Sensor Elster BK-G4 con reed switch.
+## 01 DOCUMENTACION GENERAL
+Hay un primer capitulo que contiene documentación general de todo lo que son los microcontroladores, sensores, y descripcion y definición de todos los elelmentos relacionados con la automatizacion
+
+- [ ] **Documentación General**: Descripción general de microcontroladoes, sensores y otros elementos
+
+## 02 PROYECTOS ACTIVOS
+- [ ] **Tanque de Agua** : Sistema de control de tanque de agua
+- [ ] **Detección Gas Metano**: Monitoreo de temperatura y detección de metano en la cocina
+- [ ] **Control Calefacción**: Control de caldera y medición de consumos de gas
 - [ ] **Cortinas Dormitorio**: ESP32, motor Nema 17 y driver TMC2209.
-- [ ] **Sistema de Agua**: Filtrado, sensores ultrasónicos y caudalímetros.
+- [ ] **Balanza**: actualente seteado para .
 
-## Inventario de Hardware
-| Dispositivo | Ubicación | IP / Conexión |
-| :--- | :--- | :--- |
-| ESP32 Principal | Dormitorio | 192.168.1.XX |
-| Router | Oficina | TP-Link Archer C80 |
+| SISTEMA | DISPOSITIVO | UBICACION | IP / Conexión |
+| :--- | :--- | :--- |:---
+| Tanque de Agua | ESP32  | Altillo - Sala Maquinas | 192.168.1.XX |
+| Detección Gas Metano| Router | Oficina | TP-Link Archer C80 |
+| Cortinas Dormitorios 
+| Temperatura Exterior | Wemos D1 | Galeria Exterior
+| Control Calefacción | Termostato Eutherma | Living
+| Balanza
 
-## Notas de mantenimiento
+## 03 NOTAS DE MANTENIMIENTO
 - *Fecha:* 02/06/2026 - Iniciada la documentación del proyecto.

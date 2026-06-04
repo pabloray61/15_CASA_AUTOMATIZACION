@@ -9,8 +9,10 @@
     - [2.4 PERIFERICOS](#24-perifericos)
     - [2.5 ESQUEMA DE CONEXION](#25-esquema-de-conexion)
   - [4. SENSORES](#4-sensores)
-    - [4.1 Caudalimetro FS401](#41-caudalimetro-fs401)
-    - [4.2 Sensor Ultrasonido JSN-401](#42-sensor-ultrasonido-jsn-401)
+    - [4.1 Caudalimetro FS300A](#41-caudalimetro-fs300a)
+    - [4.1.1 Especificaciones Tecnicas](#411-especificaciones-tecnicas)
+    - [4.1.2 Esquema de Conexión](#412-esquema-de-conexión)
+    - [4.2 Sensor Ultrasonido JSN-SR04T](#42-sensor-ultrasonido-jsn-sr04t)
       - [4.2.1 Especificaciones Tecnicas](#421-especificaciones-tecnicas)
       - [4.2.2 Esquema de Conexion](#422-esquema-de-conexion)
     - [4.3 Sensor Temperatura DS18B20](#43-sensor-temperatura-ds18b20)
@@ -89,6 +91,8 @@ Placa de desarrollo ESP32 WIFI Bluetooth redes componentes inteligentes ESP-WROO
 
 ## 4. SENSORES
 
+A continuacion mostramos un detalle de los sensores que componen el sistema de tanque de agua
+
 | COMPONENTE | MODELO / ESPECIFICACION | PIN (ESP32) | ADDRESS |
 | :--- | :--- | :--- | :--- |
 | Caudalimetro | FS401 - | GPIO 27 |
@@ -97,22 +101,26 @@ Placa de desarrollo ESP32 WIFI Bluetooth redes componentes inteligentes ESP-WROO
 | Sensor Temperatura Ambiente | DSB180 | GPIO 18 | 0x8d00000077d61f28
 | Nivel Líquidos | adsfa | VCC Out: GPIO 25 - Signal In: GPIO33
 
-### 4.1 Caudalimetro FS401
+### 4.1 Caudalimetro FS300A
 
-Este modelo de caudalimetro tiene rosca de 3/4" y esta seteado para medir aprox 5 pulsos por litro
+El sensor de flujo de agua consta principalmente de un cuerpo de válvula de plástico, un conjunto de rotor y un sensor de corriente Hall. Está instalado en el extremo de entrada de agua para detectar el flujo de agua. Cuando el agua atraviesa el conjunto del rotor de flujo, el rotor magnético girará y la velocidad cambiará a medida que cambie el flujo. El sensor de corriente Hall emite la señal de pulso correspondiente y la retroalimentación al controlador, luego el controlador controlará el flujo.
 
-| CARACTERISTICA | VALOR |
-| :---| :---|
-|Presión máxima de agua | 1,2 MPa (12 bar)
-|Diámetro de la rosca | 19,05 mm
-|Caudal mínimo de agua | 1 l/min
-|Caudal máximo de agua | 60 l/min 
-|Temperatura mínima de trabajo | 0 °C
-|Temperatura máxima de trabajo | 80°C
 
 ![CAUDALIMETRO FS300A](imagenes/Caudalimetro_FS300A.png)
 
 *Figura 2: Caudalimetro FS300a*
+
+### 4.1.1 Especificaciones Tecnicas
+
+
+- Presión máxima de agua | 1,2 MPa (12 bar)
+- Diámetro de la rosca | 19,05 mm
+- Caudal mínimo de agua | 1 l/min
+- Caudal máximo de agua | 60 l/min 
+- Temperatura mínima de trabajo | 0 °C
+- Temperatura máxima de trabajo | 80°C
+
+### 4.1.2 Esquema de Conexión
 
 |PIN | CONEXION| CABLE|
 |:---|:---|:---|
@@ -121,7 +129,7 @@ Este modelo de caudalimetro tiene rosca de 3/4" y esta seteado para medir aprox 
 |GND | 0V | Negro
 
 
-### 4.2 Sensor Ultrasonido JSN-401
+### 4.2 Sensor Ultrasonido JSN-SR04T
 
 El sensor SR04 es un sensor de distancia que utiliza ultrasonido (sonar) para determinar la distancia de un objeto en un rango de 25 a 600 cm. Destaca por su pequeño tamaño, bajo consumo energético, buena precisión y especialmente por su resistencia al Agua.
 
