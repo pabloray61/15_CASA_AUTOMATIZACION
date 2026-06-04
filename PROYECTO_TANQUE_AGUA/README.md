@@ -5,9 +5,7 @@
   - [1. DESCRIPCION GENERAL](#1-descripcion-general)
   - [2. INSTALACION FISICA](#2-instalacion-fisica)
   - [3. MICROCONTROLADOR: ESP 32](#3-microcontrolador-esp-32)
-    - [2.3	CARACTERISTICAS TECNICAS](#23caracteristicas-tecnicas)
-    - [2.4 PERIFERICOS](#24-perifericos)
-    - [2.5 ESQUEMA DE CONEXION](#25-esquema-de-conexion)
+    - [3.1 ESQUEMA DE CONEXION](#31-esquema-de-conexion)
   - [4. SENSORES](#4-sensores)
     - [4.1 Caudalimetro FS300A](#41-caudalimetro-fs300a)
     - [4.1.1 Especificaciones Tecnicas](#411-especificaciones-tecnicas)
@@ -54,38 +52,15 @@ Se realizo con elementos de termofusión en cañerías de 3/4" de pulgada y acce
 
 ## 3. MICROCONTROLADOR: ESP 32
 
-Placa de desarrollo ESP32 WIFI Bluetooth redes componentes inteligentes ESP-WROOM-32 ESP-32. El ESP32 se puede programar en diferentes entornos de programación. Puedes utilizarlo: en  Arduino IDE, Espressif IDF (Marco de Desarrollo IoT), Micropitón, SIM, LUA
+Para este proyecto utilizamos un ESP32 montado sobre una base de protoboard para aumentar las posiblidaddes de pines
 
-
-![ESP32](imagenes/ESP32-30.png)
+![ESP32](../assets/ESP32-30.png)
 
 *Figura 1: ESP 32-30 pines*
 
+### 3.1 ESQUEMA DE CONEXION
 
-### 2.3	CARACTERISTICAS TECNICAS
-
-- El ESP32 es de doble núcleo, lo que significa que tiene 2 procesadores.
-- Tiene Wi-Fi integrado y compatible con bluetooth.
-- Ejecuta programas de 32 bits.
-- La frecuencia del reloj puede llegar hasta 240MHz y tiene una RAM de 512 kB.
-- Esta placa en particular tiene 30 pines, 15 en cada fila.
-- También tiene una amplia variedad de periféricos disponibles, como: tactil capacitivo, ADCs, DACs, UART, SPI, I2C y mucho mas.
-- Viene con sensor de efecto hall integrado y sensor de temperatura incorporado. 
-
-### 2.4 PERIFERICOS
-
-- 18 canales de convertidor analógico a Digital (ADC) 
-- 3 interfaces SPI
-- 3 interfaces UART
-- 2 interfaces I2C
-- 16 canales de salida PWM
-- 2 convertidores digitales a analógicos (DAC)
-- 2 interfaces I2S
-- 10 GPIOs de detección capacitiva
-
-### 2.5 ESQUEMA DE CONEXION
-
-![ESP32](imagenes/PO_ESP32-30.png)
+![ESP32](../assets/PO_ESP32-30.png)
 
 *Figura 1: Pinout del ESP 32- 30 pines*
 
@@ -106,12 +81,13 @@ A continuacion mostramos un detalle de los sensores que componen el sistema de t
 El sensor de flujo de agua consta principalmente de un cuerpo de válvula de plástico, un conjunto de rotor y un sensor de corriente Hall. Está instalado en el extremo de entrada de agua para detectar el flujo de agua. Cuando el agua atraviesa el conjunto del rotor de flujo, el rotor magnético girará y la velocidad cambiará a medida que cambie el flujo. El sensor de corriente Hall emite la señal de pulso correspondiente y la retroalimentación al controlador, luego el controlador controlará el flujo.
 
 
-![CAUDALIMETRO FS300A](imagenes/Caudalimetro_FS300A.png)
+![CAUDALIMETRO FS300A](../assets/Caudal_FS300A.png)
 
 *Figura 2: Caudalimetro FS300a*
 
 ### 4.1.1 Especificaciones Tecnicas
 
+Este caudalimentro puede tiene las sigueintes caractristicas tencias:
 
 - Presión máxima de agua | 1,2 MPa (12 bar)
 - Diámetro de la rosca | 19,05 mm
@@ -137,7 +113,7 @@ El sensor trabaja con ultrasonido y contiene toda la electrónica encargada de h
 
 Perfecto para aplicaciones donde el sensor estará expuesto a la intemperie, utilizado en automóviles para medir distancia de colisión/parqueo.
 
-![ULTRASONIDO JSN-SR04T](imagenes/Ultrasonido_JSN-SR04T.png)
+![ULTRASONIDO JSN-SR04T](../assets/Distancia_JSN-SR04T.png)
 
 *Figura 3: Ultrasonido_JSN-SR04T*
 
@@ -166,7 +142,7 @@ Perfecto para aplicaciones donde el sensor estará expuesto a la intemperie, uti
 |ECHO |Recepción del ultrasonido
 |GND | 0V
 
-![PIN OUT JSN-SR04T](imagenes/PO_JSN-SR04T.png)
+![PIN OUT JSN-SR04T](../assets/PO_JSN-SR04T.png)
 *Figura 4: Pin Out JSN-SR04T*
 
 ### 4.3 Sensor Temperatura DS18B20
@@ -175,7 +151,7 @@ Sensor Digital Temperatura DS18B20 con Cable Sumergible de 50 cm de largo (IP67)
 Sensor de temperatura DS18B20 impermeable. Ideal para control ambiental de HVAC, sensor de temperatura interior, equipamiento o maquinas. Ideal también para medición en sitios lejanos o en condiciones húmedas.
 Cada sensor tiene un número de serie de 64 bits único que le permite conectar múltiples sensores en paralelo usando solo un cable como bus de datos.
 
-![TEMPERATURA_DS18B20](imagenes/Temperatura_DS18B20.png)
+![TEMPERATURA_DS18B20](../assets/Temperatura_DS18B20.png)
 
 *Figura 3: Sensor Temperatura DS18B20*
 
@@ -202,14 +178,14 @@ Cada sensor tiene un número de serie de 64 bits único que le permite conectar 
 |SEÑAL |Señal
 |GND | 0V
 
-![PIN OUT_DS18B20](imagenes/PO_DS18B20.png)
+![PIN OUT_DS18B20](../assets/PO_DS18B20.png)
 
 *Figura 5: PIN OUT DS18B20*
 
 
 ## 3. ESQUEMA DE CONEXIONES
 
-Hay algunas consdieraciónes para la conexion de los sensores, que vamos a comentar a continuación: 
+Hay algunas consideraciónes para la conexion de los sensores, que vamos a comentar a continuación: 
 
 - Caudalimetro FS401: el caudalimetro tiene tres salidaS, VCC, GND y SEÑAL. Es conveniente que la señal la 
 - Sensor Ultrasónico JSN-SR047: este se conecta mediante un modulo a cuatro
