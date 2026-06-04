@@ -1,9 +1,6 @@
 # TABLA DE CONTENIDO
 
-# RESUMEN EJECUTIVO
-
-
-# COMPARACION DE MICROCONTROLADORES
+# 1. RESUMEN DE MICROCONTROLADORES
 
 En esta sección destallamos los principales microcontroladores.
 
@@ -15,7 +12,7 @@ A continuación la diferencia entre los dos tipos de familia de procesadores:
 - Wemos D1 (Mini): Es el rey de las placas compactas basadas en ESP8266. Tené en cuenta que comparte las mismas limitaciones de memoria y Wi-Fi que el NodeMCU, pero en un formato súper amigable para prototipos chicos.
 - ESP32 C3 Supermini: Esta placa es un golazo reciente. Cambia la arquitectura tradicional de Tensilica por RISC-V. Es una opción excelente si buscás el tamaño diminuto de un Wemos D1 pero con la potencia, la seguridad y el Bluetooth Low Energy (BLE) de la generación ESP32.
 
-## PRECIOS DE MICROCONTROLADORES
+## 1.2 PRECIOS DE MICROCONTROLADORES
 
 En la siguiente tabla mencionamos los principales procesadores y sus precios estimados como referencia:
 
@@ -48,15 +45,15 @@ Veredicto para tu casa: ¿Cuál conviene?
 
 La facilidad de tener Bluetooth para la configuración inicial y la potencia extra para manejar protocolos modernos como Matter o librerías pesadas (como las de Home Assistant / ESPHome) harán que tu proyecto sea mucho más estable y "a prueba de futuro".
 
-# MICROCONTROLADORES
+# 2. MICROCONTROLADORES
 
-## ESP8266 - ESP01
+## 2.1 ESP8266 - ESP01
 
 El Modulo WiFi ESP01 basado en el chip ESP8266 que permite conectar tus proyectos a Internet mediante una red Wifi de forma fácil y económica.
 
 Pude servir en 2 modos: como WiFi Station o como Access Point. Al trabajar WiFi Station se conecta a una red, mientras que en en modo Access Point se usa para "crear" una red wifi propia y acceder a ella para controlar un motor, luces o incluso obtener lectura de sensores digitales.
 
-### Especificaciones
+### 2.1.1 Especificaciones
 
 - Tensión Nominal: 3.3V DC
 - Tensión Maxima: 3.7V DC
@@ -72,17 +69,17 @@ Pude servir en 2 modos: como WiFi Station o como Access Point. Al trabajar WiFi 
 - Dimensiones: 24 mm x 14 mm
 - Peso: 3g
 
-### Esquema de conexiones (PIN OUT)
+### 2.1.2 Esquema de conexiones (PIN OUT)
 
 ![ESP01](../assets/PO_ESP01.png)
 
-## ESP8266 - WEMOS D1 (NodeMCUMini - ESP8266)
+## 2.2 ESP8266 - WEMOS D1 (NodeMCUMini - ESP8266)
 
 El NodeMCUMINI es una placa de desarrollo que está basada en el popular chip ESP8266. Con este sencillo modulo se puede realizar el prototipo de cualquier sistema para el loT.
 
-![WEMOS D1](../assets/WEMOS-D1.jpg)
+![WEMOS D1](../assets/WEMOS-D1.png)
 
-### Especificaciones
+### 2.2.1 Especificaciones
 
 - Utiliza el conversor USB a UART CH340G
 - Open-source
@@ -99,11 +96,11 @@ El NodeMCUMINI es una placa de desarrollo que está basada en el popular chip ES
 - Conector micro USB
 - Antena PCB
 
-### Esquema de conexiones (PIN OUT)
+### 2.2.1 Esquema de conexiones (PIN OUT)
 
-![WEMOS D1](../assets/PO_WEMOS-D1.jpg)
+![WEMOS D1](../assets/PO_WEMOS-D1.png)
 
-## ESP8266 - NODEMCU V3 CH340
+## 2.3 ESP8266 - NODEMCU V3 CH340
 
 El NodeMcu es una placa de desarrollo de código abierto basada en el chip ESP8266 (ESP-12E), que utiliza el lenguaje de programación Lua para crear un ambiente de desarrollo propicio para aplicaciones que requieran conectividad Wifi de manera rápida.
 
@@ -136,9 +133,9 @@ NodeMCU es una pequeña placa Wifi compatible con Arduino lista para usar en cua
 
 Debido a que utiliza un conversor USB CH340, normalmente el sistema operativo lo instala automáticamente, aunque en algunos casos puede ser necesario instalar el driver específico.
 
-![ESP8266 NODEMCU](../assets/PO_ESP8266_Nodemcu.jpg)
+![ESP8266 NODEMCU](../assets/PO_ESP8266_Nodemcu.png)
 
-### Especificaciones
+### 2.3.1 Especificaciones
 
 - Procesador: ESP8266 @ 80MHz (3.3V) (ESP-12E)
 - 4MB de memoria FLASH (32 MBit)
@@ -154,15 +151,15 @@ Debido a que utiliza un conversor USB CH340, normalmente el sistema operativo lo
 - Dimensiones: 57 x 31 mm
 - Peso: 11 g
 
-### Esquema de conexiones (PIN OUT)
+### 2.3.2 Esquema de conexiones (PIN OUT)
 
-## ESP32 - DEVKIT V1 - DOIT
+## 2.4 ESP32 - DEVKIT V1 - DOIT
 
 Placa de desarrollo ESP32 WIFI Bluetooth redes componentes inteligentes ESP-WROOM-32 ESP-32. El ESP32 se puede programar en diferentes entornos de programación. Puedes utilizarlo: en Arduino IDE, Espressif IDF (Marco de Desarrollo IoT), Micropitón, SIM, LUA
 
 ![ESP32 DEVKIT](../assets/ESP32-30.png)
 
-### Características Técnicas
+### 2.4.1 Especificaciones
 
 - El ESP32 es de doble núcleo, lo que significa que tiene 2 procesadores.
 - Tiene Wi-Fi integrado y compatible con bluetooth.
@@ -172,7 +169,7 @@ Placa de desarrollo ESP32 WIFI Bluetooth redes componentes inteligentes ESP-WROO
 - También tiene una amplia variedad de periféricos disponibles, como: tactil capacitivo, ADCs, DACs, UART, SPI, I2C y mucho mas.
 - Viene con sensor de efecto hall integrado y sensor de temperatura incorporado.
 
-### Periféricos
+### 2.4.2 Periféricos
 
 - 18 canales de convertidor analógico a Digital (ADC)
 - 3 interfaces SPI
@@ -183,22 +180,22 @@ Placa de desarrollo ESP32 WIFI Bluetooth redes componentes inteligentes ESP-WROO
 - 2 interfaces I2S
 - 10 GPIOs de detección capacitiva
 
-### Esquema de Conexiones 30 GPIOs (PIN OUT)
+### 2.4.3 Esquema de Conexiones 30 GPIOs (PIN OUT)
 
 ![ESP32](../assets/PO_ESP32-30.png)
 
-### Esquema de conexiones 36 GPIOs (PIN OUT)
+### 2.4.4 Esquema de conexiones 36 GPIOs (PIN OUT)
 
 ![ESP32](../assetS/PO_ESP32-36.png)
 
 
-## ESP32 - C3 Supermini
+## 2.5 ESP32 - C3 Supermini
 
 Este NodeMCU ESP32-C3 SuperMini de 16 pines es una solución compacta, potente y eficiente para proyectos de electrónica e IoT. Equipado con conectividad WiFi 2.4GHz y Bluetooth 5.0 LE, este módulo permite desarrollar dispositivos inalámbricos sin complicaciones, manteniendo un diseño ultra compacto y fácil de integrar.
 
-![ESP32](../assets/PO_ESP32-C3%20Supermini.jpg)
+![ESP32](../assets/ESP32_C3.png)
 
-### Características
+### 2.5.1 Características
 
 - WiFi 2.4GHz y Bluetooth 5.0 LE para una conectividad inalámbrica avanzada.
 - Microcontrolador ESP32-C3 con arquitectura RISC-V de 32 bits, ideal para tareas de alto rendimiento.
@@ -209,7 +206,7 @@ Este NodeMCU ESP32-C3 SuperMini de 16 pines es una solución compacta, potente y
 - Compatible con Arduino, Micro Python, ESP-IDF, y otras plataformas populares
 - Pines GPIO multifunción: PWM, I2C, SPI, UART, ADC y más.
 
-### Especificaciones
+### 2.5.2 Especificaciones
 
 - Microcontrolador:ESP32-C3 SuperMini
 - Frecuencia del reloj: 160 MHz
@@ -225,198 +222,132 @@ Este NodeMCU ESP32-C3 SuperMini de 16 pines es una solución compacta, potente y
 - Grosor de la PCB: 1.2 mm (sin contar los componentes soldados)
 - Espaciado de pines (Pitch): 2.54 mm (estándar para protoboard
 
-### Esquema de conexiones (PIN OUT)
+### 2.5.3 Esquema de conexiones (PIN OUT)
 
-### Montaje en Protoboard (Prototipado)
+![ESP 32 C3](../assets/PO_ESP32-C3%20Supermini.png)
+
+### 2.5.4 Montaje en Protoboard (Prototipado)
 
 - Es la forma más sencilla. Debido a que tiene un espaciado estándar de 2.54 mm, puedes soldar los pines (headers) hacia abajo y pincharla en la protoboard.
 - Ventaja: La placa queda firme y te permite conectar sensores rápidamente.
 - Tip: Al ser tan corta (solo 8 pines por lado), deja mucho espacio libre en la protoboard para otros componentes.
 
-### Uso de Zócalos o "Headers" Hembra
+### 2.5.5 Uso de Zócalos o "Headers" Hembra
 
 - Si vas a montar la placa sobre otra PCB o una placa perforada, lo ideal es usar headers hembra.
 - Soldas dos tiras de 8 pines hembra en tu base y simplemente "enchufas" el SuperMini.
 - Esto te permite retirar la placa fácilmente si se quema o si necesitas reprogramarla fuera del circuito.
 
-### Fijación Mecánica (Gabinete 3D)
+### 2.5.6 Fijación Mecánica (Gabinete 3D)
 
 - Como el SuperMini no tiene orificios de montaje para tornillos (debido a su tamaño), se suele sujetar mediante presión o guías:
 - Pestañas de presión: Diseñar un gabinete con pequeñas pestañas que "abracen" los bordes de la PCB.
 - Rieles laterales: Crear ranuras de 1.3 mm de ancho donde la placa se deslice.
 - Soporte por conectores: A veces se fija simplemente dejando que el conector USB-C asome por un hueco ajustado, lo que le da un punto de anclaje.
 
-### Soldadura Directa (Surface Mount)
+### 2.5.7 Soldadura Directa (Surface Mount)
 
 - Si necesitas que el perfil sea lo más bajo posible (por ejemplo, para un sensor de bolsillo), puedes soldar la placa como si fuera un componente SMD.
 - El SuperMini suele tener pads almenados (huecos en los bordes de los contactos). Esto permite apoyarlo plano sobre otra superficie y soldar los bordes directamente.
 
-# SENSORES
+# 3. SENSORES
+En esta seccion agrupamos los sensores por categoria. 
+## 3.1 Sensores de Posición, Presencia y Movimiento
+Son los que "sienten" si algo ha cambiado de lugar o si hay alguien presente.
 
-## CAUDAL - FS300A G3/4"
+- Finales de carrera (Endstops): Interruptores mecánicos (físicos). Ideales para saber si la cortina llegó al tope.- 
 
-Sensor Medidor De Caudal (caudalímetro) de ¾" para agua y líquidos por efecto hall.
+- Sensores de Efecto Hall: Detectan campos magnéticos (como el que hablamos para el eje de la cortina).
 
-- Tensión de alimentación: +5V a +24V (DC)
-- Rango de Medición de caudal: 1-60 l/minuto
-- Tipo de medición: 5 pulsos por litro
-- Temperatura de operación: hasta 80°C.
-- Carga de salida máxima: 10 mA a 5V
+- Sensores PIR (Pasivos de Infrarrojos): Detectan el movimiento de personas/animales por calor. Muy usados para luces automáticas.
 
-![FS300A](../assets/Caudal_FS300A.png)
+- Sensores Ultrasónicos (HC-SR04): Miden distancia mediante el rebote de sonido. Útiles para medir nivel de agua en tanques o proximidad de un objeto.
 
-### Especificaciones
+## 3.2 Sensores de Flujo y Nivel
+Vitales para tu PROYECTO_TANQUE_AGUA.
 
-- Roscas externas: 3/4 pulgadas
-- temperatura: -20 80 °C
-- Presión permitida: 1,75 Mpa
-- Rango de humedad operativa: 35-90% de humedad relativa (sin escarcha)
-- Capacidad de carga: 10 mA (5 V CC)
-- Rango de voltaje de trabajo: 5 -18 V DC
-- Corriente máxima de funcionamiento: 15 mA (5 V DC)
-- El voltaje de trabajo nominal más bajo: 4,5 V CC (5 V DC)
-- Rangos de flujo: 3/4 pulgadas 1 a 60 l/min
-- Solenoide de potencia estándar o no estándar, presión de solenoide, baja presión, material de estructura de plástico medidor de flujo, medidor de flujo, medidor de flujo de agua, medidor de flujo digital, sensor de flujo de agua, medidor de flujo rv
+- Sensores de Nivel por boya (Interruptor de flotador): El clásico "flotante" que abre o cierra un contacto eléctrico al subir el agua.
 
-### Esquema de conexiones (PIN OUT)
+- Sensores de nivel capacitivos: Detectan el líquido a través de la pared del tanque (sin tocar el agua, ideal para evitar corrosión).
 
-- VCC: rojo
-- Señal: amarillo
-- GND: negro
+- Sensores de Flujo (Flow meters): Miden cuántos litros pasan por una tubería por minuto mediante una turbina interna.
 
-## CAUDAL - Dn25 FS400A G1"
+## 3.3 Sensores Ambientales (Variables físicas)
+Miden las condiciones del entorno.
 
-### Especificaciones
+- Temperatura y Humedad (DHT11/DHT22): Son el estándar en automatización hogareña.
 
-- Frecuencia: HZ = (6 x Q-2) x Q = (L/min)
-- Voltaje de salida de primera calidad: 3,5-24 VDC un litro de agua después de la salida de pulsos 358
-- Rango: 2-60 L/min
-- Diámetro interior/diámetro exterior: 20 mm/32,7 mm
-- Longitud del tornillo: 13 mm
-- Se puede utilizar para: aplicar a alimentos, máquinas de tarjetas de crédito, máquinas expendedoras de agua y otros dispositivos de medición
-- Voltaje de funcionamiento nominal más bajo: DC4.5
-- La corriente de funcionamiento máxima: 15 mA (5 V)
-- Rango de voltaje de funcionamiento: 5 24 V
-- Capacidad de carga: inferior o igual a 10 mA (5 V)
-- Rango de temperatura de funcionamiento: inferior o igual a 80
-- Humedad de funcionamiento: entre el 35 y el 90% de humedad relativa (sin condensación)
-- Permita una presión inferior: 1,75 Mpa
-- Temperatura de almacenamiento: -25 + 80
-- Humedad de almacenamiento: entre el 25 y el 95% de humedad relativa.
-- Color: negro. Material: ABS. Contenido del paquete: 4 sensores de agua DN25.
+- Sensores de Presión Atmosférica (BME280): Además de temperatura y humedad, miden presión, lo que sirve para predecir cambios climáticos.
 
-### Esquema de conexiones (PIN OUT)
+- Sensores de Calidad de Aire (MQ-series): Detectan gases como GLP, humo, CO2 o alcohol.
 
-- VCC: rojo
-- Señal: amarillo
-- GND: negro
 
-## CAUDAL - YF-S403
+## 3.4 Sensores de Luz e Intensidad
 
-Sensor de Flujo de Agua 3/4 Rosca Externa 1-60L / min Control de Agua Caudalímetro
+- Fotoresistencias (LDR): Miden la intensidad de luz ambiente. Útiles para cerrar las cortinas automáticamente cuando el sol pega directo o encender luces al anochecer.
 
-El sensor de flujo de agua consta principalmente de un cuerpo de válvula de plástico, un conjunto de rotor y un sensor de corriente Hall. Está instalado en el extremo de entrada de agua caliente para detectar el flujo de agua. Cuando el agua atraviesa el conjunto del rotor de flujo, el rotor magnético girará y la velocidad cambiará a medida que cambie el flujo. El sensor de corriente Hall emite la señal de pulso correspondiente y la retroalimentación al controlador, luego el controlador controlará el flujo.
+- Sensores infrarrojos (IR): Detectan haces de luz invisibles (útiles para barreras de seguridad o control remoto).
 
-Puede usarse para calentadores de agua, máquinas de tarjetas de crédito, máquinas expendedoras de agua, dispositivos de medición de flujo.
+## 3.5 Sensores de Medición Eléctrica (Energía)
+Estos sensores miden los parámetros eléctricos de tus circuitos para monitorear el consumo de la casa:
+- Transformadores de Corriente (Tipo SCT-013 / CT Sensor:
+  - ¿Qué hacen?: Miden la intensidad de corriente que pasa por un cable sin necesidad de cortarlo (funcionan mediante inducción magnética).
+  - Uso: Son ideales para medir el consumo total de la casa o de un electrodoméstico específico en el tablero eléctrico.
+- Sensores de Voltaje (tipo ZMPT101B):
+  - ¿Qué hacen?: Miden el voltaje de corriente alterna (AC). 
+  - Uso: Permiten conocer la tensión exacta de la red eléctrica para calcular la potencia real ($P = V \cdot I$).
+- Módulos de Medición de Energía (tipo PZEM-004T):
+  - ¿Qué hacen?: Es una solución "todo en uno" muy popular en Home Assistant. Miden voltaje, corriente, potencia y energía acumulada.
+  - Uso: Se conectan mediante comunicación serial (UART) a tu ESP32/ESP8266 y son extremadamente precisos.
 
-### Características
+## 3.6 Sensores de Fuerza y Peso (Celdas de Carga)
+Estos sensores se utilizan para medir masa o presión. Si vas a documentar una balanza inteligente (por ejemplo, para saber cuánto gas queda en una garrafa o cuánto alimento queda en un comedero de mascotas), esta es su categoría:
+- Celdas de Carga (Load Cells):
+  - ¿Qué son?: Son bloques metálicos (generalmente aluminio o acero) que contienen un puente de Wheatstone formado por galgas extensiométricas (resistencias que cambian su valor al deformarse).
+  - ¿Cómo funcionan?: Cuando el metal se dobla una fracción de milímetro por el peso, la resistencia eléctrica cambia. Un módulo convertidor (como el HX711) lee esa mínima variación y la convierte en un dato digital que tu microcontrolador puede entender.
 
-- Peso ligero, tamaño pequeño, fácil de instalar.
-- Con incrustaciones de eje impulsor de acero inoxidable, resistente al desgaste.
-- El sello con la estructura de fuerza e inferior nunca tiene fugas.
-- Precauciones:
-- Choque no violento y erosión química.
-- No lanzar ni golpear.
-- Montado verticalmente, no debe exceder los 5 grados de inclinación.
-- La temperatura del medio no debe exceder los 120 C
-- Conexión del cable:
-- Rojo: positivo (+)
-- Amarillo: salida de señal.
-- Negro: negativo (-)
+- Nota Técnica sobre Celdas de Carga:
+  - Sensibilidad: Son extremadamente sensibles. Requieren una estructura mecánica estable donde el peso se aplique de forma vertical y uniforme.
+  - Amplificación: La señal analógica es tan pequeña que siempre requieren un amplificador dedicado (como el HX711) para poder ser procesada por un ESP32 o Arduino.
 
-### Especificaciones
+## 3.7 Sensores Biológicos (Biosensores)
+Estos dispositivos combinan un componente biológico sensible con un transductor electrónico que convierte la señal biológica en un dato digital.
 
-- El voltaje de trabajo nominal más bajo: DC4.5 5V-24V.
-- Corriente máxima de funcionamiento: 15 mA (DC 5V).
-- Rango de voltaje de trabajo: DC 5 18 v.
-- Capacidad de carga: <= 10 mA (DC 5V).
-- Temperatura de trabajo: <= 80 C
-- Rango de humedad de trabajo: 35% 90% RH (sin escarcha)
-- Permitiendo presión: presión 1.75Mpa
-- Temperatura de almacenamiento: -25 + 80 C
-- Ahorre humedad: 25% 95% RH
-- Rango de flujo: 1-60L / min
-- Hilos externos: 3/4
-- Tamaño (largo x ancho x alto): aprox. 6.2 x 3.6 x 3.5 cm / 2.44 x 1.38 x 1.38 pulgadas
-- Diámetro de la interfaz de salida: Aprox. exterior 26 mm, interior 12 mm, 14 mm
-- El paquete incluye:
-- 1 x Sensor de flujo de agua 1-60L / min
+A diferencia de los sensores resistivos o capacitivos, los sensores biológicos tienen una vida útil limitada (porque el componente biológico se degrada) y requieren calibración frecuente y condiciones de temperatura estables.
 
-### Esquema de conexiones (PIN OUT)
+- Biosensores Enzimáticos: Utilizan enzimas específicas para reaccionar ante una sustancia.
+  - Uso: El ejemplo más común es el medidor de glucosa (glucómetro). En automatización de agua, se usan para detectar niveles de urea o contaminantes orgánicos específicos.
+- Sensores de pH biológicos/químicos:
+  - Uso: Vitales en sistemas de acuaponia o piscinas automatizadas. Miden el nivel de acidez/alcalinidad necesario para el equilibrio de vida.
 
-- VCC: rojo
-- Señal: amarillo
-- GND: negro
+- Sensores de Oxígeno Disuelto (DO):
+  - Uso: Indispensables si automatizas un estanque con peces o un sistema de tratamiento de agua, ya que miden cuánto oxígeno tienen los organismos vivos para respirar.
 
-## CAUDAL - CAUDALIMETRO COBRE G3/4"
+- Sensores de Microbios (Microbial Sensors):
+  - Uso: Utilizan bacterias vivas inmovilizadas en una membrana. Cuando las bacterias consumen un contaminante, generan una señal eléctrica (metabolismo).
+  
 
-Medidor De Caudalímetro De Interruptor De Sensor De Flujo De Agua Líquida De Efecto Hall De Cobre G3/4
+## 3.8 Sensores Biomédicos / Biométricos
+Estos sensores interactúan directamente con el cuerpo humano para obtener métricas fisiológicas. Son la base de los dispositivos wearables (como smartwatches) y sistemas de telemedicina.
 
-Hecho de material de cobre de alta calidad.
+- Sensores de Frecuencia Cardíaca (PPG - Fotopletismografía):
+  - ¿Qué hacen?: Utilizan luz infrarroja o verde para detectar los cambios de volumen sanguíneo en los capilares de la piel cada vez que late el corazón.
+  - Uso: Monitoreo de pulso en reposo o ejercicio.
 
-Su presión máxima de agua es de 1.75MPa, el rango de caudal es de 2L/min a 45L/min.
+- Sensores de Oximetría de Pulso (SpO2):
+  - ¿Qué hacen?: Miden la saturación de oxígeno en la sangre basándose en la absorción de luz a diferentes longitudes de onda.
 
-Ligero y de tamaño compacto, rendimiento estable, arranque con baja presión de agua, muy fácil de instalar y seguro de usar
+- Sensores de Actividad Eléctrica (ECG/EMG):
+  - ¿Qué hacen?: Capturan las señales eléctricas generadas por el corazón (ECG) o por la contracción de los músculos (EMG).
+  - Uso: Diagnóstico básico de ritmo cardíaco o control de prótesis y dispositivos con gestos musculares.
 
-Se puede usar perfectamente para calentadores de agua, dispensadores de agua, purificadores de agua, máquinas expendedoras de agua, cafeteras, dispositivos de medición de flujo, máquinas de control de agua, etc.
+- Sensores de Respuesta Galvánica de la Piel (GSR):
+  - ¿Qué hacen?: Miden la conductividad eléctrica de la piel, que varía según la sudoración.
+  - Uso: Es el indicador técnico del nivel de estrés o excitación emocional.
 
-Conexión de tres cables: rojo para polo positivo, negro para polo negativo, amarillo para señal de pulso.
+# 4. SENSORES DE POSICION Y MOVIMIENTO
 
-### Especificaciones
-
-- Tipo: G3/4(Diámetro de rosca externo)
-- Tamaño: DN20
-- Material: Cobre
-- Requisito de calidad del agua: <= 60 C
-- Rango de flujo de inicio: 1,5 l/min.
-- Rango de flujo: 2-45L/min
-- Presión máxima de agua: 1.75MPa
-- Longitud del tubo: aprox. 45 mm/ 1,77 pulgadas
-- Diámetro de rosca externa: G3/4
-- Color: como muestran las imágenes
-
-### Esquema de conexiones (PIN OUT)
-
-- VCC: rojo
-- Señal: amarillo
-- GND: negro
-
-## CORRIENTE - SCT 013
-
-El SCT-013 es un transformador de corriente (CT) de núcleo partido, muy popular en proyectos de monitoreo energético DIY. Su función es medir corriente alterna (AC) de forma no invasiva, lo que significa que no necesitas cortar cables ni interrumpir el circuito para instalarlo.
-
-¿Cómo funciona?
-
-Funciona bajo el principio de inducción electromagnética. Al "abrazar" un cable por el que circula corriente alterna, el sensor genera una corriente proporcional (o voltaje, dependiendo del modelo) en su salida.
-
-### Características
-
-- No invasivo: Tiene una pinza que se abre y se cierra sobre el cable conductor.
-- Solo para AC: Al ser un transformador, no funciona con corriente continua (DC).
-- Seguridad: Permite medir altos voltajes (110V o 220V) manteniendo el microcontrolador aislado eléctricamente.
-
-### Conexión a un Esp32
-
-Para usarlo con un ESP32 o similares, te encontrarás con dos desafíos técnicos que mencionabas antes:
-
-- 1\. La Resistencia de Carga (Burden)
-  - Si el sensor es de salida de corriente, necesitas elegir la resistencia adecuada. Si el ADC lee hasta 3.3V, debes calcular una resistencia que, a la corriente máxima, genere un voltaje cercano a ese límite para no perder resolución (pero dejando margen para picos).
-- 2\. El Circuito de Offset
-  - La señal que sale del SCT-013 es una onda senoidal que oscila entre valores positivos y negativos. Sin embargo, los ADC de la mayoría de los microcontroladores solo pueden leer voltajes positivos (de 0V a 3.3V).
-  - Solución: Se crea un "divisor de tensión" con dos resistencias y un capacitor para "subir" la señal.
-  - Esto le da un offset de 1.65V (la mitad de 3.3V), permitiendo que la onda oscile por encima y por debajo de ese punto central sin entrar en valores negativos.
-
-## DISTANCIA - ULTRASONICO HC-SR04
+## 4.1 DISTANCIA - ULTRASONICO HC-SR04
 
 El sensor ultrasónico HC-SR04 proporciona mediciones de distancia desde 2cm hasta 500cm con una precisión cercana a los 3mm. Este módulo se diferencia al contar con pines separados para la señal de entrada y salida.
 
@@ -436,7 +367,7 @@ El sensor ultrasónico HC-SR04 proporciona mediciones de distancia desde 2cm has
 - ECHO: Recepción del ultrasonido
 - GND: 0V
 
-## DISTANCIA - ULTRASONICO JSN-SR04T
+## 4.2 DISTANCIA - ULTRASONICO JSN-SR04T
 
 MODELO: Ultrasóncio Jsn-04t 2.0 Waterproof 5V
 
@@ -470,6 +401,200 @@ Perfecto para aplicaciones donde el sensor estará expuesto a la intemperie, uti
 - ECHO: Recepción del ultrasonido
 - GND: 0V
 
+## 4.4 MOVIMIENTO - Sensor Infrarrojo PIR Hc Sr501
+
+Los Sensores PIR pueden detectar movimientos hasta a 7 metros de Distancia gracias a su lente Fresnel. En su interior contiene un sensor Infrarrojo. Ideal para proyectos de sistemas de Alarmas, detección de movimiento o inclusive iluminación activada por proximidad.
+
+### 4.4.1 Especificaciones
+
+- Voltaje de operación: 4.5V - 20V
+- Consumo en reposo: <50uA
+- Voltaje de salida: 3.3V (alto) / 0V (bajo)
+- Rango de detección: 3 a 7 metros (ajustable)
+- Angulo de detección: <100º
+- Retardo: 5-200 s (Ajustable) por defecto 5S +-3%
+- Tiempo de bloqueo: 2.5s (por defecto)
+- Temperatura de trabajo: -20ºC hasta 80ºC
+- Dimensiónes: 32mm x 24mm x 18mm
+- Redisparo configurable mediante jumper (soldado)
+
+### Esquema de conexiones (PIN OUT)
+
+- VCC: 5 VDC
+- OUT: señal analógica
+- GND: 0 VDC (tierra)
+
+
+## 4.4 MAGNETICO - REED SWITCH
+
+¿Cuáles son las ventajas de usar los Interruptores Reed?
+
+Están herméticamente sellados en un ambiente de vidrio, libres de contaminación y son seguros para su uso en entornos industriales y explosivos difíciles. Los Interruptores Reed son inmunes a las descargas electrostáticas (ESD) y no requieren ningún circuito externo de protección contra ESD. La resistencia de aislamiento entre los contactos es tan alta como 10^15 ohmios, y la resistencia de contacto es tan baja como 50 mili-ohmios. Los interruptores Reed pueden cambiar directamente cargas de tan pocos microvatios sin necesidad de circuitos de amplificación externos.
+
+### Especificaciones
+
+- Contacto Normalmente Abierto
+- 10 W/VA Máximo.
+- 100 Vac/dc Máximo
+- 0.5 A Máximo
+- Medidas: 14 x 2 mm
+- Modelo: GC 2325
+
+
+# 5. SENSORES DE NIVEL Y FLUJO
+## 5.1 CAUDAL - FS300A G3/4"
+
+Sensor Medidor De Caudal (caudalímetro) de ¾" para agua y líquidos por efecto hall.
+
+- Tensión de alimentación: +5V a +24V (DC)
+- Rango de Medición de caudal: 1-60 l/minuto
+- Tipo de medición: 5 pulsos por litro
+- Temperatura de operación: hasta 80°C.
+- Carga de salida máxima: 10 mA a 5V
+
+![FS300A](../assets/Caudal_FS300A.png)
+
+### 3.1.1 Especificaciones
+
+- Roscas externas: 3/4 pulgadas
+- temperatura: -20 80 °C
+- Presión permitida: 1,75 Mpa
+- Rango de humedad operativa: 35-90% de humedad relativa (sin escarcha)
+- Capacidad de carga: 10 mA (5 V CC)
+- Rango de voltaje de trabajo: 5 -18 V DC
+- Corriente máxima de funcionamiento: 15 mA (5 V DC)
+- El voltaje de trabajo nominal más bajo: 4,5 V CC (5 V DC)
+- Rangos de flujo: 3/4 pulgadas 1 a 60 l/min
+- Solenoide de potencia estándar o no estándar, presión de solenoide, baja presión, material de estructura de plástico medidor de flujo, medidor de flujo, medidor de flujo de agua, medidor de flujo digital, sensor de flujo de agua, medidor de flujo rv
+
+### 3.2.2 Esquema de conexiones (PIN OUT)
+
+- VCC: rojo
+- Señal: amarillo
+- GND: negro
+
+## 5.2 CAUDAL - Dn25 FS400A G1"
+
+Este caudalimetro tiene el mismo principio que los anteriores, es por efecto hall
+
+![Caudal ](../assets/Caudal_FS401.png)
+
+
+### 3.3.1 Especificaciones
+
+- Frecuencia: HZ = (6 x Q-2) x Q = (L/min)
+- Voltaje de salida de primera calidad: 3,5-24 VDC un litro de agua después de la salida de pulsos 358
+- Rango: 2-60 L/min
+- Diámetro interior/diámetro exterior: 20 mm/32,7 mm
+- Longitud del tornillo: 13 mm
+- Se puede utilizar para: aplicar a alimentos, máquinas de tarjetas de crédito, máquinas expendedoras de agua y otros dispositivos de medición
+- Voltaje de funcionamiento nominal más bajo: DC4.5
+- La corriente de funcionamiento máxima: 15 mA (5 V)
+- Rango de voltaje de funcionamiento: 5 24 V
+- Capacidad de carga: inferior o igual a 10 mA (5 V)
+- Rango de temperatura de funcionamiento: inferior o igual a 80
+- Humedad de funcionamiento: entre el 35 y el 90% de humedad relativa (sin condensación)
+- Permita una presión inferior: 1,75 Mpa
+- Temperatura de almacenamiento: -25 + 80
+- Humedad de almacenamiento: entre el 25 y el 95% de humedad relativa.
+- Color: negro. Material: ABS. Contenido del paquete: 4 sensores de agua DN25.
+
+### 3.3.2 Esquema de conexiones (PIN OUT)
+
+- VCC: rojo
+- Señal: amarillo
+- GND: negro
+
+## 5.3 CAUDAL - YF-S403
+
+Sensor de Flujo de Agua 3/4 Rosca Externa 1-60L / min Control de Agua Caudalímetro
+
+El sensor de flujo de agua consta principalmente de un cuerpo de válvula de plástico, un conjunto de rotor y un sensor de corriente Hall. Está instalado en el extremo de entrada de agua caliente para detectar el flujo de agua. Cuando el agua atraviesa el conjunto del rotor de flujo, el rotor magnético girará y la velocidad cambiará a medida que cambie el flujo. El sensor de corriente Hall emite la señal de pulso correspondiente y la retroalimentación al controlador, luego el controlador controlará el flujo.
+
+Puede usarse para calentadores de agua, máquinas de tarjetas de crédito, máquinas expendedoras de agua, dispositivos de medición de flujo.
+
+![Caudal YFS403](../assets/Caudal_YF-S403.png)
+
+### 3.4.1 Características
+
+- Peso ligero, tamaño pequeño, fácil de instalar.
+- Con incrustaciones de eje impulsor de acero inoxidable, resistente al desgaste.
+- El sello con la estructura de fuerza e inferior nunca tiene fugas.
+- Precauciones:
+- Choque no violento y erosión química.
+- No lanzar ni golpear.
+- Montado verticalmente, no debe exceder los 5 grados de inclinación.
+- La temperatura del medio no debe exceder los 120 C
+- Conexión del cable:
+- Rojo: positivo (+)
+- Amarillo: salida de señal.
+- Negro: negativo (-)
+
+### 3.4.2 Especificaciones
+
+- El voltaje de trabajo nominal más bajo: DC4.5 5V-24V.
+- Corriente máxima de funcionamiento: 15 mA (DC 5V).
+- Rango de voltaje de trabajo: DC 5 18 v.
+- Capacidad de carga: <= 10 mA (DC 5V).
+- Temperatura de trabajo: <= 80 C
+- Rango de humedad de trabajo: 35% 90% RH (sin escarcha)
+- Permitiendo presión: presión 1.75Mpa
+- Temperatura de almacenamiento: -25 + 80 C
+- Ahorre humedad: 25% 95% RH
+- Rango de flujo: 1-60L / min
+- Hilos externos: 3/4
+- Tamaño (largo x ancho x alto): aprox. 6.2 x 3.6 x 3.5 cm / 2.44 x 1.38 x 1.38 pulgadas
+- Diámetro de la interfaz de salida: Aprox. exterior 26 mm, interior 12 mm, 14 mm
+- El paquete incluye:
+- 1 x Sensor de flujo de agua 1-60L / min
+
+### 3.4.3 Esquema de conexiones (PIN OUT)
+
+- VCC: rojo
+- Señal: amarillo
+- GND: negro
+
+## 5.4 CAUDAL - CAUDALIMETRO COBRE G3/4"
+
+Medidor De Caudalímetro De Interruptor De Sensor De Flujo De Agua Líquida De Efecto Hall De Cobre G3/4
+
+Hecho de material de cobre de alta calidad.
+
+Su presión máxima de agua es de 1.75MPa, el rango de caudal es de 2L/min a 45L/min.
+
+Ligero y de tamaño compacto, rendimiento estable, arranque con baja presión de agua, muy fácil de instalar y seguro de usar
+
+Se puede usar perfectamente para calentadores de agua, dispensadores de agua, purificadores de agua, máquinas expendedoras de agua, cafeteras, dispositivos de medición de flujo, máquinas de control de agua, etc.
+
+Conexión de tres cables: rojo para polo positivo, negro para polo negativo, amarillo para señal de pulso.
+
+![Caudalimetro cobre](../assets/Caudal_Cobre34.png)
+
+### 3.5.1 Especificaciones
+
+- Tipo: G3/4(Diámetro de rosca externo)
+- Tamaño: DN20
+- Material: Cobre
+- Requisito de calidad del agua: <= 60 C
+- Rango de flujo de inicio: 1,5 l/min.
+- Rango de flujo: 2-45L/min
+- Presión máxima de agua: 1.75MPa
+- Longitud del tubo: aprox. 45 mm/ 1,77 pulgadas
+- Diámetro de rosca externa: G3/4
+- Color: como muestran las imágenes
+
+### 3.5.2 Esquema de conexiones (PIN OUT)
+
+- VCC: rojo
+- Señal: amarillo
+- GND: negro
+
+
+
+# 6. SENSORES AMBIENTALES
+
+
+# 7. SENSORES DE LUZ E INTENSIDAD
 ## LUZ - MODULO SENSOR DE LUZ
 
 Se trata de un módulo sensor de luz basado en un LDR que entrega una salida digital de nivel bajo cuando la luz supera el valor prefijado con el preset. Cuenta con una salida analógica proporcional a la intensidad lumínica detectada.
@@ -499,44 +624,37 @@ Posee 2 leds, uno de los cuales indica que el módulo está alimentado y el otro
 - DO: Señal analógica (conectar a un pin analógico)
 - AO: Señal digital (conectar a un pin digital)
 
-## MAGNETICO - REED SWITCH
 
-¿Cuáles son las ventajas de usar los Interruptores Reed?
+# 8. SENSORES DE MEDICION DE ELECTRICIDAD
 
-Están herméticamente sellados en un ambiente de vidrio, libres de contaminación y son seguros para su uso en entornos industriales y explosivos difíciles. Los Interruptores Reed son inmunes a las descargas electrostáticas (ESD) y no requieren ningún circuito externo de protección contra ESD. La resistencia de aislamiento entre los contactos es tan alta como 10^15 ohmios, y la resistencia de contacto es tan baja como 50 mili-ohmios. Los interruptores Reed pueden cambiar directamente cargas de tan pocos microvatios sin necesidad de circuitos de amplificación externos.
+## 3.6 CORRIENTE - SCT 013
 
-### Especificaciones
+El SCT-013 es un transformador de corriente (CT) de núcleo partido, muy popular en proyectos de monitoreo energético DIY. Su función es medir corriente alterna (AC) de forma no invasiva, lo que significa que no necesitas cortar cables ni interrumpir el circuito para instalarlo.
 
-- Contacto Normalmente Abierto
-- 10 W/VA Máximo.
-- 100 Vac/dc Máximo
-- 0.5 A Máximo
-- Medidas: 14 x 2 mm
-- Modelo: GC 2325
+¿Cómo funciona?
 
-## MOVIMIENTO - Sensor Infrarrojo PIR Hc Sr501
+Funciona bajo el principio de inducción electromagnética. Al "abrazar" un cable por el que circula corriente alterna, el sensor genera una corriente proporcional (o voltaje, dependiendo del modelo) en su salida.
 
-Los Sensores PIR pueden detectar movimientos hasta a 7 metros de Distancia gracias a su lente Fresnel. En su interior contiene un sensor Infrarrojo. Ideal para proyectos de sistemas de Alarmas, detección de movimiento o inclusive iluminación activada por proximidad.
+![Corriente SCT 013](../assets/Corriente_SCT-013.png)
 
-### Especificaciones
+### 3.6.1 Características
 
-- Voltaje de operación: 4.5V - 20V
-- Consumo en reposo: <50uA
-- Voltaje de salida: 3.3V (alto) / 0V (bajo)
-- Rango de detección: 3 a 7 metros (ajustable)
-- Angulo de detección: <100º
-- Retardo: 5-200 s (Ajustable) por defecto 5S +-3%
-- Tiempo de bloqueo: 2.5s (por defecto)
-- Temperatura de trabajo: -20ºC hasta 80ºC
-- Dimensiónes: 32mm x 24mm x 18mm
-- Redisparo configurable mediante jumper (soldado)
+- No invasivo: Tiene una pinza que se abre y se cierra sobre el cable conductor.
+- Solo para AC: Al ser un transformador, no funciona con corriente continua (DC).
+- Seguridad: Permite medir altos voltajes (110V o 220V) manteniendo el microcontrolador aislado eléctricamente.
 
-### Esquema de conexiones (PIN OUT)
+### 3.6.2 Conexión a un Esp32
 
-- VCC: 5 VDC
-- OUT: señal analógica
-- GND: 0 VDC (tierra)
+Para usarlo con un ESP32 o similares, te encontrarás con dos desafíos técnicos que mencionabas antes:
 
+- 1\. La Resistencia de Carga (Burden)
+  - Si el sensor es de salida de corriente, necesitas elegir la resistencia adecuada. Si el ADC lee hasta 3.3V, debes calcular una resistencia que, a la corriente máxima, genere un voltaje cercano a ese límite para no perder resolución (pero dejando margen para picos).
+- 2\. El Circuito de Offset
+  - La señal que sale del SCT-013 es una onda senoidal que oscila entre valores positivos y negativos. Sin embargo, los ADC de la mayoría de los microcontroladores solo pueden leer voltajes positivos (de 0V a 3.3V).
+  - Solución: Se crea un "divisor de tensión" con dos resistencias y un capacitor para "subir" la señal.
+  - Esto le da un offset de 1.65V (la mitad de 3.3V), permitiendo que la onda oscile por encima y por debajo de ese punto central sin entrar en valores negativos.
+
+# 9. SENSORES DE FUERZA Y PESO
 ## PESO - MODULO HX711 PARA CELDA DE CARGA
 
 Módulo HX711 Transmisor de celda de carga
@@ -563,8 +681,6 @@ Utilizado en procesos industriales, sistemas de medición automatizada, industri
 ### Esquema de conexiones (PIN OUT)
 
 Cada celda de carga sale con cuatro cables de estos colores: rojo, negro verde y blanco.
-
-![](data:image/x-emf;base64,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AAAAACIAAAAbAAAABQAAAEwAAAAAAAAAAAAAAAAAAAD//////////1gAAABDAEEAQgBMAEUAAAANAAAADQAAAA0AAAALAAAADAAAACUAAAAMAAAADQAAgCUAAAAMAAAAAgAAAEsAAAAQAAAAAAAAAAUAAAAlAAAADAAAAAMAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAAAgAAACUAAAAMAAAAAQAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAggAAAAEAAADPAAAAMwAAABIAAAAMAAAAAQAAAFQAAABwAAAAjQAAAAQAAADIAAAAGAAAAAIAAAAAAAAAAAAAAI0AAAAEAAAABgAAAEwAAAAAAAAAAAAAAAAAAAD//////////1gAAABIAFgANwAxADEAIAANAAAADAAAAAoAAAAKAAAACgAAAAUAAABUAAAAYAAAAJoAAAAbAAAAtwAAAC8AAAACAAAAAAAAAAAAAACaAAAAGwAAAAMAAABMAAAAAAAAAAAAAAAAAAAA//////////9UAAAAUABJAE4AAAAMAAAABQAAAA0AAAAlAAAADAAAAA0AAIAlAAAADAAAAAIAAABLAAAAEAAAAAAAAAAFAAAAJQAAAAwAAAADAAAAJQAAAAwAAAANAACAIgAAAAwAAAD/////IQAAAAgAAAAlAAAADAAAAAIAAAAlAAAADAAAAAEAAAAZAAAADAAAAP///wAYAAAADAAAAAAAAAAeAAAAGAAAAAEAAAABAAAApgIAADMAAAASAAAADAAAAAEAAABUAAAAeAAAAPAAAAAQAAAAQQEAACQAAAACAAAAAAAAAAAAAADwAAAAEAAAAAcAAABMAAAAAAAAAAAAAAAAAAAA//////////9cAAAARgBVAE4AQwBJAE8ATgAAAAsAAAANAAAADQAAAA0AAAAFAAAADgAAAA0AAAAlAAAADAAAAA0AAIAlAAAADAAAAAIAAABUAAAAhAAAAI4BAAAQAAAA5wEAACQAAAACAAAAAAAAAAAAAACOAQAAEAAAAAkAAABMAAAAAAAAAAAAAAAAAAAA//////////9gAAAASABYADcAMQAxACAAUABJAE4AAAANAAAADAAAAAoAAAAKAAAACgAAAAUAAAAMAAAABQAAAA0AAAAlAAAADAAAAA0AAIAlAAAADAAAAAIAAABUAAAAbAAAADECAAAQAAAAbAIAACQAAAACAAAAAAAAAAAAAAAxAgAAEAAAAAUAAABMAAAAAAAAAAAAAAAAAAAA//////////9YAAAATQBJAEMAUgBPAAAADwAAAAUAAAANAAAADQAAAA4AAAAlAAAADAAAAA0AAIAlAAAADAAAAAIAAABLAAAAEAAAAAAAAAAFAAAAJQAAAAwAAAADAAAAJQAAAAwAAAANAACAIgAAAAwAAAD/////IQAAAAgAAAAlAAAADAAAAAIAAAAlAAAADAAAAAEAAAAZAAAADAAAAP///wAYAAAADAAAAAAAAAAeAAAAGAAAAAEAAAABAAAApgIAAL4AAABSAAAAcAEAAAQAAADu////AAAAAAAAAAAAAAAAkAEAAAAAAAAAAAAgQQByAGkAYQBsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkdgAIAAAAACUAAAAMAAAABAAAACUAAAAMAAAABAAAACUAAAAMAAAABAAAACUAAAAMAAAABAAAACUAAAAMAAAABAAAAEsAAAAQAAAAAAAAAAUAAAAlAAAADAAAAAMAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAABAAAACUAAAAMAAAAAQAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAQAAADQAAACmAgAASgAAABIAAAAMAAAAAQAAAFQAAABkAAAALwAAADUAAABTAAAASQAAAAIAAAAAAAAAAAAAAC8AAAA1AAAABAAAAEwAAAAAAAAAAAAAAAAAAAD//////////1QAAABSAG8AagBvAA0AAAAKAAAABAAAAAoAAABUAAAAWAAAAJ0AAAA1AAAAswAAAEkAAAACAAAAAAAAAAAAAACdAAAANQAAAAIAAABMAAAAAAAAAAAAAAAAAAAA//////////9QAAAARQArAAwAAAALAAAAVAAAALQAAADVAAAANQAAAF0BAABJAAAAAgAAAAAAAAAAAAAA1QAAADUAAAARAAAATAAAAAAAAAAAAAAAAAAAAP//////////cAAAAEUAeABjAGkAdABhAGMAaQDzAG4AIAArACAAKABFACsAKQAAAAwAAAAIAAAACQAAAAQAAAAFAAAACgAAAAkAAAAEAAAACgAAAAoAAAAFAAAACwAAAAUAAAAGAAAADAAAAAsAAAAGAAAAVAAAAGAAAACoAQAANQAAAM8BAABJAAAAAgAAAAAAAAAAAAAAqAEAADUAAAADAAAATAAAAAAAAAAAAAAAAAAAAP//////////VAAAAEcATgBEAAAADgAAAA0AAAANAAAAVAAAAJwAAAAbAgAANQAAAIMCAABJAAAAAgAAAAAAAAAAAAAAGwIAADUAAAANAAAATAAAAAAAAAAAAAAAAAAAAP//////////aAAAADAAVgBEAEMAIAAoAHQAaQBlAHIAcgBhACkAAAAKAAAACwAAAA0AAAANAAAABQAAAAYAAAAFAAAABAAAAAoAAAAGAAAABgAAAAoAAAAGAAAAJQAAAAwAAAANAACAJQAAAAwAAAAEAAAASwAAABAAAAAAAAAABQAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAAEAAAAJQAAAAwAAAABAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAABAAAAAQAAAKYCAAC+AAAASwAAABAAAAAAAAAABQAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAAEAAAAJQAAAAwAAAABAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAABAAAASwAAAKYCAABhAAAAEgAAAAwAAAABAAAAVAAAAGwAAAApAAAATAAAAFkAAABgAAAA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////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAQAAAAEAAACmAgAAvgAAAEsAAAAQAAAAAAAAAAUAAAAlAAAADAAAAAMAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAABAAAACUAAAAMAAAAAQAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAQAAAHkAAACmAgAAjwAAABIAAAAMAAAAAQAAAFQAAABsAAAAKgAAAHoAAABYAAAAjgAAAAIAAAAAAAAAAAAAACoAAAB6AAAABQAAAEwAAAAAAAAAAAAAAAAAAAD//////////1gAAABWAGUAcgBkAGUAAAALAAAACgAAAAYAAAAKAAAACgAAAFQAAABYAAAAngAAAHoAAACzAAAAjgAAAAIAAAAAAAAAAAAAAJ4AAAB6AAAAAgAAAEwAAAAAAAAAAAAAAAAAAAD//////////1AAAABBACsACwAAAAsAAABUAAAAlAAAAOcAAAB6AAAASwEAAI4AAAACAAAAAAAAAAAAAADnAAAAegAAAAwAAABMAAAAAAAAAAAAAAAAAAAA//////////9kAAAAUwBlAPEAYQBsACAAKwAgACgAQQArACkADAAAAAoAAAAKAAAACgAAAAQAAAAFAAAACwAAAAUAAAAGAAAACwAAAAsAAAAGAAAAVAAAAGAAAACpAQAAegAAAM0BAACOAAAAAgAAAAAAAAAAAAAAqQEAAHoAAAADAAAATAAAAAAAAAAAAAAAAAAAAP//////////VAAAAFYAQwBDAAAACwAAAA0AAAANAAAAVAAAAJAAAAAhAgAAegAAAH0CAACOAAAAAgAAAAAAAAAAAAAAIQIAAHoAAAALAAAATAAAAAAAAAAAAAAAAAAAAP//////////ZAAAADMALgAzACAALQAgADUAIABWAEQAQwAAAAoAAAAFAAAACgAAAAUAAAAGAAAABQAAAAoAAAAFAAAACwAAAA0AAAANAAAAJQAAAAwAAAANAACAJQAAAAwAAAAEAAAASwAAABAAAAAAAAAABQAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAAEAAAAJQAAAAwAAAABAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAABAAAAAQAAAKYCAAC+AAAASwAAABAAAAAAAAAABQAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAAEAAAAJQAAAAwAAAABAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAABAAAAkAAAAKYCAACmAAAAEgAAAAwAAAABAAAAVAAAAFgAAACdAAAAkQAAALMAAAClAAAAAgAAAAAAAAAAAAAAnQAAAJEAAAACAAAATAAAAAAAAAAAAAAAAAAAAP//////////UAAAAEIAKwAMAAAACwAAAEsAAAAQAAAAAAAAAAUAAAAlAAAADAAAAAMAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAABAAAACUAAAAMAAAAAQAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAQAAAAEAAACmAgAAvgAAAEsAAAAQAAAAAAAAAAUAAAAlAAAADAAAAAMAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAABAAAACUAAAAMAAAAAQAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAQAAAKcAAACmAgAAvQAAABIAAAAMAAAAAQAAAFQAAABYAAAAoAAAAKgAAACxAAAAvAAAAAIAAAAAAAAAAAAAAKAAAACoAAAAAgAAAEwAAAAAAAAAAAAAAAAAAAD//////////1AAAABCAC0ADAAAAAYAAABLAAAAEAAAAAAAAAAFAAAAJQAAAAwAAAADAAAAJQAAAAwAAAANAACAIgAAAAwAAAD/////IQAAAAgAAAAlAAAADAAAAAQAAAAlAAAADAAAAAEAAAAZAAAADAAAAP///wAYAAAADAAAAAAAAAAeAAAAGAAAAAEAAAABAAAApgIAAL4AAAAlAAAADAAAAAMAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAABAAAACUAAAAMAAAAAQAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAAAAAAAAAACmAgAAvgAAACcAAAAYAAAABQAAAAAAAADg4OAAAAAAACUAAAAMAAAABQAAACgAAAAMAAAAAQAAABgAAAAMAAAA4ODgABkAAAAMAAAA4ODgACYAAAAcAAAAAQAAAAAAAAAAAAAAAAAAAODg4AAlAAAADAAAAAEAAAAmAAAAHAAAAAYAAAAAAAAAAQAAAAAAAAAAAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////AAAAAAAAAAABAAAAAAAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////4EAAAAAAAAAAQAAAAAAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA///////////PAAAAAAAAAAEAAAAAAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJwAAABgAAAAHAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAAHAAAAGAAAAAwAAAAAAAAAGQAAAAwAAAD///8AKAAAAAwAAAABAAAAJgAAABwAAAABAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAAQAAAAAAAAA2AAAAEAAAAGMBAAAAAAAAJQAAAAwAAAAGAAAATAAAAGQAAAABAAAAAAAAAGIBAAAAAAAAAQAAAAAAAABiAQAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAABQAAACgAAAAMAAAABwAAABgAAAAMAAAA4ODgABkAAAAMAAAA4ODgACgAAAAMAAAAAQAAACYAAAAcAAAAAQAAAAAAAAAAAAAAAAAAAODg4AAlAAAADAAAAAEAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////9iAQAAAAAAAAEAAAAAAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAABjAQAAAAAAADYAAAAQAAAAfQEAAAAAAAAlAAAADAAAAAYAAABMAAAAZAAAAGMBAAAAAAAAfAEAAAAAAABjAQAAAAAAABoAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////fQEAAAAAAAABAAAAAAAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD///////////kBAAAAAAAAAQAAAAAAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAGAAAAAcAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAcAAAAYAAAADAAAAAAAAAAZAAAADAAAAP///wAoAAAADAAAAAEAAAAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAB+AQAAAAAAADYAAAAQAAAApgIAAAAAAAAlAAAADAAAAAYAAABMAAAAZAAAAH4BAAAAAAAApQIAAAAAAAB+AQAAAAAAACgBAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAAFAAAAKAAAAAwAAAAHAAAAGAAAAAwAAADg4OAAGQAAAAwAAADg4OAAKAAAAAwAAAABAAAAJgAAABwAAAABAAAAAAAAAAAAAAAAAAAA4ODgACUAAAAMAAAAAQAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////6UCAAAAAAAAAQAAAAAAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAGAAAAAcAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAcAAAAYAAAADAAAAAAAAAAZAAAADAAAAP///wAoAAAADAAAAAEAAAAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAABAAAAMwAAADYAAAAQAAAAYwEAADMAAAAlAAAADAAAAAYAAABMAAAAZAAAAAEAAAAzAAAAYgEAADMAAAABAAAAMwAAAGIBAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAAFAAAAKAAAAAwAAAAHAAAAGAAAAAwAAADg4OAAGQAAAAwAAADg4OAAKAAAAAwAAAABAAAAJgAAABwAAAABAAAAAAAAAAAAAAAAAAAA4ODgACUAAAAMAAAAAQAAABsAAAAQAAAAYwEAADMAAAA2AAAAEAAAAH0BAAAzAAAAJQAAAAwAAAAGAAAATAAAAGQAAABjAQAAMwAAAHwBAAAzAAAAYwEAADMAAAAaAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcAAAAYAAAABwAAAAAAAAAAAAAAAAAAACUAAAAMAAAABwAAABgAAAAMAAAAAAAAABkAAAAMAAAA////ACgAAAAMAAAAAQAAACYAAAAcAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAH4BAAAzAAAANgAAABAAAACmAgAAMwAAACUAAAAMAAAABgAAAEwAAABkAAAAfgEAADMAAAClAgAAMwAAAH4BAAAzAAAAKAEAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAABKAAAANgAAABAAAABjAQAASgAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAEoAAABiAQAASgAAAAEAAABKAAAAYgEAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAUAAAAoAAAADAAAAAcAAAAYAAAADAAAAODg4AAZAAAADAAAAODg4AAoAAAADAAAAAEAAAAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAADg4OAAJQAAAAwAAAABAAAAGwAAABAAAABjAQAASgAAADYAAAAQAAAAfQEAAEoAAAAlAAAADAAAAAYAAABMAAAAZAAAAGMBAABKAAAAfAEAAEoAAABjAQAASgAAABoAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJwAAABgAAAAHAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAAHAAAAGAAAAAwAAAAAAAAAGQAAAAwAAAD///8AKAAAAAwAAAABAAAAJgAAABwAAAABAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAfgEAAEoAAAA2AAAAEAAAAKYCAABKAAAAJQAAAAwAAAAGAAAATAAAAGQAAAB+AQAASgAAAKUCAABKAAAAfgEAAEoAAAAoAQAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAAQAAAGEAAAA2AAAAEAAAAGMBAABhAAAAJQAAAAwAAAAGAAAATAAAAGQAAAABAAAAYQAAAGIBAABhAAAAAQAAAGEAAABiAQAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAABQAAACgAAAAMAAAABwAAABgAAAAMAAAA4ODgABkAAAAMAAAA4ODgACgAAAAMAAAAAQAAACYAAAAcAAAAAQAAAAAAAAAAAAAAAAAAAODg4AAlAAAADAAAAAEAAAAbAAAAEAAAAGMBAABhAAAANgAAABAAAAB9AQAAYQAAACUAAAAMAAAABgAAAEwAAABkAAAAYwEAAGEAAAB8AQAAYQAAAGMBAABhAAAAGgAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAA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TAAAAGQAAAB+AQAAjwAAAKUCAACPAAAAfgEAAI8AAAAoAQAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAApQIAAAEAAAA2AAAAEAAAAKUCAACQAAAAJQAAAAwAAAAGAAAATAAAAGQAAAClAgAAAQAAAKUCAACPAAAApQIAAAEAAAABAAAAjwAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAAQAAAKYAAAA2AAAAEAAAAGMBAACmAAAAJQAAAAwAAAAGAAAATAAAAGQAAAABAAAApgAAAGIBAACmAAAAAQAAAKYAAABiAQAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAAAAAAAAAAAA2AAAAEAAAAAAAAAC+AAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAAAAAAC9AAAAAAAAAAAAAAABAAAAvgAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAgQAAAAEAAAA2AAAAEAAAAIEAAAC+AAAAJQAAAAwAAAAGAAAATAAAAGQAAACBAAAAAQAAAIEAAAC9AAAAgQAAAAEAAAABAAAAvQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAzwAAAAEAAAA2AAAAEAAAAM8AAAC+AAAAJQAAAAwAAAAGAAAATAAAAGQAAADPAAAAAQAAAM8AAAC9AAAAzwAAAAEAAAABAAAAvQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAAQAAAL0AAAA2AAAAEAAAAGMBAAC9AAAAJQAAAAwAAAAGAAAATAAAAGQAAAABAAAAvQAAAGIBAAC9AAAAAQAAAL0AAABiAQAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAYgEAAAEAAAA2AAAAEAAAAGIBAAC+AAAAJQAAAAwAAAAGAAAATAAAAGQAAABiAQAAAQAAAGIBAAC9AAAAYgEAAAEAAAABAAAAvQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAABQAAACgAAAAMAAAABwAAABgAAAAMAAAA4ODgABkAAAAMAAAA4ODgACgAAAAMAAAAAQAAACYAAAAcAAAAAQAAAAAAAAAAAAAAAAAAAODg4AAlAAAADAAAAAEAAAAbAAAAEAAAAAAAAAC+AAAANgAAABAAAAAAAAAAvwAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////wAAAAC+AAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAIEAAAC+AAAANgAAABAAAACBAAAAvwAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////4EAAAC+AAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAM8AAAC+AAAANgAAABAAAADPAAAAvwAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////88AAAC+AAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAGIBAAC+AAAANgAAABAAAABiAQAAvwAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////2IBAAC+AAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAH0BAACQAAAANgAAABAAAAB9AQAAvwAAACUAAAAMAAAABgAAAEwAAABkAAAAfQEAAJAAAAB9AQAAvQAAAH0BAACQAAAAAQAAAC8AAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAPkBAACQAAAANgAAABAAAAD5AQAAvwAAACUAAAAMAAAABgAAAEwAAABkAAAA+QEAAJAAAAD5AQAAvQAAAPkBAACQAAAAAQAAAC8AAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAKUCAACQAAAANgAAABAAAAClAgAAvwAAACUAAAAMAAAABgAAAEwAAABkAAAApQIAAJAAAAClAgAAvQAAAKUCAACQAAAAAQAAAC8AAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAKYCAABKAAAANgAAABAAAACnAgAASgAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////6YCAABKAAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAKYCAABhAAAANgAAABAAAACnAgAAYQAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////6YCAABhAAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAKYCAAB4AAAANgAAABAAAACnAgAAeAAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////6YCAAB4AAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAKYCAACPAAAANgAAABAAAACnAgAAjwAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////6YCAACPAAAAAQAAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAGMBAACmAAAANgAAABAAAACnAgAApgAAACUAAAAMAAAABgAAAEwAAABkAAAAYwEAAKYAAAClAgAApgAAAGMBAACmAAAARAEAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAGMBAAC9AAAANgAAABAAAACnAgAAvQAAACUAAAAMAAAABgAAAEwAAABkAAAAYwEAAL0AAAClAgAAvQAAAGMBAAC9AAAARAEAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAGAAAAAcAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAcAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAABAAAABkAAAAMAAAA4ODgABgAAAAMAAAA4ODgAB4AAAAYAAAAAQAAAAEAAACmAgAAvgAAAEsAAAAQAAAAAAAAAAUAAAAiAAAADAAAAP////9GAAAANAAAACgAAABFTUYrKkAAACQAAAAYAAAAAACAPwAAAIAAAACAAACAPwAAAIAAAACARgAAABwAAAAQAAAARU1GKwJAAAAMAAAAAAAAAA4AAAAUAAAAAAAAABAAAAAUAAAA)
 
 - Si el valor medido disminuye al aplicar peso: Simplemente invierte los cables de señal (A+ y A-) entre sí.
 - Soldadura: Aunque algunos módulos incluyen bornes de tornillo, soldar los cables directamente al HX711 garantiza una conexión más estable y reduce el ruido eléctrico, lo cual es crítico para lecturas precisas de peso.
@@ -617,19 +733,6 @@ Una celda de 3 cables representa solo una "media parte" de ese puente. Para que 
 
 - Usar resistencias externas (La más común para una sola celda). Para completar el puente, debes añadir dos resistencias de precisión (idealmente de 1kΩ) para simular los dos brazos faltantes del circuito.
 
-![](data:image/x-emf;base64,AQAAAGwAAAAAAAAAAAAAABUCAADpAAAAAAAAAAAAAACSIQAAug4AACBFTUYAAAEAZCoAAFQBAAAIAAAAAAAAAAAAAAAAAAAAgAcAADgEAAA1AQAArgAAAAAAAAAAAAAAAAAAAAi3BACwpwIARgAAACwAAAAgAAAARU1GKwFAAQAcAAAAEAAAAAIQwNsBAAAAkAAAAJAAAABGAAAAXAAAAFAAAABFTUYrIkAEAAwAAAAAAAAAHkAJAAwAAAAAAAAAJEABAAwAAAAAAAAAMEACABAAAAAEAAAAAACAPyFABwAMAAAAAAAAAARAAAAMAAAAAAAAACEAAAAIAAAAIgAAAAwAAAD/////IQAAAAgAAAAiAAAADAAAAP////8KAAAAEAAAAAAAAAAAAAAAIQAAAAgAAAAlAAAADAAAAA0AAIAYAAAADAAAAAAAAAAZAAAADAAAAP///wASAAAADAAAAAIAAAAWAAAADAAAAAAAAAAUAAAADAAAAA0AAAAlAAAADAAAAAcAAIAlAAAADAAAAAAAAIBLAAAAEAAAAAAAAAAFAAAAIgAAAAwAAAD/////IQAAAAgAAAAZAAAADAAAAP///wAYAAAADAAAAAAAAAAeAAAAGAAAAAAAAAAAAAAAFgIAAOoAAABLAAAAEAAAAAAAAAAFAAAAIgAAAAwAAAD/////IQAAAAgAAAAZAAAADAAAAP///wAYAAAADAAAAAAAAAAeAAAAGAAAAAAAAAAAAAAAFgIAAOoAAAAiAAAADAAAAP////8hAAAACAAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAQAAAAEAAAAWAgAA6gAAACIAAAAMAAAA/////yEAAAAIAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAABAAAAAQAAABYCAADqAAAAIgAAAAwAAAD/////IQAAAAgAAAAZAAAADAAAAP///wAYAAAADAAAAAAAAAAeAAAAGAAAAAEAAAABAAAAFgIAAOoAAAAnAAAAGAAAAAEAAAAAAAAApsnsAAAAAAAlAAAADAAAAAEAAAAYAAAADAAAAKbJ7AAZAAAADAAAAAAAAABMAAAAZAAAAAEAAAABAAAAFQIAAC4AAAAAAAAAAAAAABYCAAAvAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAAAAGQAAAABAAAAkgAAABUCAACvAAAAAAAAAJIAAAAWAgAAHgAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFIAAABwAQAAAgAAAO7///8AAAAAAAAAAAAAAAC8AgAAAAAAAAAAACBBAHIAaQBhAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGR2AAgAAAAAJQAAAAwAAAACAAAAJQAAAAwAAAACAAAAJQAAAAwAAAACAAAAJQAAAAwAAAACAAAAJQAAAAwAAAACAAAASwAAABAAAAAAAAAABQAAACcAAAAYAAAAAwAAAAAAAAD///8AAAAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAACAAAAJQAAAAwAAAABAAAAGQAAAAwAAAAAAAAAGAAAAAwAAACmyewAHgAAABgAAAABAAAAAQAAABYCAAAuAAAAGAAAAAwAAAAAAAAAGQAAAAwAAAD///8AEgAAAAwAAAABAAAAVAAAAJAAAAAlAAAADQAAAKgAAAAhAAAAAgAAAAAAAAAAAAAAJQAAAA0AAAALAAAATAAAAAAAAAAAAAAAAAAAAP//////////ZAAAAEMATwBMAE8AUgAgAEMAQQBCAEwARQAAAA0AAAAOAAAACwAAAA4AAAANAAAABQAAAA0AAAANAAAADQAAAAsAAAAMAAAAJQAAAAwAAAANAACAJQAAAAwAAAACAAAAVAAAAIQAAADdAAAADQAAADYBAAAhAAAAAgAAAAAAAAAAAAAA3QAAAA0AAAAJAAAATAAAAAAAAAAAAAAAAAAAAP//////////YAAAAEgAWAA3ADEAMQAgAFAASQBOAAAADQAAAAwAAAAKAAAACgAAAAoAAAAFAAAADAAAAAUAAAANAAAAJQAAAAwAAAANAACAJQAAAAwAAAACAAAAVAAAAHgAAACFAQAADQAAANYBAAAhAAAAAgAAAAAAAAAAAAAAhQEAAA0AAAAHAAAATAAAAAAAAAAAAAAAAAAAAP//////////XAAAAEYAVQBOAEMASQBPAE4AAAALAAAADQAAAA0AAAANAAAABQAAAA4AAAANAAAAJQAAAAwAAAANAACAJQAAAAwAAAACAAAASwAAABAAAAAAAAAABQAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAACAAAAJQAAAAwAAAABAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAABAAAAAQAAABYCAADqAAAAUgAAAHABAAAEAAAA7v///wAAAAAAAAAAAAAAAJABAAAAAAAAAAAAIEEAcgBpAGEAbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZHYACAAAAAAlAAAADAAAAAQAAAAlAAAADAAAAAQAAAAlAAAADAAAAAQAAAAlAAAADAAAAAQAAAAlAAAADAAAAAQAAAASAAAADAAAAAEAAABUAAAAZAAAAFUAAAAzAAAAeQAAAEcAAAACAAAAAAAAAAAAAABVAAAAMwAAAAQAAABMAAAAAAAAAAAAAAAAAAAA//////////9UAAAAUgBvAGoAbwANAAAACgAAAAQAAAAKAAAAVAAAAFgAAAD/AAAAMwAAABUBAABHAAAAAgAAAAAAAAAAAAAA/wAAADMAAAACAAAATAAAAAAAAAAAAAAAAAAAAP//////////UAAAAEUAKwAMAAAACwAAAFQAAAC0AAAAagEAADMAAADyAQAARwAAAAIAAAAAAAAAAAAAAGoBAAAzAAAAEQAAAEwAAAAAAAAAAAAAAAAAAAD//////////3AAAABFAHgAYwBpAHQAYQBjAGkA8wBuACAAKwAgACgARQArACkA89sMAAAACAAAAAkAAAAEAAAABQAAAAoAAAAJAAAABAAAAAoAAAAKAAAABQAAAAsAAAAFAAAABgAAAAwAAAALAAAABgAAAFQAAABsAAAATwAAAFAAAAB/AAAAZAAAAAIAAAAAAAAAAAAAAE8AAABQAAAABQAAAEwAAAAAAAAAAAAAAAAAAAD//////////1gAAABOAGUAZwByAG8AAAANAAAACgAAAAoAAAAGAAAACgAAAFQAAABYAAAAAgEAAFAAAAATAQAAZAAAAAIAAAAAAAAAAAAAAAIBAABQAAAAAgAAAEwAAAAAAAAAAAAAAAAAAAD//////////1AAAABFAC0ADAAAAAYAAABUAAAA5AAAAEwBAABQAAAAEAIAAGQAAAACAAAAAAAAAAAAAABMAQAAUAAAABkAAABMAAAAAAAAAAAAAAAAAAAA//////////+AAAAARwByAG8AdQBuAGQAIAAvAEUAeABjAGkAdABhAGMAaQDzAG4AIAAtACAAKABFAC0AKQAAAA4AAAAGAAAACgAAAAoAAAAKAAAACgAAAAUAAAAFAAAADAAAAAgAAAAJAAAABAAAAAUAAAAKAAAACQAAAAQAAAAKAAAACgAAAAUAAAAGAAAABQAAAAYAAAAMAAAABgAAAAYAAABUAAAAcAAAAEwAAABtAAAAggAAAIEAAAACAAAAAAAAAAAAAABMAAAAbQAAAAYAAABMAAAAAAAAAAAAAAAAAAAA//////////9YAAAAQgBsAGEAbgBjAG8ADAAAAAQAAAAKAAAACgAAAAkAAAAKAAAAVAAAAFgAAAACAQAAbQAAABIBAACBAAAAAgAAAAAAAAAAAAAAAgEAAG0AAAACAAAATAAAAAAAAAAAAAAAAAAAAP//////////UAAAAEEALQALAAAABgAAAFQAAACUAAAAgQEAAG0AAADbAQAAgQAAAAIAAAAAAAAAAAAAAIEBAABtAAAADAAAAEwAAAAAAAAAAAAAAAAAAAD//////////2QAAABTAGUA8QBhAGwAIAAtACAAKABBAC0AKQAMAAAACgAAAAoAAAAKAAAABAAAAAUAAAAGAAAABQAAAAYAAAALAAAABgAAAAYAAAAlAAAADAAAAAIAAAAlAAAADAAAAAQAAABUAAAA0AAAABAAAAC0AAAAvwAAAMgAAAACAAAAAAAAAAAAAAAQAAAAtAAAABYAAABMAAAAAAAAAAAAAAAAAAAA//////////94AAAAKAAgAEUAKwApACAALQAgAFIAZQBzAGkAcwB0AGUAbgBjAGkAYQAgADEASwAGAAAABQAAAAwAAAALAAAABgAAAAUAAAAGAAAABQAAAA0AAAAKAAAACQAAAAQAAAAJAAAABQAAAAoAAAAKAAAACQAAAAQAAAAKAAAABQAAAAoAAAAMAAAAVAAAAFgAAAAAAQAAtAAAABUBAADIAAAAAgAAAAAAAAAAAAAAAAEAALQAAAACAAAATAAAAAAAAAAAAAAAAAAAAP//////////UAAAAEEAKwALAAAACwAAAFQAAABUAAAAqAEAALQAAAC0AQAAyAAAAAIAAAAAAAAAAAAAAKgBAAC0AAAAAQAAAEwAAAAAAAAAAAAAAAAAAAD//////////1AAAABSAAAADQAAAFQAAADMAAAAFQAAANEAAAC6AAAA5QAAAAIAAAAAAAAAAAAAABUAAADRAAAAFQAAAEwAAAAAAAAAAAAAAAAAAAD//////////3gAAAAoAEUALQApACAALQAgAFIAZQBzAGkAcwB0AGUAbgBjAGkAYQAgADEASwAAAAYAAAAMAAAABgAAAAYAAAAFAAAABgAAAAUAAAANAAAACgAAAAkAAAAEAAAACQAAAAUAAAAKAAAACgAAAAkAAAAEAAAACgAAAAUAAAAKAAAADAAAAFQAAABYAAAAAAEAANEAAAAVAQAA5QAAAAIAAAAAAAAAAAAAAAABAADRAAAAAgAAAEwAAAAAAAAAAAAAAAAAAAD//////////1AAAABBACsACwAAAAsAAABUAAAAVAAAAKgBAADRAAAAtAEAAOUAAAACAAAAAAAAAAAAAACoAQAA0QAAAAEAAABMAAAAAAAAAAAAAAAAAAAA//////////9QAAAAUgAAAA0AAAAlAAAADAAAAAIAAAAlAAAADAAAAAMAAAAlAAAADAAAAA0AAIAiAAAADAAAAP////8hAAAACAAAACUAAAAMAAAAAgAAACUAAAAMAAAAAQAAABkAAAAMAAAA////ABgAAAAMAAAAAAAAAB4AAAAYAAAAAQAAAJMAAAAVAgAArwAAABIAAAAMAAAAAQAAAFQAAADwAAAAaQAAAJYAAACtAQAAqgAAAAIAAAAAAAAAAAAAAGkAAACWAAAAGwAAAEwAAAAAAAAAAAAAAAAAAAD//////////4QAAABDAE8ATQBQAEwARQBUAEEAUgAgAFAAVQBFAE4AVABFACAAVwBIAEUAQQBUAFMAVABPAE4ARQAAAA0AAAAOAAAADwAAAAwAAAALAAAADAAAAAsAAAANAAAADQAAAAUAAAAMAAAADQAAAAwAAAANAAAACwAAAAwAAAAFAAAAEQAAAA0AAAAMAAAADQAAAAsAAAAMAAAACwAAAA4AAAANAAAADAAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAACAAAAJQAAAAwAAAABAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAABAAAAAQAAABYCAADqAAAAJQAAAAwAAAADAAAAJQAAAAwAAAANAACAIgAAAAwAAAD/////IQAAAAgAAAAlAAAADAAAAAIAAAAlAAAADAAAAAEAAAAZAAAADAAAAP///wAYAAAADAAAAAAAAAAeAAAAGAAAAAAAAAAAAAAAFgIAAOoAAAAnAAAAGAAAAAUAAAAAAAAA4ODgAAAAAAAlAAAADAAAAAUAAAAoAAAADAAAAAEAAAAYAAAADAAAAODg4AAZAAAADAAAAODg4AAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAADg4OAAJQAAAAwAAAABAAAAJgAAABwAAAAGAAAAAAAAAAEAAAAAAAAAAAAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////wAAAAAAAAAAAQAAAAAAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA///////////OAAAAAAAAAAEAAAAAAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////RgEAAAAAAAABAAAAAAAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcAAAAYAAAABwAAAAAAAAAAAAAAAAAAACUAAAAMAAAABwAAABgAAAAMAAAAAAAAABkAAAAMAAAA////ACgAAAAMAAAAAQAAACYAAAAcAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAAAAAAAANgAAABAAAAAWAgAAAAAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAAAAAAAVAgAAAAAAAAEAAAAAAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAUAAAAoAAAADAAAAAcAAAAYAAAADAAAAODg4AAZAAAADAAAAODg4AAoAAAADAAAAAEAAAAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAADg4OAAJQAAAAwAAAABAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FQIAAAAAAAABAAAAAAAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcAAAAYAAAABwAAAAAAAAAAAAAAAAAAACUAAAAMAAAABwAAABgAAAAMAAAAAAAAABkAAAAMAAAA////ACgAAAAMAAAAAQAAACYAAAAcAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAAAuAAAANgAAABAAAAAWAgAALgAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAC4AAAAVAgAALgAAAAEAAAAuAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAABLAAAANgAAABAAAAAWAgAASwAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAEsAAAAVAgAASwAAAAEAAABLAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAABoAAAANgAAABAAAAAWAgAAaAAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAGgAAAAVAgAAaAAAAAEAAABoAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAACFAAAANgAAABAAAAAWAgAAhQAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAIUAAAAVAgAAhQAAAAEAAACFAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAACSAAAANgAAABAAAAAWAgAAkgAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAJIAAAAVAgAAkgAAAAEAAACSAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAM4AAAABAAAANgAAABAAAADOAAAAkwAAACUAAAAMAAAABgAAAEwAAABkAAAAzgAAAAEAAADOAAAAkgAAAM4AAAABAAAAAQAAAJIAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAEYBAAABAAAANgAAABAAAABGAQAAkwAAACUAAAAMAAAABgAAAEwAAABkAAAARgEAAAEAAABGAQAAkgAAAEYBAAABAAAAAQAAAJIAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAACvAAAANgAAABAAAAAWAgAArwAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAK8AAAAVAgAArwAAAAEAAACvAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAADMAAAANgAAABAAAAAWAgAAzAAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAMwAAAAVAgAAzAAAAAEAAADMAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAAAAAAAAAAANgAAABAAAAAAAAAA6gAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAAAAAAA6QAAAAAAAAAAAAAAAQAAAOoAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAM4AAACwAAAANgAAABAAAADOAAAA6gAAACUAAAAMAAAABgAAAEwAAABkAAAAzgAAALAAAADOAAAA6QAAAM4AAACwAAAAAQAAADoAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAEYBAACwAAAANgAAABAAAABGAQAA6gAAACUAAAAMAAAABgAAAEwAAABkAAAARgEAALAAAABGAQAA6QAAAEYBAACwAAAAAQAAADoAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAAAEAAADpAAAANgAAABAAAAAWAgAA6QAAACUAAAAMAAAABgAAAEwAAABkAAAAAQAAAOkAAAAVAgAA6QAAAAEAAADpAAAAFQIAAAEAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAEAAAAbAAAAEAAAABUCAAABAAAANgAAABAAAAAVAgAA6gAAACUAAAAMAAAABgAAAEwAAABkAAAAFQIAAAEAAAAVAgAA6QAAABUCAAABAAAAAQAAAOkAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAUAAAAoAAAADAAAAAcAAAAYAAAADAAAAODg4AAZAAAADAAAAODg4AAoAAAADAAAAAEAAAAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAADg4OAAJQAAAAwAAAABAAAAGwAAABAAAAAAAAAA6gAAADYAAAAQAAAAAAAAAOsAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8AAAAA6gAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAADOAAAA6gAAADYAAAAQAAAAzgAAAOsAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA///////////OAAAA6gAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAABGAQAA6gAAADYAAAAQAAAARgEAAOsAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////9GAQAA6gAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAVAgAA6gAAADYAAAAQAAAAFQIAAOsAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8VAgAA6gAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAAAAAAADYAAAAQAAAAFwIAAAAAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAAAAAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAALgAAADYAAAAQAAAAFwIAAC4AAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAALgAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAASwAAADYAAAAQAAAAFwIAAEsAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAASwAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAAaAAAADYAAAAQAAAAFwIAAGgAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAAaAAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAAhQAAADYAAAAQAAAAFwIAAIUAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAAhQAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAAkgAAADYAAAAQAAAAFwIAAJIAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAAkgAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAArwAAADYAAAAQAAAAFwIAAK8AAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAArwAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAAzAAAADYAAAAQAAAAFwIAAMwAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAAzAAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAWAgAA6QAAADYAAAAQAAAAFwIAAOkAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8WAgAA6QAAAAEAAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJwAAABgAAAAHAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAAHAAAAJQAAAAwAAAANAACAIgAAAAwAAAD/////IQAAAAgAAAAlAAAADAAAAAIAAAAZAAAADAAAAODg4AAYAAAADAAAAODg4AAeAAAAGAAAAAEAAAABAAAAFgIAAOoAAABLAAAAEAAAAAAAAAAFAAAAIgAAAAwAAAD/////RgAAADQAAAAoAAAARU1GKypAAAAkAAAAGAAAAAAAgD8AAACAAAAAgAAAgD8AAACAAAAAgEYAAAAcAAAAEAAAAEVNRisCQAAADAAAAAAAAAAOAAAAFAAAAAAAAAAQAAAAFAAAAA==)
-
-- La precisión dependerá totalmente de qué tan exactas sean las resistencias que uses. Si las resistencias varían mucho, tendrás errores de lectura significativos.
-
-### Esquema de conexión (PIN OUT): 2 celdas de cargas
-
-- Si tienes dos celdas de carga iguales, puedes unirlas para formar un puente completo.
-- Conectas las señales de ambas celdas a \*\*A+\*\* y \*\*A-\*\*.
-
-Las alimentaciones se conectan a \*\*E+\*\* y \*\*E-\*\*.
-
-![](data:image/x-emf;base64,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/wAAACIAAAAVAQAANgAAAAIAAAAAAAAAAAAAAP8AAAAiAAAAAgAAAEwAAAAAAAAAAAAAAAAAAAD//////////1AAAABFACsADAAAAAsAAABUAAAAtAAAAGoBAAAiAAAA8gEAADYAAAACAAAAAAAAAAAAAABqAQAAIgAAABEAAABMAAAAAAAAAAAAAAAAAAAA//////////9wAAAARQB4AGMAaQB0AGEAYwBpAPMAbgAgACsAIAAoAEUAKwApAAAADAAAAAgAAAAJAAAABAAAAAUAAAAKAAAACQAAAAQAAAAKAAAACgAAAAUAAAALAAAABQAAAAYAAAAMAAAACwAAAAYAAABUAAAAxAAAABAAAAA/AAAAvwAAAFMAAAACAAAAAAAAAAAAAAAQAAAAPwAAABQAAABMAAAAAAAAAAAAAAAAAAAA//////////90AAAATgBlAGcAcgBvACAAKABhAG0AYgBhAHMAIABjAGUAbABkAGEAcwApAA0AAAAKAAAACgAAAAYAAAAKAAAABQAAAAYAAAAKAAAADgAAAAoAAAAKAAAACQAAAAUAAAAJAAAACgAAAAQAAAAKAAAACgAAAAkAAAAGAAAAVAAAAFgAAAACAQAAPwAAABMBAABTAAAAAgAAAAAAAAAAAAAAAgEAAD8AAAACAAAATAAAAAAAAAAAAAAAAAAAAP//////////UAAAAEUALQAMAAAABgAAAFQAAADkAAAATAEAAD8AAAAQAgAAUwAAAAIAAAAAAAAAAAAAAEwBAAA/AAAAGQAAAEwAAAAAAAAAAAAAAAAAAAD//////////4AAAABHAHIAbwB1AG4AZAAgAC8ARQB4AGMAaQB0AGEAYwBpAPMAbgAgAC0AIAAoAEUALQApAAAADgAAAAYAAAAKAAAACgAAAAoAAAAKAAAABQAAAAUAAAAMAAAACAAAAAkAAAAEAAAABQAAAAoAAAAJAAAABAAAAAoAAAAKAAAABQAAAAYAAAAFAAAABgAAAAwAAAAGAAAABgAAAFQAAACsAAAAJQAAAFwAAACpAAAAcAAAAAIAAAAAAAAAAAAAACUAAABcAAAAEAAAAEwAAAAAAAAAAAAAAAAAAAD//////////2wAAABCAGwAYQBuAGMAbwAgAC0AIABDAGUAbABkAGEAIAAxAAwAAAAEAAAACgAAAAoAAAAJAAAACgAAAAUAAAAGAAAABQAAAA0AAAAKAAAABAAAAAoAAAAKAAAABQAAAAoAAABUAAAAWAAAAAIBAABcAAAAEgEAAHAAAAACAAAAAAAAAAAAAAACAQAAXAAAAAIAAABMAAAAAAAAAAAAAAAAAAAA//////////9QAAAAQQAtAAsAAAAGAAAAVAAAAJQAAACBAQAAXAAAANsBAABwAAAAAgAAAAAAAAAAAAAAgQEAAFwAAAAMAAAATAAAAAAAAAAAAAAAAAAAAP//////////ZAAAAFMAZQDxAGEAbAAgAC0AIAAoAEEALQApAAwAAAAKAAAACgAAAAoAAAAEAAAABQAAAAYAAAAFAAAABgAAAAsAAAAGAAAABgAAAFQAAACsAAAAJQAAAHkAAACpAAAAjQAAAAIAAAAAAAAAAAAAACUAAAB5AAAAEAAAAEwAAAAAAAAAAAAAAAAAAAD//////////2wAAABCAGwAYQBuAGMAbwAgAC0AIABDAGUAbABkAGEAIAAyAAwAAAAEAAAACgAAAAoAAAAJAAAACgAAAAUAAAAGAAAABQAAAA0AAAAKAAAABAAAAAoAAAAKAAAABQAAAAoAAABUAAAAWAAAAAIBAAB5AAAAEgEAAI0AAAACAAAAAAAAAAAAAAACAQAAeQAAAAIAAABMAAAAAAAAAAAAAAAAAAAA//////////9QAAAAQQAtAAsAAAAGAAAAVAAAAJQAAACBAQAAeQAAANsBAACNAAAAAgAAAAAAAAAAAAAAgQEAAHkAAAAMAAAATAAAAAAAAAAAAAAAAAAAAP//////////ZAAAAFMAZQDxAGEAbAAgAC0AIAAoAEEALQApAAwAAAAKAAAACgAAAAoAAAAEAAAABQAAAAYAAAAFAAAABgAAAAsAAAAGAAAABgAAACUAAAAMAAAAAwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAAEAAAAJQAAAAwAAAABAAAAGQAAAAwAAAD///8AGAAAAAwAAAAAAAAAHgAAABgAAAAAAAAAAAAAABYCAACSAAAAJwAAABgAAAAFAAAAAAAAAODg4AAAAAAAJQAAAAwAAAAFAAAAKAAAAAwAAAABAAAAGAAAAAwAAADg4OAAGQAAAAwAAADg4OAAJgAAABwAAAABAAAAAAAAAAAAAAAAAAAA4ODgACUAAAAMAAAAAQAAACYAAAAcAAAABgAAAAAAAAABAAAAAAAAAAAAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAA//////////8AAAAAAAAAAAEAAAAAAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////zgAAAAAAAAABAAAAAAAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////0YBAAAAAAAAAQAAAAAAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAGAAAAAcAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAcAAAAYAAAADAAAAAAAAAAZAAAADAAAAP///wAoAAAADAAAAAEAAAAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAABAAAAAAAAADYAAAAQAAAAFgIAAAAAAAAlAAAADAAAAAYAAABMAAAAZAAAAAEAAAAAAAAAFQIAAAAAAAABAAAAAAAAABUCAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAAFAAAAKAAAAAwAAAAHAAAAGAAAAAwAAADg4OAAGQAAAAwAAADg4OAAKAAAAAwAAAABAAAAJgAAABwAAAABAAAAAAAAAAAAAAAAAAAA4ODgACUAAAAMAAAAAQAAACUAAAAMAAAABgAAAEwAAABkAAAAAAAAAAAAAAD//////////xUCAAAAAAAAAQAAAAAAAAAhAPAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAGAAAAAcAAAAAAAAAAAAAAAAAAAAlAAAADAAAAAcAAAAYAAAADAAAAAAAAAAZAAAADAAAAP///wAoAAAADAAAAAEAAAAmAAAAHAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAABAAAAHQAAADYAAAAQAAAAFgIAAB0AAAAlAAAADAAAAAYAAABMAAAAZAAAAAEAAAAdAAAAFQIAAB0AAAABAAAAHQAAABUCAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAABAAAAOgAAADYAAAAQAAAAFgIAADoAAAAlAAAADAAAAAYAAABMAAAAZAAAAAEAAAA6AAAAFQIAADoAAAABAAAAOgAAABUCAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAABAAAAVwAAADYAAAAQAAAAFgIAAFcAAAAlAAAADAAAAAYAAABMAAAAZAAAAAEAAABXAAAAFQIAAFcAAAABAAAAVwAAABUCAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAABAAAAdAAAADYAAAAQAAAAFgIAAHQAAAAlAAAADAAAAAYAAABMAAAAZAAAAAEAAAB0AAAAFQIAAHQAAAABAAAAdAAAABUCAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAAAAAAAAAAADYAAAAQAAAAAAAAAJIAAAAlAAAADAAAAAYAAABMAAAAZAAAAAAAAAAAAAAAAAAAAJEAAAAAAAAAAAAAAAEAAACSAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAADOAAAAAQAAADYAAAAQAAAAzgAAAJIAAAAlAAAADAAAAAYAAABMAAAAZAAAAM4AAAABAAAAzgAAAJEAAADOAAAAAQAAAAEAAACRAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAABGAQAAAQAAADYAAAAQAAAARgEAAJIAAAAlAAAADAAAAAYAAABMAAAAZAAAAEYBAAABAAAARgEAAJEAAABGAQAAAQAAAAEAAACRAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAABAAAAkQAAADYAAAAQAAAAFgIAAJEAAAAlAAAADAAAAAYAAABMAAAAZAAAAAEAAACRAAAAFQIAAJEAAAABAAAAkQAAABUCAAABAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAABAAAAGwAAABAAAAAVAgAAAQAAADYAAAAQAAAAFQIAAJIAAAAlAAAADAAAAAYAAABMAAAAZAAAABUCAAABAAAAFQIAAJEAAAAVAgAAAQAAAAEAAACRAAAAIQDwAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQAAAAwAAAAFAAAAKAAAAAwAAAAHAAAAGAAAAAwAAADg4OAAGQAAAAwAAADg4OAAKAAAAAwAAAABAAAAJgAAABwAAAABAAAAAAAAAAAAAAAAAAAA4ODgACUAAAAMAAAAAQAAABsAAAAQAAAAAAAAAJIAAAA2AAAAEAAAAAAAAACTAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////AAAAAJIAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAzgAAAJIAAAA2AAAAEAAAAM4AAACTAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////zgAAAJIAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAARgEAAJIAAAA2AAAAEAAAAEYBAACTAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////RgEAAJIAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAFQIAAJIAAAA2AAAAEAAAABUCAACTAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FQIAAJIAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAFgIAAAAAAAA2AAAAEAAAABcCAAAAAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FgIAAAAAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAFgIAAB0AAAA2AAAAEAAAABcCAAAdAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FgIAAB0AAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAFgIAADoAAAA2AAAAEAAAABcCAAA6AAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FgIAADoAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAFgIAAFcAAAA2AAAAEAAAABcCAABXAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FgIAAFcAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAFgIAAHQAAAA2AAAAEAAAABcCAAB0AAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FgIAAHQAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAAAAMAAAAAQAAABsAAAAQAAAAFgIAAJEAAAA2AAAAEAAAABcCAACRAAAAJQAAAAwAAAAGAAAATAAAAGQAAAAAAAAAAAAAAP//////////FgIAAJEAAAABAAAAAQAAACEA8AAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcAAAAYAAAABwAAAAAAAAAAAAAAAAAAACUAAAAMAAAABwAAACUAAAAMAAAADQAAgCIAAAAMAAAA/////yEAAAAIAAAAJQAAAAwAAAAEAAAAGQAAAAwAAADg4OAAGAAAAAwAAADg4OAAHgAAABgAAAABAAAAAQAAABYCAACSAAAAHgAAABgAAAABAAAAAQAAABYCAACSAAAARgAAAEAAAAA0AAAARU1GKypAAAAkAAAAGAAAAAAAgD8AAACAAAAAgAAAgD8AAACAAAAAgARAAAAMAAAAAAAAAEYAAACkAAAAmAAAAEVNRisqQAAAJAAAABgAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAyQAABHAAAABAAAAAAAIA/AACAPwBABUQAABFDKkAAACQAAAAYAAAAAACAPwAAAIAAAACAAACAPwAAAIAAAACACEAABBgAAAAMAAAAAhDA2wAAAAADAAAQNEAAAAwAAAAAAAAABEAAAAwAAAAAAAAASwAAABAAAAAAAAAABQAAACIAAAAMAAAA/////0YAAAA0AAAAKAAAAEVNRisqQAAAJAAAABgAAAAAAIA/AAAAgAAAAIAAAIA/AAAAgAAAAIBGAAAAHAAAABAAAABFTUYrAkAAAAwAAAAAAAAADgAAABQAAAAAAAAAEAAAABQAAAA=)
-
 ### Consideraciones
 
 - Calibración: Al usar este método, la calibración mediante software (ajustando el "factor de escala" en el código) es "obligatoria". Como el puente no es perfecto, el factor de escala será muy distinto al que obtendrías con una celda de 4 cables profesional.
@@ -637,6 +740,13 @@ Las alimentaciones se conectan a \*\*E+\*\* y \*\*E-\*\*.
 - Identificación de colores: aunque YZC-161E suele seguir Rojo (Excitación+), Blanco (Señal), Negro (Excitación-), te sugiero medir con un multímetro la resistencia entre los cables:
   - La resistencia mayor suele estar entre los cables de alimentación (Exc+ y Exc-).
   - La resistencia entre señal y alimentación suele ser la mitad de la anterior.
+
+
+# 10. SENSORES BIOLOGICOS
+
+# 12. SENSORES BIOMETRICOS
+
+
 
 ## PULSO - Elster GmbH Elster IN-Z61
 
