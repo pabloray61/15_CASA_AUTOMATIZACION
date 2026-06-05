@@ -150,7 +150,8 @@ En resumen, **un microcontrolador es el componente "inteligente"** que le da aut
 Las familias de microcontroladores son conjuntos de chips que comparten la misma arquitectura interna (el "idioma" que habla su procesador) y conjunto de instrucciones.
 
 Elegir una familia depende principalmente de la potencia necesaria, el consumo de energía y la facilidad de desarrollo.Aquí te presento las familias más relevantes y utilizadas en la industria actual:
-- AVR (Atmel / Microchip)Es una de las arquitecturas más populares, especialmente conocida por ser el "corazón" de la plataforma Arduino. 
+
+- AVR (Atmel / Microchip)Es una de las arquitecturas más populares, especialmente conocida por ser el "corazón" de la plataforma Arduino.
   - Características: Arquitectura de 8 bits, muy robusta y con una curva de aprendizaje sencilla.
   - Ideal para: Proyectos de electrónica básica, prototipado rápido y aplicaciones sencillas que no requieren gran velocidad
 - ARM Cortex-M (Arquitectura ARM)Actualmente es el estándar de la industria. No es un fabricante en sí, sino una arquitectura que muchas empresas (como STMicroelectronics, NXP o Texas Instruments) licencian y fabrican.
@@ -176,10 +177,19 @@ Elegir una familia depende principalmente de la potencia necesaria, el consumo d
   |PIC|8/16/32 bits|Robustez, versatilidad|Industria, automotriz
   
 ### ¿Cómo elegir?
-  Para seleccionar una familia, debes hacerte tres preguntas:
-  - ¿Necesito conectividad inalámbrica? Si la respuesta es sí, el ESP32 suele ser la opción más económica y fácil de implementar.
-  - ¿Es un producto profesional para fabricar en serie? En ese caso, los ARM Cortex-M ofrecen la mejor relación rendimiento/costo a largo plazo.
-  - ¿Es para aprender o un prototipo sencillo? AVR (Arduino) te permitirá avanzar más rápido gracias a la enorme cantidad de librerías y tutoriales disponibles.
+Para seleccionar una familia, debes hacerte tres preguntas:
+
+- ¿Necesito conectividad inalámbrica?
+
+  Si la respuesta es sí, el ESP32 suele ser la opción más económica y fácil de implementar.
+
+- ¿Es un producto profesional para fabricar en serie?
+
+  En ese caso, los ARM Cortex-M ofrecen la mejor relación rendimiento/costo a largo plazo.
+
+- ¿Es para aprender o un prototipo sencillo?
+
+  AVR (Arduino) te permitirá avanzar más rápido gracias a la enorme cantidad de librerías y tutoriales disponibles.
 
 ## 3.1 ESP8266 - ESP01
 
