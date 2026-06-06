@@ -246,7 +246,7 @@ El NodeMCUMINI es una placa de desarrollo que está basada en el popular chip ES
 
 ## 3.3 ESP8266 - NODEMCU V3 CH340
 
-El NodeMcu es una placa de desarrollo de código abierto basada en el chip ESP8266 (ESP-12E), que utiliza el lenguaje de programación Lua para crear un ambiente de desarrollo propicio para aplicaciones que requieran conectividad Wifi de manera rápida.
+El NodeMcu V3 CH340 es una placa de desarrollo de código abierto basada en el chip ESP8266 (ESP-12E), que utiliza el lenguaje de programación Lua para crear un ambiente de desarrollo propicio para aplicaciones que requieran conectividad Wifi de manera rápida.
 
 El ESP8266 es un chip altamente integrado diseñado para las necesidades de un nuevo mundo conectado. Ofrece una solución completa y autónoma de redes Wi-Fi, lo que le permite alojar la aplicación o servir como puente entre Internet y un microcontrolador.
 
@@ -263,13 +263,11 @@ Opciones para alimentar con 5V:
 
 No usar el pin 3V3: Nunca conectes 5V directamente al pin marcado como 3.3V o 3V3. Este pin se salta el regulador y va directo al chip; si le aplicas 5V, quemarás el ESP8266 instantáneamente.
 
-Lógica de los Pines (I/O): Aunque alimentes la placa con 5V, los pines de entrada/salida (GPIO) siguen funcionando a 3.3V. No conectes sensores o señales de 5V directamente a los pines digitales sin un divisor de tensión o un conversor de niveles lógicos.
+### Lógica de los Pines (I/O): 
+
+Aunque alimentes la placa con 5V, los pines de entrada/salida (GPIO) siguen funcionando a 3.3V. No conectes sensores o señales de 5V directamente a los pines digitales sin un divisor de tensión o un conversor de niveles lógicos.
 
 Corriente: Asegúrate de que tu fuente pueda entregar al menos 500mA. El ESP8266 tiene picos de consumo altos cuando utiliza la conexión Wi-Fi.
-
-La NodeMcu Lua WIFI v3.0 es una board de desarrollo de hardware libre que incorpora el chip de WIFI ESP8266 y el chip CH340G, lo que permite hacer la conexión USB directamente al computador y de esta manera permitir la programación con el IDE de ARDUINO. Para esta tarjeta se ha desarrollado su propio API o entorno de programación que permite programar de una manera sencilla y rápida, ahorrando el uso de una tarjeta adicional como Arduino UNO o cualquier otro modelo.
-
-Para alguien con conocimiento básico en Arduino, entre conectar el NodeMCU al computador y tener su primer programa que prenda un LED mediante un botón en una página web alojada en el mismo NodeMCU son unas 3 horas.
 
 Una diferencia importante es que Arduino se programa en C++ y NodeMCU en LUA, un lenguaje script que permite cargar scripts al NodeMCU para que corran en el inicio y mandarle comandos directamente para ejecutar funciones mediante una consola o Telnet.
 
@@ -277,7 +275,7 @@ NodeMCU es una pequeña placa Wifi compatible con Arduino lista para usar en cua
 
 Debido a que utiliza un conversor USB CH340, normalmente el sistema operativo lo instala automáticamente, aunque en algunos casos puede ser necesario instalar el driver específico.
 
-![ESP8266 NODEMCU](../assets/PO_ESP8266_Nodemcu.png)
+![NODEMCU ESP8266](../assets/ESP8266_NODEMCU_v340.png)
 
 ### 3.3.1 Especificaciones
 
@@ -296,6 +294,10 @@ Debido a que utiliza un conversor USB CH340, normalmente el sistema operativo lo
 - Peso: 11 g
 
 ### 3.3.4 Esquema de conexiones (PIN OUT)
+
+
+![ESP8266 NODEMCU](../assets/PO_ESP8266_Nodemcu.png)
+
 
 ## 3.4 ESP32 - DEVKIT V1 - DOIT
 
@@ -508,7 +510,6 @@ Miden las condiciones del entorno.
 
 - Sensores de Calidad de Aire (MQ-series): Detectan gases como GLP, humo, CO2 o alcohol.
 
-
 ## 5.4 Sensores de Luz e Intensidad
 
 - Fotoresistencias (LDR): Miden la intensidad de luz ambiente. Útiles para cerrar las cortinas automáticamente cuando el sol pega directo o encender luces al anochecer.
@@ -537,7 +538,66 @@ Estos sensores se utilizan para medir masa o presión. Si vas a documentar una b
   - Sensibilidad: Son extremadamente sensibles. Requieren una estructura mecánica estable donde el peso se aplique de forma vertical y uniforme.
   - Amplificación: La señal analógica es tan pequeña que siempre requieren un amplificador dedicado (como el HX711) para poder ser procesada por un ESP32 o Arduino.
 
-## 5.7 Sensores Biológicos (Biosensores)
+## 5.7 Sensores Opticos (camaras)
+
+Las cámaras (especialmente las cámaras IP o los módulos de cámara para proyectos de electrónica) no son microcontroladores en sí mismos, sino periféricos de entrada de datos complejos.
+
+La categoría técnica es "Sistemas Embebidos de Visión"
+- Si estás diseñando un proyecto, las cámaras encajan en la categoría de Sistemas Embebidos de Visión (Embedded Vision Systems).
+
+- Si estás usando algo como un ESP32-CAM, estás en la categoría de Microcontroladores con aceleración de video.Si estás usando algo más avanzado, como una Raspberry Pi o una placa tipo NVIDIA Jetson, estás en la categoría de Microprocesadores (SoC - System on a Chip) con capacidades de Visión Artificial.
+
+Dependiendo de cómo las analicemos, caen en categorías distintas dentro de un sistema:
+
+- Desde la perspectiva de la arquitectura (Hardware)
+
+  Las cámaras se clasifican como Periféricos de Periféricos (o Sensores de Alta Densidad).
+
+  A diferencia de un sensor simple (como un termómetro o un sensor PIR, que envían un valor numérico), una cámara envía una corriente de datos masiva (imágenes o video).
+
+  Por eso, la mayoría de los microcontroladores pequeños (como un Arduino Nano o un ESP8266) no pueden "procesar" una cámara por sí solos; necesitan una interfaz dedicada o un chip intermedio.
+
+- Desde la perspectiva de su "inteligencia"
+
+  Aquí es donde se vuelve interesante, porque las cámaras modernas suelen dividirse en dos mundos:
+
+  - Cámaras "Tontas" (Módulos de imagen): Como el módulo OV2640 que se usa a menudo con el ESP32-CAM. La cámara solo captura la luz y entrega los datos crudos al microcontrolador. En este caso, el ESP32 actúa como el "cerebro" que gestiona la captura y el envío.
+  - Cámaras Inteligentes (Smart Cameras / IP): Tienen su propio sistema operativo (generalmente Linux embebido), su propio procesador de imagen (ISP) y memoria RAM. En esta categoría entran las cámaras de seguridad que conectas a tu red. Estas son, en esencia, computadoras completas dedicadas exclusivamente a la visión.
+
+### ¿Cómo se integran en tu ecosistema?
+Dado que tienes interés en la domótica y ESP32, es probable que las veas así:
+
+- Como nodos IoT: El ESP32-CAM captura la imagen y la transmite por Wi-Fi a tu Home Assistant. Aquí, la cámara es un sensor de entrada de video.
+
+- Como dispositivos de red: Las cámaras IP (como las que integras vía RTSP o integración ONVIF en Home Assistant) son dispositivos de red autónomos. No dependen del microcontrolador para funcionar, sino que el microcontrolador (o el servidor de Home Assistant) simplemente consume el flujo de datos que la cámara ya está procesando.
+
+### Lectura de un medidor de gas con una ESP32-CAM, 
+
+La clave no es solo la cámara en sí, sino asegurar que tenga la memoria suficiente para procesar las imágenes (OCR) y la capacidad de enfocar a corta distancia.
+
+Aquí te detallo exactamente qué buscar para que el proyecto funcione, especialmente si piensas usar el popular firmware "AI on the Edge":
+
+- El Modelo de ESP32-CAM. Debes comprar el modelo AI-Thinker (es el más común, generalmente de color negro). Lo más importante es la PSRAM: Requisito Crítico: Asegúrate de que tenga al menos 4 MB de PSRAM. Sin esto, el software de reconocimiento de imágenes no podrá cargar los modelos de IA para leer los números. Cámara Incluida: Normalmente vienen con el sensor OV2640 de 2 MP. Es suficiente para esta tarea.
+- El Lente: El Problema del Enfoque. Las ESP32-CAM vienen de fábrica enfocadas al "infinito" (más de 40 cm). Como vas a colocar la cámara muy cerca del medidor (a unos 10-15 cm), la imagen saldrá borrosa y la IA no podrá leer nada. Modificación necesaria: El lente viene pegado con un punto de pegamento. Debes usar un bisturí o una pinza pequeña para romper ese sello y girar el lente en sentido antihorario (hacia afuera) aproximadamente un cuarto o media vuelta hasta que la imagen a corta distancia se vea nítida. Opción alternativa: Puedes comprar un lente "Wide Angle" (gran angular) si el espacio donde está el medidor es muy reducido, pero el lente estándar modificado suele ser mejor para evitar distorsiones en los números.
+- Accesorios Imprescindibles. Para que el sistema sea estable, vas a necesitar:
+  - Adaptador USB (ESP32-CAM-MB): Te recomiendo mucho comprar el kit que viene con la "plaquita" de abajo que tiene puerto Micro-USB. Facilita enormemente la programación y la alimentación.
+  - Tarjeta MicroSD: El firmware "AI on the Edge" corre desde la SD. Una de 4 GB o 8 GB (Clase 10) es más que suficiente. Evita tarjetas muy grandes (64 GB+) porque a veces dan problemas de compatibilidad.
+  - Antena Externa (Opcional): Si tu medidor de gas está en un gabinete metálico o lejos del router, compra la versión que trae conector IPEX para una antena externa, ya que la antena integrada es muy débil.
+
+Resumen de Compra
+
+Componente Especificación Recomendada
+
+Módulo ESP32-CAM AI-Thinker con 4MB PSRAM
+
+Cámara OV2640 (incluida)
+
+Alimentación Módulo de programador USB (CP2102 o CH340)
+
+Almacenamiento MicroSD 4GB/8GB (FAT32)
+
+
+## 5.8 Sensores Biológicos (Biosensores)
 Estos dispositivos combinan un componente biológico sensible con un transductor electrónico que convierte la señal biológica en un dato digital.
 
 A diferencia de los sensores resistivos o capacitivos, los sensores biológicos tienen una vida útil limitada (porque el componente biológico se degrada) y requieren calibración frecuente y condiciones de temperatura estables.
@@ -553,7 +613,7 @@ A diferencia de los sensores resistivos o capacitivos, los sensores biológicos 
 - Sensores de Microbios (Microbial Sensors):
   - Uso: Utilizan bacterias vivas inmovilizadas en una membrana. Cuando las bacterias consumen un contaminante, generan una señal eléctrica (metabolismo).
   
-## 5.8 Sensores Biomédicos / Biométricos
+## 5.9 Sensores Biomédicos / Biométricos
 Estos sensores interactúan directamente con el cuerpo humano para obtener métricas fisiológicas. Son la base de los dispositivos wearables (como smartwatches) y sistemas de telemedicina.
 
 - Sensores de Frecuencia Cardíaca (PPG - Fotopletismografía):
@@ -952,6 +1012,13 @@ El AHT10, una nueva generación de sensores de temperatura y humedad, establece 
 
 ![PO AHT10](../assets/PO_AHT10.png)
 
+## 13.4.3Consideraciones de Instalación
+
+- **Opción A (Extensión):** Uso de cable de 4 hilos (I2C) para posicionar el sensor fuera del gabinete, manteniendo una longitud máxima de 80 cm para preservar la integridad de la señal.
+- **Opción B (Integración con Aislamiento):** Diseño de cámara externa en el gabinete.
+    - Incluir barrera física (material aislante) entre el sensor y la electrónica.
+    - Implementar ventilación pasiva mediante rejillas de flujo cruzado para asegurar el equilibrio térmico con el ambiente exterior.
+
 ## 13.5 TEMPERATURA - HTU21D
 
 El sensor de temperatura y humedad HTU21 es ideal para la detección del medio ambiente y del registro de datos, es un sensor digital que permite realizar tomas de datos directamente con la interfaz deseada, cada sensor es calibrado y puede ser utilizado donde sea necesario tomar datos del medio ambiente o en alguna otra aplicación, es de fácil instalación.
@@ -1028,6 +1095,10 @@ Mide temperaturas con alta precisión usando el módulo MAX6675 y termocupla K. 
 ## 13.6.4.	Esquema de conexión (PIN OUT
 
 ![PO_MAX6675](../assets/PO_MAX6675.png)
+
+## 13.7 TEMPERATURA - Modulo SHT21D
+
+
 
 # 14. SENSORES DE LUZ E INTENSIDAD
 ## 14.1 LUZ - MODULO SENSOR DE LUZ
@@ -1180,14 +1251,51 @@ Una celda de 3 cables representa solo una "media parte" de ese puente. Para que 
 - Precisión: Esta configuración es ideal para proyectos educativos o básculas sencillas, pero no se recomienda para aplicaciones industriales de alta precisión debido a que las resistencias externas son sensibles a los cambios de temperatura.
 - Identificación de colores: aunque YZC-161E suele seguir Rojo (Excitación+), Blanco (Señal), Negro (Excitación-), te sugiero medir con un multímetro la resistencia entre los cables:
   - La resistencia mayor suele estar entre los cables de alimentación (Exc+ y Exc-).
-  - La resistencia entre señal y alimentación suele ser la mitad de la anterior.
+  - La resistencia entre señal y alimentación suele ser la mitad de la anterior
+
+# 17. SENSORES OPTICOS
+## 17.1 ESP32 CAM Ov2640 + PLACA BASE PROGRAMADOR
+
+El ESP32-CAM es una tarjeta de desarrollo y Modulo WiFi con Bluetooth. La Camara OV2640 de 2MP integra un sensor de imagen CMOS UXGA (16321232) de 1/4 de pulgada.
+
+La Placa Base ESP32-CAM-MB es una placa diseñada para funcionar con el ESP32-CAM. Alimentado por una entrada Micro USB, proporciona la energía para operar y programar la ESP32-CAM. Simplifica el conexionado!
+
+![ESP32 CAM](../assets/ESP32-CAM.png)
+
+
+### 17.1.1 Especificaciones
+
+- Modelo: ESP32-CAM + Camara OV2640
+- Tensión de Alimentacion: 5V
+- WiFi 802.11b/g/n
+- Camara: OV2640 2MP
+- CPU 32 bits de doble nucleo
+- Frecuencia principal 240 MHz
+- Potencia informatica 600 DMIPS
+- Velocidad de reloj 160 MHz
+- SRAM 520Kb, 4MPSRAM externa
+- Soporta interfaces: UART / SPI / I2C / PWM / ADC / DAC
+- Soporta cámaras OV2640 y OV7670, Flash Incorporado
+- Soporta tarjetas TF micro SD (4GB Max)
+- Compatible con modos de operación STA / AP / STA+AP
+- Con antena en su PCB
+- Integra conectores u.FL y FPC
+
+### 17.1.2 Especificaciones ESP32-CAM-MB
+
+- Tension de entrada: 5V DC (Por puerto USB)
+- Compatibilidad: ESP32-CAM
+- Modelo: ESP32-CAM-MB USB-C
+- Integrado USB: CH340G
+- Boton IO0: Boot
+- Boton RST: Reset
+
+
 
 
 # 17. SENSORES BIOLOGICOS
 
 # 18. SENSORES BIOMETRICOS
-
-
 
 ## PULSO - Elster GmbH Elster IN-Z61
 
@@ -1229,33 +1337,66 @@ Este zumbador es un zumbador pasivo, lo que significa que requiere una señal os
 - Temperatura de funcionamiento: -27 a +70 ° C
 - Temperatura de almacenamiento: -30 a 105°C
 
-
-
 # 31. ACTUADORES VISUALES
-
-## INTRODUCCION
 
 A continuación se presentan los tipos principales:
 
-- LCD (Liquid Crystal Display)Son los más básicos y económicos. Usan una luz de fondo (backlight) y cristales líquidos para bloquearla o dejarla pasar.LCD Alfanuméricos (ej. 16x2): Solo muestran caracteres fijos (letras y números). Son muy robustos y baratos.LCD Gráficos (ej. Nokia 5110 o 128x64): Permiten dibujar puntos (píxeles), pero son monocromáticos (un solo color).Consumo: Medio. Lo que más gasta es la luz de fondo.Ideal para: Ver datos rápidos como la temperatura del tanque o el nivel de gas sin gastar mucho.
-- OLED (Organic Light Emitting Diode)Aquí no hay luz de fondo; cada píxel brilla por sí mismo. El modelo más famoso es el SSD1306 (0.96 pulgadas).Contraste: Infinito (el negro es negro absoluto porque el píxel se apaga).Consumo: Muy bajo si usas fondos negros con pocas letras blancas.Ángulo de visión: Excelente, se ve perfecto desde cualquier lado.Punto débil: Se "queman" si dejan la misma imagen fija por meses y se ven mal bajo sol directo.Ideal para: Proyectos a batería donde necesitás ver mucha info en poco espacio.
-- TFT (Thin-Film Transistor)Es una evolución del LCD de matriz activa. Son las pantallas a todo color como las de los celulares viejos.Color: Pueden mostrar fotos, iconos y gráficos complejos a todo color.Velocidad: Son rápidas, ideales para menús táctiles.Consumo: Alto. La luz de fondo debe ser potente para que se vea algo.Ideal para: Interfaces de usuario complejas (un panel de control central en casa, por ejemplo).
-- E-Ink o E-Paper (Papel Electrónico)Son como las del Kindle. Solo consumen energía cuando la imagen cambia.Consumo: Casi cero. Podés mostrar el nivel de batería, desconectar la alimentación, y la imagen queda ahí grabada para siempre.Visibilidad: Se ven mejor cuanto más sol les da, igual que un papel real.Punto débil: Tardan mucho en refrescar (parpadean un par de segundos para cambiar de imagen).Ideal para: Sensores en el campo (AgTech) o etiquetas que se actualizan una vez por hora.
+- **LCD (Liquid Crystal Display)**
+  
+  Son los más básicos y económicos. Usan una luz de fondo (backlight) y cristales líquidos para bloquearla o dejarla pasar.
+- LCD Alfanuméricos (ej. 16x2):
+  
+  Solo muestran caracteres fijos (letras y números). Son muy robustos y baratos.
+- LCD Gráficos (ej. Nokia 5110 o 128x64)
+  
+  Permiten dibujar puntos (píxeles), pero son monocromáticos (un solo color).Consumo: Medio. Lo que más gasta es la luz de fondo.
+  
+  Ideal para: Ver datos rápidos como la temperatura del tanque o el nivel de gas sin gastar mucho.
 
-Tabla Comparativa Rápida
+- **OLED (Organic Light Emitting Diode)**
+  
+  Aquí no hay luz de fondo; cada píxel brilla por sí mismo. El modelo más famoso es el SSD1306 (0.96 pulgadas).Contraste: Infinito (el negro es negro absoluto porque el píxel se apaga).
+  
+  Consumo: Muy bajo si usas fondos negros con pocas letras blancas.Ángulo de visión: Excelente, se ve perfecto desde cualquier lado.
+  
+  Punto débil: Se "queman" si dejan la misma imagen fija por meses y se ven mal bajo sol directo.
+  
+  Ideal para: Proyectos a batería donde necesitás ver mucha info en poco espacio.
+- **TFT (Thin-Film Transistor)**
+  
+  Es una evolución del LCD de matriz activa. Son las pantallas a todo color como las de los celulares viejos.Color: Pueden mostrar fotos, iconos y gráficos complejos a todo color.
+  Velocidad: Son rápidas, ideales para menús táctiles.
+  Consumo: Alto. La luz de fondo debe ser potente para que se vea algo.
+  Ideal para: Interfaces de usuario complejas (un panel de control central en casa, por ejemplo).
 
-| **TIPO** | **COLOR** | **CONSUMO** | **VISIBILIDAD AL SOL** | **RECOMENDACION**        |
-| -------- | --------- | ----------- | ---------------------- | ------------------------ |
-| LCD 16x2 | No        | Medio       | Pobre                  | Tableros eléctricos      |
-| OLED     | No        | Dual        | Bajo / Media           | Nodos a batería          |
-| TFT      | Sí        | Alto        | Pobre                  | Pantallas táctiles fijas |
-| E-Paper  | Rojo      | Minimo      | Excelente              | Sensores de campo        |
+- **E-Ink o E-Paper (Papel Electrónico)**
+  
+  Son como las del Kindle. Solo consumen energía cuando la imagen cambia.
+  
+  Consumo: Casi cero. Podés mostrar el nivel de batería, desconectar la alimentación, y la imagen queda ahí grabada para siempre.
+  
+  Visibilidad: Se ven mejor cuanto más sol les da, igual que un papel real.
+  
+  Punto débil: Tardan mucho en refrescar (parpadean un par de segundos para cambiar de imagen).
+  
+  Ideal para: Sensores en el campo (AgTech) o etiquetas que se actualizan una vez por hora.
 
-¿Cuál te conviene para tu proyecto solar?Si vas a usar el panel de 1W:
+### Tabla Comparativa Rápida
 
-OLED: Si necesitás ver datos en el lugar. Podés programar que se apague a los 10 segundos de tocar un botón.
+| TIPO | COLOR | CONSUMO | VISIBILIDAD AL SOL| RECOMENDACION |
+|:---|:---|:---|:---|:--- |
+| LCD 16x2 | No | Medio |Pobre | Tableros eléctricos |
+|OLED | No | Dual | Bajo / Media | Nodos a batería |
+| TFT | Sí | Alto | Pobre | Pantallas táctiles fijas |
+| E-Paper | Rojo | Minimo | Excelente | Sensores de campo |
 
-E-Paper: Si necesitás que el dato esté siempre visible sin gastar nada de la batería 18650.Sin Display: Si vas a mandar los datos por Wi-Fi a tu Home Assistant, no pongas pantalla. Cada mA cuenta cuando el panel es chico.
+### ¿Cuál te conviene para tu proyecto solar?
+
+Si vas a usar el panel de 1W:
+
+- OLED: Si necesitás ver datos en el lugar. Podés programar que se apague a los 10 segundos de tocar un botón.
+
+- E-Paper: Si necesitás que el dato esté siempre visible sin gastar nada de la batería 18650.Sin Display: Si vas a mandar los datos por Wi-Fi a tu Home Assistant, no pongas pantalla. Cada mA cuenta cuando el panel es chico.
 
 Las pantallas TFT (Thin-Film Transistor o Transistor de Película Delgada) son un tipo de pantalla de cristal líquido (LCD) que utiliza tecnología de "matriz activa". En términos sencillos para tus proyectos de electrónica: son las pantallas que te permiten mostrar color, gráficos complejos, iconos e incluso imágenes, a diferencia de las pantallas LCD clásicas (como la 16x2 de fondo azul) que solo muestran letras y números fijos.
 
@@ -1273,14 +1414,14 @@ Si estás pensando en sumarle una pantalla a tu sistema de monitoreo (por ejempl
 
 Comparación rápida: TFT vs. OLED
 
-| CARACTERISTICA | TFT                                                           | OLED                                                    |
-| -------------- | ------------------------------------------------------------- | ------------------------------------------------------- |
-| Brillo         | Necesita una luz de fondo (backlight) siempre encendida.      | Cada píxel brilla por sí mismo.                         |
-| Consumo        | Alto (por la luz de fondo).                                   | Bajo (especialmente si el fondo es negro).              |
-| Visibilidad    | Difícil de ver bajo sol directo (ojo con esto para el campo). | Excelente contraste, pero se degrada más rápido al sol. |
-| Color          | Miles o millones de colores.                                  | Colores muy vibrantes, negros perfectos.                |
+| CARACTERISTICA |TFT | OLED|
+|:---|:---|:--- |
+| Brillo | Necesita una luz de fondo (backlight) siempre encendida. | Cada píxel brilla por sí mismo.
+| Consumo| Alto (por la luz de fondo) | Bajo (especialmente si el fondo es negro)|
+| Visibilidad  | Difícil de ver bajo sol directo (ojo con esto para el campo)| Excelente contraste, pero se degrada más rápido al sol|
+| Color | Miles o millones de colores | Colores muy vibrantes, negros perfectos|
 
-PRINCIPALES USOS:
+### Principales Usos:
 
 Si vas a usar el panel solar de 1W y la batería 18650, tené cuidado con las pantallas TFT:
 
@@ -1291,23 +1432,28 @@ Para un proyecto donde necesitás ahorrar energía (como un sensor en el campo),
 
 ¿Tenías pensado poner una pantalla para ver el voltaje de la batería en el lugar?
 
-## DISPLAY LCD 16x2 con I2C Incorporado - 1602
+## 31.1 DISPLAY LCD 16x2 con I2C Incorporado - 1602
 
 Módulo de pantalla LCD monocromática con retroiluminación LED. Puede mostrar texto, líneas y cualquier otra forma que se programe, incluso puede mostrar imágenes o logotipos. El controlador es el chip HD44780 con una resolución en pantalla de 16 x 2 caracteres. El módulo I2C adyacente al LCD permite conectar el LCD con 4 cables (2 de alimentación, 2 de datos), simplificando las conexiones y ahorrando puertos en el microcontrolador. El protocolo I2C permite conectar muchos dispositivos sobre un mismo bus de comunicación.
 
-### Especificaciones
+![LCD 16x2](../assets/Display_LCD16x2.png)
 
-- \- Dimensiones: 80 x 33 x 14 mm
-- \- Pantalla LCD de 16 x 2
-- \- Pantalla en color azul
-- \- Incluye el módulo I2C pines soldados
-- \- Voltaje de alimentación: 5V
+### 31.1.1 Especificaciones
 
-## DISPLAY LCD - 16x4 - 2004
+- Dimensiones: 80 x 33 x 14 mm
+- Pantalla LCD de 16 x 2
+- Pantalla en color azul
+- Incluye el módulo I2C pines soldados
+- Voltaje de alimentación: 5V
 
-Display LCD alfanumérico de 20×4. El LCD 2004 cuenta con 4 filas y 20 columnas de dígitos y funciona con el controlador interno HD44780. Para su conexión se necesitan 6 pines: 2 de control y 4 de datos.
+## 31.2 DISPLAY LCD - 16x4 - 2004
 
-### Especificaciones
+Display LCD alfanumerico de 20×4. El LCD 2004 cuenta con 4 filas y 20 columnas de dígitos y funciona con el controlador interno HD44780. Para su conexión se necesitan 6 pines: 2 de control y 4 de datos.
+
+![LCD 16x4](../assets/Display_LCD16x4.png)
+
+
+### 31.2.1 Especificaciones
 
 - Backlight tipo LED
 - Color azul.
@@ -1318,28 +1464,30 @@ Display LCD alfanumérico de 20×4. El LCD 2004 cuenta con 4 filas y 20 columnas
 
 Los sistemas embebidos como Arduino, Pic u otros, trabajan con lógica binaria (0 y 1), utilizando pantallas como este LCD para mostrar datos en formato alfanumérico, lo que permite un manejo más eficiente de sensores y procesamiento de datos.
 
-## DISPLAY OLED 0.96" - Blanco 128x64 I2C Ssd1306
+## 31.3 DISPLAY OLED 0.96" - Blanco 128x64 I2C Ssd1306
 
 Pantalla de 0.96" OLED. Matriz de 128x64 puntos. No necesita retroiluminación y tiene alto contraste incluso con luz dia.
 
 El driver interno es un SSD1306 que se comunica por I2C, Funciomaniento interno a 3.3V pero adaptada para funcionar en 5V.
 
-### Especificaciones
+![OLED 096](../assets/Display_OLED096.png)
 
-- \- Tension Fucionamiento: 3V a 5V DC
-- \- Consumo: 80mA (Max)
-- \- Pantalla OLED de alto contraste
-- \- Color Emision: Blanco
-- \- Resolucion: 128x64 pixeles
-- \- Controlador Interno: SSD1306
-- \- Interfaz: I2C
-- \- Angulo de vision: >160º
-- \- Dimensiones PCB: 35.5mm x 33.7mm
-- \- Peso: 6g
-- \- Orden de Pines: GND,VCC
-- \- Temepratura de funcionamiento: -30 a +70 ºC
+### 31.3.1 Especificaciones
 
-## DISPLAY OLED 1.3" - Azul 128x64 I2C Sh1106
+- Tension Fucionamiento: 3V a 5V DC
+- Consumo: 80mA (Max)
+- Pantalla OLED de alto contraste
+- Color Emision: Blanco
+- Resolucion: 128x64 pixeles
+- Controlador Interno: SSD1306
+- Interfaz: I2C
+- Angulo de vision: >160º
+- Dimensiones PCB: 35.5mm x 33.7mm
+- Peso: 6g
+- Orden de Pines: GND,VCC
+- Temepratura de funcionamiento: -30 a +70 ºC
+
+## 31.4 DISPLAY OLED 1.3" - Azul 128x64 I2C Sh1106
 
 Esta pantalla es muy pequeña (1,3 pulgadas de diagonal) pero muy visible dado su alto contraste OLED. Es una pantalla con una matriz de un color de 128x64 puntos. Dado que la pantalla está basada en la tecnología LED, no necesita retroiluminación y tiene un alto contraste incluso a plena luz del día.
 
@@ -1347,7 +1495,9 @@ El driver interno es un SH1106 que se comunica por I2C, un protocolo muy rápido
 
 El consumo general depende en gran medida de cuantos píxeles están encendidos, pero el consumo medio ronda los 80mA.
 
-### Especificaciones
+![OLED 130](../assets/Display_OLED130.png)
+
+### 31.4.1 Especificaciones
 
 - Pantalla OLED de alto contraste
 - Resolución: 128x64 píxeles (Azul)
@@ -1358,7 +1508,7 @@ El consumo general depende en gran medida de cuantos píxeles están encendidos,
 - Dimensiones: 3.5 cm x 3.4 cm
 - Temepratura de funcionamiento: -30 a +70 ºC
 
-## DISPLAY OLED 0.91" - 128x32 Ssd1306 I2c Blanco
+## 31.5 DISPLAY OLED 0.91" - 128x32 Ssd1306 I2c Blanco
 
 Display Oled 0.91 pulgadas 128x32 Ssd1306 I2c Blanco Arduino
 
@@ -1372,7 +1522,9 @@ El driver interno es un SSD1306 que se comunica por I2C, un protocolo muy rápid
 
 Internamente todo el conjunto funciona a 3.3V, pero tanto la alimentación como los pines de entrada pueden trabajar a 5V, lo que lo hace ideal para utilizar en cualquier microcontrolador de 5V.
 
-### Especificaciones
+![OLED 091](../assets/Display_OLED091.png)
+
+### 31.5.1 Especificaciones
 
 - Tamaño de la pantalla diagonal: 0.91 "
 - Cantidad de píxeles: 128 × 32
@@ -1385,11 +1537,13 @@ Internamente todo el conjunto funciona a 3.3V, pero tanto la alimentación como 
 - Área de visualización: 7 mm x 25 mm
 - Espesor: 4 mm
 
-## DISPLAY TFT - REDONDO 1,28" 240x240 Rgb
+## 31.6 DISPLAY TFT - REDONDO 1,28" 240x240 Rgb
 
 El TFT Display 1.28 Inch TFT LCD Display Module es una pantalla LCD redonda de alta resolución diseñada para una amplia gama de aplicaciones electrónicas y proyectos DIY. Con su formato compacto y su capacidad de mostrar gráficos en color vibrantes, este módulo es ideal para desarrolladores y entusiastas que buscan una solución visual de calidad para sus proyectos con Arduino y otros microcontroladores.
 
-### Características
+![TFT 128](../assets/Display_TFT128.png)
+
+### 31.6.1 Características
 
 - Pantalla TFT LCD de 1.28 pulgadas:
 - Formato Circular: La pantalla redonda añade un toque único y atractivo a tus proyectos, ideal para aplicaciones donde el diseño visual es importante.
@@ -1404,7 +1558,7 @@ El TFT Display 1.28 Inch TFT LCD Display Module es una pantalla LCD redonda de a
 - Diseño de PCB: Viene con un PCB diseñado para facilitar la conexión y el montaje en proyectos electrónicos.
 - Compatibilidad con Arduino: Totalmente compatible con Arduino y otras plataformas de desarrollo, lo que facilita su uso en una variedad de proyectos.
 
-### Especificaciones
+### 31.6.2 Especificaciones
 
 - Tipo de Pantalla: TFT LCD
 - Tamaño: 1.28 pulgadas
@@ -1414,7 +1568,7 @@ El TFT Display 1.28 Inch TFT LCD Display Module es una pantalla LCD redonda de a
 - Interfaz: SPI de 4 hilos
 - Voltaje de Operación: 3.3V a 5V
 
-## DISPLAY TFT 1,44" - ST7735
+## 31.7 DISPLAY TFT 1,44" - ST7735
 
 Módulo display TFT color 1.44 pulgadas con controlador ST7735 y resolución 128×128 píxeles.
 
@@ -1422,7 +1576,9 @@ Este display permite mostrar gráficos, texto, iconos e interfaces completas a c
 
 Utiliza interfaz SPI, lo que permite una conexión simple utilizando pocos pines.
 
-### Características
+![TFT 144](../assets/Display_TFT144.png)
+
+### 31.7.1 Características
 
 - Pantalla: 1.44 pulgadas
 - Resolución: 128 × 128 píxeles
@@ -1436,13 +1592,15 @@ Utiliza interfaz SPI, lo que permite una conexión simple utilizando pocos pines
 - Dimensiones: 40 x 50 mm
 - Altura total: 3 mm
 
-## DISPLAY TFT 2.2" SPI
+## 31.8 DISPLAY TFT 2.2" SPI
 
 El Módulo Display LCD TFT de 2.2 pulgadas es ideal para tus proyectos con Arduino y Raspberry Pi, gracias a su interfaz de 4 hilos SPI que facilita la conexión.
 
 Con una resolución de 176 x 220 puntos, este dispositivo ofrece imágenes nítidas y vibrantes gracias a su profundidad de color de 262K/65K. Este módulo se alimenta con 5V y opera a una lógica de 3V3, siendo versátil para diversas aplicaciones. Su tamaño compacto de 67 mm de longitud, 40 mm de ancho y apenas 4 mm de grosor permite integrarlo fácilmente en proyectos con espacio limitado. El paquete del vendedor incluye un diseño cuidadoso, con dimensiones de 14 cm de altura, 7 cm de largo y 10 cm de ancho, pesando solo 80 g. Recuerda que la imagen es solo ilustrativa y puede variar según la partida.
 
-### Especificaciones
+![TFT 220](../assets/Display_TFT220.png)
+
+### 31.8.1 Especificaciones
 
 - Pantalla: 2.2 pulgadas
 - Resolucion: 176 x 220 pixeles
@@ -1451,15 +1609,13 @@ Con una resolución de 176 x 220 puntos, este dispositivo ofrece imágenes níti
 - Espesor: 4 mm
 - Peso: 80 g
 
-}
+## 31.9 E-PAPER E-ink 2,66" Para Cfd
 
-## E-PAPER E-ink 2,66" Para Cfd
-
-## E-PAPER HAT E-INK 2,7"
+## 31.10 E-PAPER HAT E-INK 2,7"
 
 Módulo eInk de 2,7 pulgadas ePaper HAT eInk de 2 colores para Raspberry Pi/Arduino Características: sin luz de fondo, sigue mostrando el último contenido durante mucho tiempo incluso cuando se apaga. Consumo de energía ultrabajo, básicamente solo se necesita energía para refrescar.
-
-### Descripción
+![EPAPER 270](../assets/Display_EINK270.png)
+### 31.10.1 Descripción
 
 Esta pantalla E-Ink HAT, 2,7 pulgadas, resolución 264x176, es especialmente diseñado para Raspberry Pi. Viene con un controlador integrado que se comunica a través de la interfaz periférica en serie. Debido a sus ventajas, como el consumo de energía ultrabajo, el amplio ángulo de visión y el gran efecto bajo la luz solar, es una opción ideal para aplicaciones como etiquetas de estanterías, instrumentos industriales, etc.
 
@@ -1467,7 +1623,7 @@ Características: sin luz de fondo, muestra el último contenido durante mucho t
 
 Adecuado para la interfaz periférica serie Raspberry Pi 2B/3B/Zero/Zero W. para conectarse con otras placas controladoras como para A-RDuino/Nucleo, etc. Viene con recursos de desarrollo y un manual (ejemplos para Raspberry/A-RDuino/STM32).
 
-### Especificaciones
+### 31.10.2 Especificaciones
 
 - Voltaje de funcionamiento: 3,3 V
 - Interfaz: interfaz periférica en serie de 3 hilos, interfaz periférica en serie de 4 hilos
@@ -1494,13 +1650,13 @@ Adecuado para la interfaz periférica serie Raspberry Pi 2B/3B/Zero/Zero W. para
 
 # 32. ACTUADORES FISICOS
 
-## INTRODUCCION
+### Introducción
 
 Un relay (o relé) es básicamente un interruptor automático que permite controlar una corriente eléctrica muy grande mediante una corriente muy pequeña.
 
 En términos prácticos para tus proyectos con la ESP32, el relay actúa como un "traductor": permite que la placa (que maneja solo 3.3V o 5V) pueda encender o apagar algo que funciona a 220V (como una bomba de agua, una luz o un motor) sin que la placa se queme.
 
-¿Cómo funciona por dentro?
+### ¿Cómo funciona por dentro?
 
 Un relay tradicional (electromecánico) tiene dos partes principales:
 
@@ -1524,14 +1680,14 @@ Que algo sea optoacoplado significa que hay un "puente de luz" que separa dos pa
 - Un Fototransistor: Que "ve" la luz del LED y deja pasar la corriente del otro lado.
 - Como la señal viaja a través de la luz y no de cables, si del lado de "fuerza" (donde tenés los 220V o el motor) ocurre un cortocircuito, la electricidad no puede "saltar" hacia tu ESP32 porque no hay conexión física. El chip simplemente se quema por dentro, pero salva a tu microcontrolador.
 
-¿Por qué es importante para vos?
+### ¿Por qué es importante para vos?
 
 - Como estás armando un sistema para el medidor de gas y mencionaste fuentes aisladas y relays, el optoacoplamiento es tu mejor aliado por estas razones:
 - Protección Total: Evitás que un pico de tensión de la red eléctrica llegue a los pines de la ESP32.
 - Aislamiento de Ruido: Los motores o bobinas de los relays generan "ruido" eléctrico que hace que las placas inteligentes se tilden o se reinicien. El optoacoplador limpia esa señal.
 - Seguridad: En entornos como un nicho de gas, mantener la electrónica de control separada de la potencia es una regla de oro.
 
-¿Cómo saber si tu módulo es optoacoplado?
+### ¿Cómo saber si tu módulo es optoacoplado?
 
 - Si compras un módulo de relay, vas a ver un componente cuadrado muy chiquito (generalmente con el código PC817). Eso es el optoacoplador.
 - Jumper
@@ -1540,9 +1696,7 @@ Que algo sea optoacoplado significa que hay un "puente de luz" que separa dos pa
 - Si dejás el jumper: Comparten la misma energía y el aislamiento es solo parcial.
 - En resumen: es un seguro de vida para tu ESP32. Si vas a conectar la cámara a algo que no sea solo su fuente (como un relay o un sensor industrial), buscá siempre que el módulo sea optoacoplado.
 
-## MODULO RELAY OPTOACOPLADO 2 CANALES 5VDC / 10A
-
-c
+## 32.1 MODULO RELAY OPTOACOPLADO 2 CANALES 5VDC / 10A
 
 Relé de alta corriente, AC250V 10A, DC30V 10A
 
@@ -1554,9 +1708,10 @@ Circuito de aislamiento opto
 
 Tamaño de PCB: 50 x 45 mm
 
-# MOTORES & DRIVERS
+![RELAY](../assets/Relay_Optoacoplado.png)
 
-## MOTOR NEMA 17
+
+## 32.2 MOTOR NEMA 17
 
 Un motor NEMA 17 es un tipo de motor paso a paso (stepper motor) que recibe su nombre por las dimensiones de su cara frontal, estandarizadas por la National Electrical Manufacturers Association. En este caso, el número 17 indica que la placa frontal del motor mide 1.7 x 1.7 pulgadas (aproximadamente 42 x 42 mm).
 
@@ -1564,7 +1719,7 @@ A diferencia de un motor de corriente continua (DC) común que gira continuament
 
 La mayoría de los NEMA 17 tienen un ángulo de paso de 1.8°, lo que significa que necesitan 200 pasos para completar una vuelta de 360°. Esto permite un control de posición extremadamente preciso sin necesidad de sensores externos (encoders).
 
-### Componentes y Conexión
+### 32.2 Componentes y Conexión
 
 Internamente, tiene bobinas que se activan en una secuencia específica para mover el eje.
 
@@ -1597,23 +1752,22 @@ Características Eléctricas y Mecánicas
 
 Nota de seguridad: nunca desconectes el motor mientras el controlador esté encendido, ya que el pico de inducción puede quemar el driver (como un A4988, DRV8825 o TMC2209).
 
-Identificación Típica de Colores
+### Identificación Típica de Colores
 
 Aunque los colores pueden variar según el fabricante, el estándar más común en los Nema 17 suele ser:
 
-Bobina Par de Colores
+|BOBINA |PAR DE COLORES
+|:---|:---
+|Bobina A |Negro y Verde
+|Bobina B |Rojo y Azul
 
-Bobina A Negro y Verde
-
-Bobina B Rojo y Azul
-
-## DRIVER Tmc2209 Spi c/Disipador Mks
+## 32.3 DRIVER Tmc2209 Spi c/Disipador Mks
 
 Un driver (o controlador) de motor es el "traductor" entre el cerebro de tu proyecto (el ESP32-C3) y el músculo (el motor NEMA 17).
 
 Como el microcontrolador solo puede entregar una señal de muy baja potencia (3.3V y pocos miliamperios), no tiene la fuerza suficiente para mover las bobinas de un motor que requiere 12V y más de 1 Amper. El driver soluciona esto actuando como un puente de potencia.
 
-¿Por qué es necesario un driver?
+### ¿Por qué es necesario un driver?
 
 - Manejo de Corriente: El driver recibe una señal digital débil del ESP32 y la convierte en una corriente fuerte (proveniente de tu fuente externa de 12V/24V) para alimentar el motor.
 - Secuencia de Pasos: Para que un motor paso a paso gire, hay que encender y apagar sus bobinas internas en un orden muy preciso. El driver hace este trabajo sucio por ti; tú solo le dices "da un paso" y él sabe qué bobinas activar.
@@ -1652,14 +1806,13 @@ Esos tres pines que ves formando un pequeño triángulo (generalmente situados c
 
 Dependiendo de la versión específica de la placa (PCB) que tengas, suelen ser estos tres:
 
-DIAG (Diagnostic): Este pin sirve para reportar errores. Se activa (normalmente a nivel lógico alto) si el driver detecta un problema, como un sobrecalentamiento, un cortocircuito en las bobinas o si se usa la función de "StallGuard" (detección de atascos) para hacer "homing" sin necesidad de finales de carrera físicos.
+- DIAG (Diagnostic): Este pin sirve para reportar errores. Se activa (normalmente a nivel lógico alto) si el driver detecta un problema, como un sobrecalentamiento, un cortocircuito en las bobinas o si se usa la función de "StallGuard" (detección de atascos) para hacer "homing" sin necesidad de finales de carrera físicos.
 
-INDEX: Este pin emite un pulso cada vez que el motor completa una vuelta completa (o un ciclo específico de micro-pasos). Es muy útil si necesitas sincronizar la posición del motor con mucha precisión en aplicaciones industriales o de posicionamiento.
+- INDEX: Este pin emite un pulso cada vez que el motor completa una vuelta completa (o un ciclo específico de micro-pasos). Es muy útil si necesitas sincronizar la posición del motor con mucha precisión en aplicaciones industriales o de posicionamiento.
 
-VREF (o pin de testeo): A veces, uno de esos pines está conectado directamente al potenciómetro para que puedas medir el voltaje de referencia (\$V*{REF}\$) con un multímetro de forma más cómoda. El \$V*{REF}\$ es lo que determina el límite de corriente que el motor puede consumir.
+- VREF (o pin de testeo): A veces, uno de esos pines está conectado directamente al potenciómetro para que puedas medir el voltaje de referencia Vref con un multímetro de forma más cómoda. El Vref es lo que determina el límite de corriente que el motor puede consumir.
 
 ¿Para qué sirven en la práctica?
-
 Si eres principiante: Lo más probable es que no necesites conectarlos. Para la mayoría de los proyectos (como mover un eje de una impresora 3D o un brazo robótico simple), el driver funciona perfectamente solo con los pines de los lados (STEP, DIR, ENABLE, alimentación y motor).
 
 Si quieres funciones avanzadas:
@@ -1685,7 +1838,7 @@ Ajuste por Software:
 - Si el valor es muy bajo, el driver creerá que el motor chocó apenas empiece a moverse.
 - Si el valor es muy alto, el motor chocará contra el tope mecánico y no se detendrá, lo cual puede ser peligroso para la mecánica.
 
-Consideración Técnica sobre los "3 pines"
+### Consideración Técnica sobre los "3 pines"
 
 Dependiendo de la marca de tu módulo (como BIGTREETECH o Makerbase), a veces el pin DIAG no está conectado internamente al pin que sale hacia afuera. En muchas placas verás un pequeño pad o "jumper" (una gota de estaño) que debes unir para habilitar la señal de diagnóstico hacia el pin físico de la placa.
 
@@ -1758,71 +1911,9 @@ Aquí tienes el esquema de conexión paso a paso:
 
 - Diagrama de Conexión (Modo Step/Dir)
 
-# CAMARAS
+# 40. FUENTES  & PANELES SOLARES
 
-## INTRODUCCION
-
-Para leer un medidor de gas con una ESP32-CAM, la clave no es solo la cámara en sí, sino asegurar que tenga la memoria suficiente para procesar las imágenes (OCR) y la capacidad de enfocar a corta distancia.
-
-Aquí te detallo exactamente qué buscar para que el proyecto funcione, especialmente si piensas usar el popular firmware "AI on the Edge":
-
-- El Modelo de ESP32-CAM. Debes comprar el modelo AI-Thinker (es el más común, generalmente de color negro). Lo más importante es la PSRAM: Requisito Crítico: Asegúrate de que tenga al menos 4 MB de PSRAM. Sin esto, el software de reconocimiento de imágenes no podrá cargar los modelos de IA para leer los números. Cámara Incluida: Normalmente vienen con el sensor OV2640 de 2 MP. Es suficiente para esta tarea.
-- El Lente: El Problema del Enfoque. Las ESP32-CAM vienen de fábrica enfocadas al "infinito" (más de 40 cm). Como vas a colocar la cámara muy cerca del medidor (a unos 10-15 cm), la imagen saldrá borrosa y la IA no podrá leer nada. Modificación necesaria: El lente viene pegado con un punto de pegamento. Debes usar un bisturí o una pinza pequeña para romper ese sello y girar el lente en sentido antihorario (hacia afuera) aproximadamente un cuarto o media vuelta hasta que la imagen a corta distancia se vea nítida. Opción alternativa: Puedes comprar un lente "Wide Angle" (gran angular) si el espacio donde está el medidor es muy reducido, pero el lente estándar modificado suele ser mejor para evitar distorsiones en los números.
-- Accesorios Imprescindibles. Para que el sistema sea estable, vas a necesitar:
-  - Adaptador USB (ESP32-CAM-MB): Te recomiendo mucho comprar el kit que viene con la "plaquita" de abajo que tiene puerto Micro-USB. Facilita enormemente la programación y la alimentación.
-  - Tarjeta MicroSD: El firmware "AI on the Edge" corre desde la SD. Una de 4 GB o 8 GB (Clase 10) es más que suficiente. Evita tarjetas muy grandes (64 GB+) porque a veces dan problemas de compatibilidad.
-  - Antena Externa (Opcional): Si tu medidor de gas está en un gabinete metálico o lejos del router, compra la versión que trae conector IPEX para una antena externa, ya que la antena integrada es muy débil.
-
-Resumen de Compra
-
-Componente Especificación Recomendada
-
-Módulo ESP32-CAM AI-Thinker con 4MB PSRAM
-
-Cámara OV2640 (incluida)
-
-Alimentación Módulo de programador USB (CP2102 o CH340)
-
-Almacenamiento MicroSD 4GB/8GB (FAT32)
-
-## ESP32 CAM Ov2640 + PLACA BASE PROGRAMADOR
-
-El ESP32-CAM es una tarjeta de desarrollo y Modulo WiFi con Bluetooth. La Camara OV2640 de 2MP integra un sensor de imagen CMOS UXGA (16321232) de 1/4 de pulgada.
-
-La Placa Base ESP32-CAM-MB es una placa diseñada para funcionar con el ESP32-CAM. Alimentado por una entrada Micro USB, proporciona la energía para operar y programar la ESP32-CAM. Simplifica el conexionado!
-
-### Especificaciones
-
-- Modelo: ESP32-CAM + Camara OV2640
-- Tensión de Alimentacion: 5V
-- WiFi 802.11b/g/n
-- Camara: OV2640 2MP
-- CPU 32 bits de doble nucleo
-- Frecuencia principal 240 MHz
-- Potencia informatica 600 DMIPS
-- Velocidad de reloj 160 MHz
-- SRAM 520Kb, 4MPSRAM externa
-- Soporta interfaces: UART / SPI / I2C / PWM / ADC / DAC
-- Soporta cámaras OV2640 y OV7670, Flash Incorporado
-- Soporta tarjetas TF micro SD (4GB Max)
-- Compatible con modos de operación STA / AP / STA+AP
-- Con antena en su PCB
-- Integra conectores u.FL y FPC
-
-### Especificaciones ESP32-CAM-MB
-
-- Tension de entrada: 5V DC (Por puerto USB)
-- Compatibilidad: ESP32-CAM
-- Modelo: ESP32-CAM-MB USB-C
-- Integrado USB: CH340G
-- Boton IO0: Boot
-- Boton RST: Reset
-
-# FUENTES
-
-## INTRODUCCION
-
-**FUENTES SWITCHING**
+### Fuentes Switching
 
 Una fuente switching (o fuente conmutada) es un dispositivo electrónico que convierte la electricidad de la red eléctrica (ej. 220V CA en Argentina) al voltaje y corriente continua que necesitan tus dispositivos (ej. 12V CC para tu motor NEMA 17).
 
@@ -1835,13 +1926,13 @@ Se llaman "switching" (conmutada) porque utiliza un transistor que se abre y se 
 - Transformación: Esa corriente troceada pasa por un transformador mucho más pequeño que los tradicionales.
 - Salida: Se rectifica y filtra nuevamente para entregar un voltaje estable (como los 12V que necesitás).
 
-**FUENTES AISLADAS**
+### Fuentes Aisladas
 
 Una fuente aislada es aquella que tiene una separación física y eléctrica total entre la entrada (los 220V de la red) y la salida (los 12V que van a tu motor y al ESP32).
 
 En términos simples: no hay conexión directa de cables entre la electricidad peligrosa de la pared y los componentes que vos tocás.
 
-¿Cómo funciona el aislamiento?
+### ¿Cómo funciona el aislamiento?
 
 Para pasar la energía de un lado al otro sin que los cables se toquen, utilizan un transformador. La energía "salta" de un bobinado a otro a través de un campo magnético.
 
@@ -1853,7 +1944,7 @@ Protección de Electrónica: Protege al ESP32-C3 de ruidos eléctricos y picos d
 
 Evita "Bucles de Tierra": Si conectás el ESP32 a la PC mientras está alimentado por la fuente, una fuente aislada previene que circulen corrientes raras entre la PC y el riel, lo cual suele quemar los puertos USB.
 
-¿Cómo saber si tu fuente es aislada?
+### ¿Cómo saber si tu fuente es aislada?
 
 Casi todas las fuentes switching modernas de buena calidad (como los cargadores de notebooks o los "bricks" de 12V que parecen de plástico cerrado) ya son aisladas.
 
@@ -1871,7 +1962,7 @@ Usá siempre una fuente aislada. No uses fuentes baratas de mala calidad que no 
 
 Si la fuente es metálica (tipo panal), asegurate de conectar el borne de Tierra (PE) a la instalación de tu casa.
 
-## FUENTE SWITCHING AISLADA 220VAC a 3,3VDC - 1,5A / 5w
+## 40.1 FUENTE SWITCHING AISLADA 220VAC a 3,3VDC - 1,5A / 5w
 
 MODULO HLK-5M03
 
@@ -1889,7 +1980,9 @@ Las características de entrada admiten un rango universal de 85-264 V CA o 70-3
 
 Este módulo es ideal para fuentes de alimentación de dispositivos electrónicos, automatización industrial y sistemas de monitoreo. Su compatibilidad con pruebas de radiación y descarga electrostática (IEC/EN 61000-4-2) lo convierte en una opción robusta y segura para proyectos avanzados.
 
-### Especificaciones
+![HLK-5M02](../assets/Fuente_HLK5M03.png)
+
+### 40.1.1 Especificaciones
 
 - Modelo: HLK-5M03
 - Tensión nominal de entrada: 100-240 V CA
@@ -1908,9 +2001,11 @@ Este módulo es ideal para fuentes de alimentación de dispositivos electrónico
 - Tamaño: 3,8 x 2,3 x 1,5 cm (Largo x Ancho x Alto)
 - Peso: 32 g
 
-## FUENTE SWITCHING AISLADA 220VAC a 5VDC - 0,7A / 3,5w
+## 40.2 FUENTE SWITCHING AISLADA 220VAC a 5VDC - 0,7A / 3,5w
 
-### Especificaciones
+![FUENTE 5VDC](../assets/Fuente_05VDC.png)
+
+### 40.2.1 Especificaciones
 
 - Entrada: AC 50V-277V
 - Salida: 5V DC
@@ -1918,11 +2013,14 @@ Este módulo es ideal para fuentes de alimentación de dispositivos electrónico
 - Potencia Maxima: 3,5W
 - Proteccion contra sobretensión, temperatura y cortocircuito
 
-## FUENTE SWITCHING AISLADA 220VAC a 12VDC - 2A / 24w
+## 40.3 FUENTE SWITCHING AISLADA 220VAC a 12VDC - 2A / 24w
 
 Fuente de alimentación aislada, con protección de temperatura, sobrecorriente y cortocircuito, tamaño pequeño, fiable.
 
-### Especificaciones
+![FUENTE 12VDC](../assets/Fuente_12VDC.png)
+
+
+### 40.3.1 Especificaciones
 
 - Voltaje de entrada: 100V-265V AC
 - Voltaje de salida: 12V DC (± 0.3V)
@@ -1932,7 +2030,7 @@ Fuente de alimentación aislada, con protección de temperatura, sobrecorriente 
 - Protecciones: Corto circuito / Sobretension / Sobre corriente / Temperatura
 - Dimensiones: 69mm x 36mm x 35mm (Largo x Ancho x Altura)
 
-## MODULO DE CARGA TP4056
+## 40.4 MODULO DE CARGA TP4056
 
 Este módulo de carga de baterías de litio TP4056 con protección, específicamente la versión que utiliza un puerto USB-C.Es un estándar en el mundo de la electrónica DIY y el desarrollo con microcontroladores (como los ESP32 que usas) porque permite cargar y proteger celdas Li-ion de 3.7V (como las populares 18650) de forma segura y sencilla.
 
@@ -1944,19 +2042,21 @@ El módulo se divide en dos funciones principales:
   - Sobredescarga: Corta el suministro si la batería baja de ~2.4V (evita que la batería muera permanentemente).
   - Sobrecorriente/Cortocircuito: Protege el circuito si hay un consumo excesivo.
 
-### Esquema de conexiones (PIN OUT)
+![TMP4056](../assets/Carga_TP4056.jpg)
+
+### 40.4.1 Esquema de conexiones (PIN OUT)
 
 Mirando la placa con el USB-C hacia la izquierda:
 
-| **PIN** | **FUNCION**                                                                                |
-| ------- | ------------------------------------------------------------------------------------------ |
-| B+      | Conectar al polo positivo de la batería de litio.                                          |
-| B-      | Conectar al polo negativo de la batería de litio.                                          |
-| OUT+    | Salida positiva hacia tu circuito (ej. tu ESP32 o sensores).                               |
-| OUT-    | Salida negativa hacia tu circuito.                                                         |
+| PIN |FUNCION |
+|:--- |:---|
+| B+ | Conectar al polo positivo de la batería de litio |
+| B- | Conectar al polo negativo de la batería de litio|
+| OUT+ | Salida positiva hacia tu circuito (ej. tu ESP32 o sensores)|
+| OUT- | Salida negativa hacia tu circuito. |
 | Pad +/- | Al lado del USB, permiten soldar una entrada de 5V externa si no quieres usar el conector. |
 
-### Recomendaciones de Uso
+### 40.4.2 Recomendaciones de Uso
 
 - Carga y Uso simultáneo: Puedes alimentar tu proyecto a través de los pines OUT mientras la batería se carga. Sin embargo, si el consumo de tu circuito es muy alto, el cargador podría no detectar correctamente cuándo terminar la carga.
 - LEDs de estado:
@@ -1966,7 +2066,31 @@ Mirando la placa con el USB-C hacia la izquierda:
 
 Es una pieza excelente para tus proyectos de monitoreo, ya que te permite hacerlos portátiles o agregarles una batería de respaldo (UPS) de forma muy barata.
 
-## BATERIAS 18650
+## 40.5 STEP DOWN LM2596 - DC 1,25A / 35VDC - 3A
+
+Un módulo Step-Down sirve como regulador de tensión, entregando voltajes de salida menores que los de su entrada.
+
+Fuente basada en regulador step-down DC-DC LM2596 con salida regulable de 1.25V a 35V
+
+Con preset multivuelta de alta precisión es capaz de alimentar cargas de hasta 3A.
+
+Para corrientes de salida mayores a 2A, se debe utilizar un disipador de calor sobre el integrado.
+
+![LM2596](../assets/Step_Down_LM2596.png)
+
+### 40.5.1 Especificaciones
+
+- Voltaje de operación: 4.0V ~ 40V DC
+- Voltaje de Salida: 1.23V ~ 35V DC Ajustable (el voltaje de entrada debe tener al menos 1.5V más que la salida).
+- Corriente de Salida: máx. 3A (usar disipador para corrientes mayores a 2A).
+- Potencia de salida: 50-70W, utilizar disipador
+- Eficiencia de conversión: 92%
+- Frecuencia de Trabajo: 150KHz
+- Ripple en la salida: 30mV (máx.) 20M bandwidth
+- Protección de cortocircuito y sobre temperatura.
+- Dimensiones: 43 x 21 x 18 mm.
+
+## 40.6 BATERIAS 18650
 
 Las mejores baterías 18650 del mercado (marcas como Panasonic, LG, Samsung o Sony/Murata) tienen una capacidad máxima real de entre 3.400 mAh y 3.600 mAh.
 
@@ -1988,7 +2112,85 @@ Las mejores marcas en baterías son:
 
 Cualquiera de estas de 3000 mAh reales va a durar diez veces más que esa de "8.800 mAh" y va a funcionar perfecto con tu panel solar y el capacitor de 470 µF.
 
-## CONEXIÓN A PANEL SOLAR
+# 50. PANEL SOLAR
+
+Un panel solar (o módulo fotovoltaico) es un dispositivo que aprovecha la energía de la luz solar para generar electricidad. Funciona mediante el efecto fotovoltaico: cuando los fotones (partículas de luz) impactan sobre las celdas de silicio del panel, liberan electrones, creando una corriente eléctrica continua (DC).
+
+### Tipos de Paneles Solares
+
+Existen principalmente tres tipos según la forma en que se fabrica el silicio:
+
+- Monocristalinos (Los más eficientes)
+
+  Se fabrican a partir de un solo cristal de silicio puro. Se reconocen porque sus celdas son de color negro o azul muy oscuro y tienen las esquinas recortadas (forma octogonal).
+
+  Ventajas: Son los más eficientes (aprovechan mejor el espacio) y rinden mejor en condiciones de luz escasa o días nublados.
+
+  Uso ideal: Si tenés poco espacio o necesitás que la batería se cargue lo más rápido posible.
+
+- Policristalinos
+
+  Se fabrican fundiendo varios fragmentos de silicio. Tienen un aspecto azul brillante jaspeado (se ven como cristales rotos en el interior).
+
+  Ventajas: Son más económicos de fabricar.
+
+  Desventajas: Tienen una eficiencia ligeramente menor y rinden un poco menos cuando hace mucho calor (la temperatura alta afecta su voltaje).
+
+### Componentes de un Sistema Solar (Para tu caso)
+
+Para que ese panel de 1W o 5W funcione con tu placa, el sistema se compone de:
+
+- Celdas Solares: Las que captan la luz.
+- Cubierta de Vidrio/Resina: Protege las celdas de la humedad y el granizo.
+- Marco de Aluminio: (Solo en paneles grandes) Da rigidez.
+- Caja de Conexión: Donde soldás los cables que van a tu TP4056.
+
+### Tipos de paneles 6V
+
+Un panel de 6V y 1W entrega, en condiciones ideales (sol de mediodía, despejado), unos 166mA (I = P / V).
+
+- Pérdidas (33%) Entre el calor, la eficiencia del módulo TP4056 y que el sol no siempre está perfecto, contá con que vas a recibir unos 100mA a 120mA reales de carga.
+- Tiempo de carga: Si tenés una batería 18650 estándar de 3000mAh, tardarías unas 25 a 30 horas de sol pleno en cargarla de 0 a 100%. Es decir, unos 3 o 4 días de buen sol.
+
+| CAPACIDAD | CORRIENTE TEORICA | CORRIENTE REAL (67%) | HORAS CARGA | PRECIO |
+|:--- |:---|:--- |:--- |:--- |
+| 1 W | 166 mA| 110 mA | 24| 6.000 |
+| 2,5 W | 410 mA | 279 mA | 10 | 14.000     |
+| 3 W | 500 mA | 335 mA | 8 | 19.000     |
+| 6 W |1.000 mA |  667 mA | 4,5| 30.970
+| 10 W | 1.666 mA | 1.120 mA | 3 | 27.000 |
+
+## 50.1 PANEL SOLAR - 6VDC - 2,5W
+
+![PANEL SOLAR 2.5W](../assets/Panel_6V-2,5W.png)
+
+### 50.1.1 Especificaciones
+-	Voltaje: 6 VDC
+-	Potencia: 2,5 W
+-	Corriente de trabajo: 410 mA
+-	Medidas: 213 x 92 x 3 mm
+-	Peso: 
+
+## 50.2 PANEL SOLAR - 6VDC 6W
+
+Panel Solar Monocristalino Fotovoltaico de 6V y 6W
+Una solución eficiente y compacta para tus necesidades energéticas. 
+Con un tamaño de 170x200mm y un peso ligero de aproximadamente 115 g, este panel es ideal para proyectos de energía renovable en espacios reducidos. 
+Su voltaje de circuito abierto de 7,2 V y una corriente de trabajo de hasta 1000 mA garantizan un rendimiento óptimo. 
+Aunque no es de una marca destacada, su calidad está respaldada por la marca Candy-Ho, que ofrece productos nuevos y confiables. 
+Este panel solar monocristalino es perfecto para aplicaciones que requieren una potencia máxima de 6 W, brindando una opción accesible y eficiente para quienes buscan aprovechar la energía solar.
+
+![PANEL SOLAR 6W](../assets//Panel_6V-6W.png)
+
+### 50.2.1	Especificaciones
+-	Voltaje: 7,2 VDC
+-	Potencia: 6 W
+-	Corriente de trabajo: 1.000 mA
+-	Medidas: 170x 220 mm
+-	Peso: 115 g
+
+
+## 50.3 CONEXIÓN A PANEL SOLAR
 
 Para conectar este módulo a un panel solar, el concepto clave es que el TP4056 necesita una entrada estable de aproximadamente 5V para funcionar correctamente. Los paneles solares tienen un voltaje variable que depende de la intensidad del sol, por lo que no siempre es ideal conectarlos directamente.
 
@@ -2014,54 +2216,7 @@ Si usas un panel de 12V, necesitas bajarlo a 5V fijos. El TP4056 soporta hasta 8
 - Capacitor de Estabilidad: Si el sol parpadea (nubes), el módulo puede entrar y salir del estado de carga constantemente. Soldar un capacitor electrolítico (ej. 1000uF 16V) en los terminales de entrada (+ y -) ayuda a suavizar esas fluctuaciones.
 - Calor: En días de mucho sol en zonas como Mendoza o el interior de Buenos Aires, el chip puede levantar mucha temperatura. Si vas a meterlo en una caja estanca para un proyecto de AgTech, te recomiendo pegarle un pequeño disipador de aluminio sobre el chip CSM4056T.
 
-## PANEL SOLAR
-
-Un panel solar (o módulo fotovoltaico) es un dispositivo que aprovecha la energía de la luz solar para generar electricidad. Funciona mediante el efecto fotovoltaico: cuando los fotones (partículas de luz) impactan sobre las celdas de silicio del panel, liberan electrones, creando una corriente eléctrica continua (DC).
-
-### Tipos de Paneles Solares
-
-Existen principalmente tres tipos según la forma en que se fabrica el silicio:
-
-- Monocristalinos (Los más eficientes)
-
-Se fabrican a partir de un solo cristal de silicio puro. Se reconocen porque sus celdas son de color negro o azul muy oscuro y tienen las esquinas recortadas (forma octogonal).
-
-Ventajas: Son los más eficientes (aprovechan mejor el espacio) y rinden mejor en condiciones de luz escasa o días nublados.
-
-Uso ideal: Si tenés poco espacio o necesitás que la batería se cargue lo más rápido posible.
-
-- Policristalinos
-
-Se fabrican fundiendo varios fragmentos de silicio. Tienen un aspecto azul brillante jaspeado (se ven como cristales rotos en el interior).
-
-Ventajas: Son más económicos de fabricar.
-
-Desventajas: Tienen una eficiencia ligeramente menor y rinden un poco menos cuando hace mucho calor (la temperatura alta afecta su voltaje).
-
-### Componentes de un Sistema Solar (Para tu caso)
-
-Para que ese panel de 1W o 5W funcione con tu placa, el sistema se compone de:
-
-- Celdas Solares: Las que captan la luz.
-- Cubierta de Vidrio/Resina: Protege las celdas de la humedad y el granizo.
-- Marco de Aluminio: (Solo en paneles grandes) Da rigidez.
-- Caja de Conexión: Donde soldás los cables que van a tu TP4056.
-
-### Tipos de paneles 6V
-
-Un panel de 6V y 1W entrega, en condiciones ideales (sol de mediodía, despejado), unos 166mA (I = P / V).
-
-- Pérdidas (33%) Entre el calor, la eficiencia del módulo TP4056 y que el sol no siempre está perfecto, contá con que vas a recibir unos 100mA a 120mA reales de carga.
-- Tiempo de carga: Si tenés una batería 18650 estándar de 3000mAh, tardarías unas 25 a 30 horas de sol pleno en cargarla de 0 a 100%. Es decir, unos 3 o 4 días de buen sol.
-
-| **CAPACIDAD** | **CORRIENTE**<br><br>**TEORICA** | **CORRIENTE REAL (67%)** | **HORAS CARGA** | **PRECIO** |
-| ------------- | -------------------------------- | ------------------------ | --------------- | ---------- |
-| 1 W           | 166 mA                           | 110 mA                   | 24              | 6.000      |
-| 2,5 W         | 410 mA                           | 279 mA                   | 6               | 14.000     |
-| 3 W           | 500 mA                           | 335 mA                   | 8               | 19.000     |
-| 10 W          | 1.666 mA                         | 1.120 mA                 | 4               | 27000      |
-
-## CABLES - Sección y Denominación
+# 60. CABLES - Sección y Denominación
 
 El término AWG son las siglas de American Wire Gauge (Calibre de Alambre Estadounidense). Es un sistema estandarizado que se usa desde 1857 para medir el diámetro de los cables eléctricos, principalmente los que no son de potencia pesada (como los de electrónica).
 
@@ -2077,13 +2232,13 @@ Lo más curioso (y lo que marea a mucha gente al principio) es que cuanto más g
 - El sistema AWG mide el diámetro del cable (mm). En Argentina y Europa, solemos usar la sección en milímetros cuadrados (mm<sup>2</sup>), que mide el área del corte transversal del cable.
 - Aquí tenés una tabla rápida para que te ubiques con los cables que estuvimos mencionando:
 
-| **AWG** | **DIAMETRO (mm)** | **SECCION (mm<sup>2</sup>)** | **USO COMUN**                                        |
-| ------- | ----------------- | ---------------------------- | ---------------------------------------------------- |
-| AWG 14  | 1.63              | 2.08                         | Instalaciones eléctricas de casas (enchufes).        |
-| AWG 16  | 1.29              | 1.31                         | Cables electricos de 1.5mm<sup>2</sup> están por aca |
-| AWG 22  | 0.64              | 0.32                         | Audio, alarmas, proyectos con sensores.              |
-| AWG 24  | 0.51              | 0.20                         | Cables de red (UTP) y electrónica general.           |
-| AWG 28  | 0.32              | 0.08                         | Cables Dupont (muy finitos).                         |
+| AWG| DIAMETRO (mm) | SECCION (mm<sup>2</sup>) | USO COMUN|
+|:---|:---|:---|:---|
+| AWG 14| 1.63| 2.08 | Instalaciones eléctricas de casas (enchufes)|
+| AWG 16  | 1.29 | 1.31 | Cables electricos de 1.5mm<sup>2</sup> están por aca |
+| AWG 22  | 0.64 | 0.32 | Audio, alarmas, proyectos con sensores.              |
+| AWG 24  | 0.51 | 0.20  | Cables de red (UTP) y electrónica general           |
+| AWG 28  | 0.32 | 0.08 | Cables Dupont (muy finitos)|
 
 A mayor número AWG (cable más fino), menor es la sección y por lo tanto mayor es la resistencia.
 
@@ -2093,31 +2248,34 @@ A mayor número AWG (cable más fino), menor es la sección y por lo tanto mayor
 - Con el tiempo y la humedad (especialmente si el proyecto va afuera), los contactos se oxidan o se aflojan.
 - Cualquier falso contacto en la línea de la batería o del panel puede hacer que el módulo deje de funcionar o que el ESP32 se reinicie aleatoriamente.
 
-## STEP DOWN LM2596 - DC 1,25A / 35VDC - 3A
+## 60.1 CONECTOR DUPONT
 
-Un módulo Step-Down sirve como regulador de tensión, entregando voltajes de salida menores que los de su entrada.
+Para que un conector Dupont (los cables tipo jumper que usas habitualmente con el ESP32 o placas de prueba) encaje correctamente y haga buen contacto, la altura del pin es clave.
 
-Fuente basada en regulador step-down DC-DC LM2596 con salida regulable de 1.25V a 35V
+La medida estándar
 
-Con preset multivuelta de alta precisión es capaz de alimentar cargas de hasta 3A.
+- La altura estándar de la parte metálica expuesta de un pin header (macho) debe ser de 6 mm.
 
-Para corrientes de salida mayores a 2A, se debe utilizar un disipador de calor sobre el integrado.
+- Longitud total del pin: Generalmente es de 11.5 mm a 12 mm.
 
-### Especificaciones
+Distribución:
 
-- Voltaje de operación: 4.0V ~ 40V DC
-- Voltaje de Salida: 1.23V ~ 35V DC Ajustable (el voltaje de entrada debe tener al menos 1.5V más que la salida).
-- Corriente de Salida: máx. 3A (usar disipador para corrientes mayores a 2A).
-- Potencia de salida: 50-70W, utilizar disipador
-- Eficiencia de conversión: 92%
-- Frecuencia de Trabajo: 150KHz
-- Ripple en la salida: 30mV (máx.) 20M bandwidth
-- Protección de cortocircuito y sobre temperatura.
-- Dimensiones: 43 x 21 x 18 mm.
+- 6 mm hacia arriba (donde conecta el Dupont hembra).
+- 2.5 mm de base de plástico (el aislante negro).
+- 3 mm hacia abajo (la parte que se suelda a la placa o PCB).
 
-# CONEXIONES
+### Detalles técnicos a tener en cuenta:
 
-## MODULO EXPANSION I2C
+- El Paso (Pitch): Casi todos los conectores Dupont utilizan un paso de 2.54 mm (0.1 pulgadas). Si el pin es más corto de 6 mm, el "clic" interno del conector hembra no morderá con suficiente fuerza y podrías tener desconexiones intermitentes o caídas de tensión (ruido en los sensores).
+- Pines Largos (Long Reach): Existen pines de hasta 15 mm o 20 mm de largo. Se usan mucho cuando necesitas atravesar una carcasa o cuando usas "stackable headers" (como los de las shields de Arduino), pero para un cable Dupont común, los 6 mm son la norma.
+- Grosor del Pin: El pin debe ser cuadrado, de aproximadamente 0.64 mm de lado. Si intentas usar cables Dupont en pines redondos muy finos (como los de algunos componentes integrados), la conexión quedará floja.
+
+Un consejo práctico: Si estás soldando los pines a una placa para un proyecto (como el de los sensores de pulso para el gas o el agua), asegúrate de que el pin quede perfectamente vertical. Si queda inclinado, el conector Dupont sufrirá estrés mecánico y terminará rompiendo el cable interno o falseando la lectura del sensor.
+
+
+# 70. CONEXIONES
+
+## 70.1 MODULO EXPANSION I2C - PCF 8574
 
 MODELO: Pcf8574 Board Io I2c-bus
 
@@ -2128,6 +2286,8 @@ Soporta conexión en cascada, permitiendo usar hasta 8 módulos para extender 64
 Cada 2 segundos, el puerto P0-P7 alterna entre nivel alto y nivel bajo. Si se ponen 3 interruptores de palanca en ON, la dirección del módulo será 0x27.
 
 Aquí te explico los usos más prácticos para tus proyectos:
+
+![PCF 8574](../assets/Expansion_I2C_PCF8574.png)
 
 ### Manejo de Pantallas LCD (El uso más común)
 
@@ -2156,11 +2316,11 @@ Aquí te explico los usos más prácticos para tus proyectos:
 
 Si estás armando un tablero (como el que planeabas con las borneras) y necesitás muchos indicadores LED o botones de estado, la PCF8574 es la solución para no cablear todo directamente al microcontrolador y evitar una maraña de cables.
 
-## OFFSET Y RESISTENCIA DE CARGA
+## 70.2 OFFSET, RESISTENCIA DE CARGA y PULL UP
 
-En electrónica y automatización, entender estos dos conceptos es fundamental para asegurar que las lecturas de tus sensores sean precisas y que tus circuitos funcionen sin quemarse o perder señal.
+En electrónica y automatización, entender estos tres conceptos es fundamental para asegurar que las lecturas de tus sensores sean precisas y que tus circuitos funcionen sin quemarse o perder señal.
 
-### Offset
+### 70.2.1 Offset
 
 El offset (o desplazamiento) es una diferencia constante entre el valor real de una variable y el valor que mide un sensor. Es un "error sistemático" que desplaza toda la curva de medición hacia arriba o hacia abajo.
 
@@ -2168,67 +2328,74 @@ En la práctica: Si un sensor de temperatura marca 22°C cuando la temperatura r
 
 En señales eléctricas: Se refiere a un voltaje de CC (corriente continua) que se suma a una señal de CA (corriente alterna). Si una onda senoidal oscila entre -1V y 1V, pero tiene un offset de 2V, pasará a oscilar entre 1V y 3V.
 
-CORRECCION DEL OFFSET
+### Corrección del Offset
 
 Normalmente se soluciona mediante calibración por software. En herramientas como ESPHome o Home Assistant, simplemente aplicas un filtro lineal:
 
 \`valor_corregido = valor_leido - offset\`
 
-### Resistencia de Carga (Load Resistor)
+### 70.2.2 Resistencia de Carga (Load Resistor)
 
 La resistencia de carga (R_L) es el componente o la resistencia total que "consume" la energía de un circuito de salida. No es un componente específico llamado así, sino el rol que cumple cualquier dispositivo conectado a una fuente.
 
 En el contexto de sensores y microcontroladores, tiene dos usos principales:
 
-A. Conversión de Corriente a Voltaje (Lazo de 4-20 mA)
+- Conversión de Corriente a Voltaje (Lazo de 4-20 mA)
 
-Muchos sensores industriales entregan una señal en corriente. Como los pines analógicos del ESP32 o Arduino solo leen voltaje, necesitas una resistencia de carga para "traducir" esa señal.
+  Muchos sensores industriales entregan una señal en corriente. Como los pines analógicos del ESP32 o Arduino solo leen voltaje, necesitas una resistencia de carga para "traducir" esa señal.
 
-Si usas una resistencia de 250 ohm en un lazo de 20 mA, el voltaje será:
+  Si usas una resistencia de 250 ohm en un lazo de 20 mA, el voltaje será:
 
-V = 0.020 A 250 ohm = 5V
+  V = 0.020 A 250 ohm = 5V
 
-B. Estabilidad de la Señal
+- Estabilidad de la Señal
 
-Sirve para asegurar que la salida de un dispositivo no quede "flotando". Por ejemplo, en sensores de colector abierto o protocolos como I2C, se usan resistencias de carga (pull-up) para mantener la línea en un estado lógico definido cuando no hay transmisión.
+  Sirve para asegurar que la salida de un dispositivo no quede "flotando". Por ejemplo, en sensores de colector abierto o protocolos como I2C, se usan resistencias de carga (pull-up) para mantener la línea en un estado lógico definido cuando no hay transmisión.
 
 ### Resumen de Diferencias
 
-| **CONCEPTO**         | **DEFINICION SIMPLE**             | **FUNCION PRINCIPAL**                                 |
-| -------------------- | --------------------------------- | ----------------------------------------------------- |
-| OFFSET               | Error de desplazamiento constante | Calibrar el punto cro de una medición                 |
-| RESISTENCIA DE CARGA | Impedancia que recible la señal   | Convertir corriente a voltaje o estabilizar circuitos |
+| CONCEPTO | DEFINICION SIMPLE | FUNCION PRINCIPAL |
+|:--- |:--- |:--- |
+| OFFSET | Error de desplazamiento constante | Calibrar el punto cro de una medición |
+| RESISTENCIA DE CARGA | Impedancia que recibe la señal   | Convertir corriente a voltaje o estabilizar circuitos |
 
-### **Ejemplo Aplicado**
+### Ejemplo Aplicado
 
 Si estás armando un medidor de nivel de agua con un sensor de presión sumergible (4-20 mA):
 
 - Usas una resistencia de carga para que el ESP32 pueda leer voltios en lugar de miliamperios.
 - Si el tanque está vacío pero el sensor dice que hay "5 cm", configuras un offset de -5 en tu código para que la lectura real sea cero.
 
-## BORNERS DEGSON
+### 70.2.3 Resistencia Pull-Up / Pull-Down
+Una resistencia pull-up (y su contraparte, la pull-down) es un componente fundamental en electrónica digital para evitar lo que llamamos un "estado flotante".
 
-## CONECTOR DUPONT
+### El problema: El "Estado Flotante"
+Los pines de entrada de un microcontrolador (como tu ESP32 o Arduino) son extremadamente sensibles. Si conectas un botón a un pin, pero el botón no está presionado, el pin queda "al aire" (desconectado).
 
-Para que un conector Dupont (los cables tipo jumper que usas habitualmente con el ESP32 o placas de prueba) encaje correctamente y haga buen contacto, la altura del pin es clave.
+En ese estado, el pin actúa como una antena que capta ruido electromagnético del ambiente. El microcontrolador no sabe si leer un 0 (LOW) o un 1 (HIGH) y empieza a cambiar de valor aleatoriamente. Esto se llama estado flotante y causa lecturas falsas constantes.
 
-La medida estándar
+### La solución: Resistencia Pull-Up
+La resistencia pull-up es simplemente un "puente" de resistencia que conecta el pin de entrada directamente al voltaje positivo (VCC, 3.3V o 5V).
 
-La altura estándar de la parte metálica expuesta de un pin header (macho) debe ser de 6 mm.
+Cuando el botón NO está presionado: La resistencia "tira" (pull-up) del pin hacia el voltaje positivo. El microcontrolador lee un 1 (HIGH) lógico.
 
-Longitud total del pin: Generalmente es de 11.5 mm a 12 mm.
+Cuando el botón SÍ está presionado: El botón conecta el pin directamente a Tierra (GND). Como GND tiene más "fuerza" que la resistencia, el pin cae a 0V y el microcontrolador lee un 0 (LOW) lógico.
 
-Distribución:
+### ¿Por qué se usa una resistencia?
+Si conectaras el pin directamente a 3.3V sin una resistencia, al presionar el botón ocurriría un cortocircuito (conectarías 3.3V directamente a Tierra). La resistencia sirve para limitar la corriente y proteger tanto tu placa como el pin, permitiendo que la señal llegue sin quemar nada.
 
-- 6 mm hacia arriba (donde conecta el Dupont hembra).
-- 2.5 mm de base de plástico (el aislante negro).
-- 3 mm hacia abajo (la parte que se suelda a la placa o PCB).
+### La gran ventaja: "Pull-up Interna"
+Aquí está el truco que te ahorrará mucho trabajo en tus proyectos: Casi todos los microcontroladores (como el ESP32) tienen resistencias pull-up integradas en sus propios pines.
 
-Detalles técnicos a tener en cuenta:
+No necesitas comprar ni soldar resistencias externas.
 
-- El Paso (Pitch): Casi todos los conectores Dupont utilizan un paso de 2.54 mm (0.1 pulgadas). Si el pin es más corto de 6 mm, el "clic" interno del conector hembra no morderá con suficiente fuerza y podrías tener desconexiones intermitentes o caídas de tensión (ruido en los sensores).
-- Pines Largos (Long Reach): Existen pines de hasta 15 mm o 20 mm de largo. Se usan mucho cuando necesitas atravesar una carcasa o cuando usas "stackable headers" (como los de las shields de Arduino), pero para un cable Dupont común, los 6 mm son la norma.
-- Grosor del Pin: El pin debe ser cuadrado, de aproximadamente 0.64 mm de lado. Si intentas usar cables Dupont en pines redondos muy finos (como los de algunos componentes integrados), la conexión quedará floja.
+En tu código (ESPHome o Arduino), solo tienes que activar esta opción en la configuración del pin.
 
-Un consejo práctico: Si estás soldando los pines a una placa para un proyecto (como el de los sensores de pulso para el gas o el agua), asegúrate de que el pin quede perfectamente vertical. Si queda inclinado, el conector Dupont sufrirá estrés mecánico y terminará rompiendo el cable interno o falseando la lectura del sensor.
-
+```yaml
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO2
+      mode: INPUT_PULLUP  # <--- Aquí le dices al ESP32 que use su resistencia interna
+    name: "Botón de cortina"
+```
