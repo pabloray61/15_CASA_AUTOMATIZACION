@@ -72,8 +72,8 @@ A continuacion mostramos un detalle de los sensores que componen el sistema de t
 | :--- | :--- | :--- | :--- |
 | Caudalimetro | FS401 - | GPIO 27 |
 | Sensor Ultrasonico | JSN-SR04T | Triger: GPIO 13 - Echo: GPIO 12
-| Sensor Temperatura Agua | DSB180 | GPIO 18 | 0xb30000007ce01928
-| Sensor Temperatura Ambiente | DSB180 | GPIO 18 | 0x8d00000077d61f28
+| Sensor Temperatura Agua | DS18B20 | GPIO 18 | 0x480b24a06e25cd28
+| Sensor Temperatura Ambiente | DS18B20 | GPIO 18 | 0x8d00000077d61f28
 | Nivel Líquidos | adsfa | VCC Out: GPIO 25 - Signal In: GPIO33
 
 ### 4.1 Caudalimetro FS300A

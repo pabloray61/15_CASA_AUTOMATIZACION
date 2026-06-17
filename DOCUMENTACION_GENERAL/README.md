@@ -106,7 +106,6 @@ Aquí tienes la mejor estrategia de nomenclatura basada en las mejores práctica
 
 Resumen: Nombra por Ubicación + Función. Es la única forma de que, dentro de dos años, sepas qué es cada cosa sin tener que abrir la caja para ver qué placa tiene adentro.
 
-
 # 3. MICROCONTROLADORES
 
 Un **microcontrolador** es, en esencia, una **computadora completa contenida en un solo circuito integrado** (chip). A diferencia de un microprocesador (como el que tiene tu computadora, que solo ejecuta instrucciones), un microcontrolador está diseñado para realizar tareas específicas y repetitivas dentro de dispositivos electrónicos.
@@ -2248,6 +2247,77 @@ A mayor número AWG (cable más fino), menor es la sección y por lo tanto mayor
 - Con el tiempo y la humedad (especialmente si el proyecto va afuera), los contactos se oxidan o se aflojan.
 - Cualquier falso contacto en la línea de la batería o del panel puede hacer que el módulo deje de funcionar o que el ESP32 se reinicie aleatoriamente.
 
+### Conectores "JST"
+ "JST" no es el nombre de un conector, sino el nombre de la empresa (Japan Solderless Terminal). Ellos fabrican miles de series de conectores para casi cualquier industria imaginable, desde electrodomésticos hasta el sector automotriz.  
+Sin embargo, para los entusiastas de la electrónica y el maker, solo un puñado son "estándar". Aquí tienes los más comunes clasificados por su paso (distancia entre pines):
+
+|Serie JST |Paso (Pitch) |Uso típico
+|:---|:---|:---
+SH|1.00 mm|Ultra-compacto, cámaras de drones, wearables.
+|ZH|1.50 mm|Electrónica de consumo muy pequeña.
+|PH|2.00 mm|Dispositivos portátiles, robótica pequeña.
+|XH|2.50 mm|Baterías LiPo, impresoras 3D, placas base.
+|SYP|2.50 mm	|Alimentación (Poder)	Robusto, polarizado, traba interna
+|RCY|2.50 mm| Alimentación de Radio Control
+|SM|2.54 mm|Tiras LED, conexiones externas de sensores.
+|VH|3.96 mm|Alta corriente (fuentes de poder).
+
+
+### Diferencias clave: JST-SM vs JST-XH
+
+|Característica|JST-SM|JST-XH
+|:---|:---|:---
+|Paso (pitch)|2.54 mm|2.50 mm
+|Uso principal|Conexiones cable-a-cable (exterior)|Conexión cable-a-PCB (placa)||Bloqueo|Sí, tiene pestaña de seguridad (clic)|No, se mantiene por fricción
+|Aplicación típica|Tiras LED, sensores externos|Baterías LiPo, motores de impresora 3D
+|Robustez|Alta (protege contra tirones)|Baja (se desconecta fácilmente)
+
+### ¿Por qué la confusión?
+
+Aunque el paso es casi idéntico (2.54 mm vs 2.50 mm), no son compatibles entre sí. Si intentas forzar un JST-SM en un cabezal JST-XH, probablemente dañes los pines o el plástico de la carcasa.
+
+### Resumen para tus proyectos:
+- Usa JST-SM cuando necesites una conexión "volante" (cable con cable) que esté expuesta a movimiento o vibraciones; el mecanismo de bloqueo evitará que el circuito se abra accidentalmente.
+- Usa JST-XH cuando necesites conectar un periférico (como un motor o un sensor) directamente a la placa controladora (PCB), aprovechando que son compactos y ahorran espacio en la placa.
+
+Siempre debes preguntar el "paso" (pitch) o el nombre de la serie (PH, XH, SM, etc.).La regla de oro: El paso es lo más importante. Si el paso no coincide, el conector no entrará o, peor aún, harás un cortocircuito.
+
+No son intercambiables: Aunque un JST-PH de 2.00 mm pueda entrar "a la fuerza" en algún lado, nunca intentes mezclar series.
+
+En tus proyectos, tu "kit de supervivencia" debería cubrir básicamente los tres tamaños principales:
+- 2.54mm (SM): Para conexiones externas que se mueven mucho.
+- 2.50mm (XH): Para las conexiones de alimentación y balanceo estándar.
+- 2.00mm (PH): Para cuando el espacio es realmente reducido y estás trabajando con componentes muy pequeños.
+
+### ¿Por qué el SYP es un "caso especial"?
+Aunque comparte el paso de 2.50 mm con el XH, el SYP no encaja en la misma categoría técnica por tres razones fundamentales:
+
+- Su rol es eléctrico, no de datos: Mientras que el XH se usa mucho para señales de sensores o balanceo de celdas (donde la precisión de contacto es vital), el SYP está diseñado para aguantar el flujo constante de corriente de una batería a un dispositivo.
+
+- Arquitectura de pines: El XH usa pines planos delgados. El SYP utiliza terminales internos más robustos diseñados para soportar ciclos de conexión más frecuentes sin perder la presión de contacto.
+
+- Filosofía de diseño: * El XH está pensado para "nacer y quedarse" en la placa (o para procesos de mantenimiento poco frecuentes).
+
+El SYP está diseñado para ser la "puerta de entrada" de energía del dispositivo; es decir, la pieza que el usuario va a conectar y desconectar constantemente.
+
+### ¿Por qué se utiliza el RCY?
+A diferencia del JST-SYP, que es más pequeño y estilizado, el RCY está diseñado para ser manipulado con dedos o incluso con guantes si estás en un campo de vuelo o pista de RC. Es un conector que soporta bien los tirones constantes y la vibración intensa, características normales en el mundo del control remoto.
+
+¿Cuándo usarlo?
+
+- No lo uses para sensores de precisión ni para conectar cosas a una placa Arduino (es demasiado grande y tosco para eso).
+
+- Úsalo si estás reparando algún juguete RC, si necesitas un conector muy resistente para una alimentación de 12V en un proyecto de exterior, o si estás trabajando con baterías de LiPo de formato estándar RC.
+
+### ¿Cuándo usar cuál?
+Si estás conectando un sensor de temperatura a tu placa -> JST-XH (por su bajo perfil).
+
+Si estás conectando una batería LiPo de 3.7V o 7.4V para alimentar tu proyecto -> JST-SYP (por su robustez y polaridad clara).
+
+Si estás conectando tiras de LED direccionables que van de una caja a otra -> JST-SM (por su mecanismo de bloqueo mecánico que evita desconexiones por movimiento).
+
+En resumen, el SYP es el conector que eliges cuando quieres que la energía llegue a tu proyecto de manera segura, clara (rojo/negro) y resistente al uso rudo.
+
 ## 60.1 CONECTOR DUPONT
 
 Para que un conector Dupont (los cables tipo jumper que usas habitualmente con el ESP32 o placas de prueba) encaje correctamente y haga buen contacto, la altura del pin es clave.
@@ -2271,6 +2341,122 @@ Distribución:
 - Grosor del Pin: El pin debe ser cuadrado, de aproximadamente 0.64 mm de lado. Si intentas usar cables Dupont en pines redondos muy finos (como los de algunos componentes integrados), la conexión quedará floja.
 
 Un consejo práctico: Si estás soldando los pines a una placa para un proyecto (como el de los sensores de pulso para el gas o el agua), asegúrate de que el pin quede perfectamente vertical. Si queda inclinado, el conector Dupont sufrirá estrés mecánico y terminará rompiendo el cable interno o falseando la lectura del sensor.
+
+![CONECTOR DUPONT](../assets/Conector_DUPONT254.png)
+
+## 60.2 FICHA JST-SM (2.54 mm)
+
+Una ficha JST-SM es un tipo de conector eléctrico muy popular en el mundo de la electrónica, especialmente en proyectos de DIY, robótica, tiras LED y prototipado con microcontroladores (como los ESP32 que sueles utilizar).
+
+Se caracteriza por ser un conector de paso de 2.54 mm (el mismo estándar que los protoboards y pines de cabecera), lo que los hace extremadamente compatibles y fáciles de usar.
+
+![FICHA JST-SM](../assets/Ficha_JST_SM.png)
+
+### 60.2.1 Características Principales
+- Polarización: Tienen una forma física que impide que se conecten al revés. Poseen unas pestañas guía que aseguran una inserción correcta.
+
+- Bloqueo de seguridad: A diferencia de los conectores tipo "Dupont" (que se sueltan fácilmente), los JST-SM incluyen un mecanismo de traba (latch). Una vez conectados, hacen un "clic" y requieren presionar una pestaña para soltarlos, evitando desconexiones accidentales por vibración o movimiento.
+
+- Versatilidad: Vienen en configuraciones de 2 a 8 pines (aunque los de 2, 3 y 4 son los más comunes).
+
+### 60.2.3 Uso común
+
+- Tiras LED direccionables: Es el estándar industrial para las tiras tipo WS2812B/NeoPixel.
+
+- Sensores: Ideales para sensores externos en tus proyectos de Home Assistant donde quieres asegurar que el cable no se suelte.
+
+- Conexiones de alimentación: Soportan corrientes moderadas, lo que los hace perfectos para alimentar sensores y actuadores pequeños.
+
+### 60.2.3 ¿Por qué son útiles para tus proyectos?
+- Fiabilidad: Son mucho más robustos que los cables tipo jumper sueltos. Si estás integrando un sensor de nivel de agua o un sensor de flujo en tus proyectos de automatización, estos conectores garantizan una conexión eléctrica estable.
+
+- Mantenibilidad: Si necesitas cambiar un sensor o realizar un mantenimiento en el panel de control, puedes desconectar el bloque completo sin tener que desarmar cable por cable.
+
+- Montaje profesional: Permiten una gestión de cables mucho más limpia en cajas estancas o gabinetes eléctricos, algo fundamental cuando realizas instalaciones fijas en casa.
+
+## 60.3 FICHA JST-XH (2.50 mm)
+El JST-XH es un conector de paso de 2.50 mm. 
+Es extremadamente común en el mundo del modelismo RC y la electrónica de baterías.
+- Uso principal: Es el estándar mundial para el puerto de balanceo de las baterías LiPo (cargas de celdas individuales). También es muy frecuente en impresoras 3D para conectar motores paso a paso (nema 17) y finales de carrera.
+- Diseño: Es un conector diseñado para ir "pegado" o montado directamente sobre un circuito impreso (PCB). 
+Tiene una forma compacta y plana que facilita su conexión en placas densas.
+
+- Fijación: No tiene un mecanismo de traba mecánico fuerte. Se mantiene unido por fricción (el ajuste preciso de sus pines).
+
+- Pines: pueden venir de diferente cantidad de pines (como los conectores JST-SM)
+
+![JSM-XH](../assets/Conector_JSM-XH.png)
+
+
+## 60.5 CONECTOR JST-PH (2.00 mm)
+
+El conector JST-PH es uno de los estándares más utilizados en el mundo de la electrónica, especialmente en proyectos de robótica, drones, baterías de litio pequeñas y prototipado con sensores (muy común en el ecosistema Arduino/ESP32).
+
+Aquí tienes su descripción técnica y características principales:
+
+- ¿Qué significa "PH"?
+JST: Es el acrónimo de Japan Solderless Terminal, la empresa que inventó estos conectores.
+
+- PH: Es la serie específica del conector.
+
+- 2.0mm: Es el paso (pitch), que es la distancia exacta medida de centro a centro entre cada uno de los pines.
+
+![JST-PH](../assets/Conector_JST-PH.png)
+
+### 60.5.1 Especificaciones Técnicas Clave
+- Paso (Pitch): 2.0 mm (no lo confundas con el JST-XH de 2.54 mm, que es un poco más grande).
+- Voltaje nominal: 250V AC/DC.
+- Corriente nominal: 2.0A AC/DC (usando cable AWG #24).
+- Rango de temperatura: -25°C a +85°C.
+- Tipo de contacto: Son conectores de tipo crimp (para insertar los cables usando una herramienta especial o soldarlos con cuidado).
+- Mecánica: Cuentan con un mecanismo de bloqueo de fricción (friction lock), lo que significa que el conector hace un pequeño "clic" al entrar y se mantiene firme, evitando que se desconecte por vibración.
+
+### 60.5.2 ¿Por qué es tan popular?
+- Tamaño compacto: Es mucho más pequeño que los conectores tipo "header" estándar (2.54mm), lo que permite ahorrar mucho espacio en placas de circuito impreso (PCB).
+
+- Fiabilidad: A pesar de ser pequeño, su conexión es muy segura y difícil de desconectar accidentalmente.
+
+- Polarización: Tienen una forma que impide que se conecten al revés (a menos que fuerces la conexión), lo cual protege tus circuitos de cortocircuitos.
+
+### 60.5.3 Uso típico en tus proyectos
+- Baterías: Es el conector estándar para baterías LiPo de una celda (1S) pequeñas.
+- Sensores: Muchos módulos sensores (como sensores de gas, temperatura o cámaras como la ESP32-CAM que mostraste en tu imagen) usan este formato para conectar los cables a la placa principal.
+- Ventiladores: Es el estándar para los ventiladores pequeños de 5V o 12V en dispositivos electrónicos.
+
+
+## 60.6 FICHA JST-SH (1.0 mm)
+El conector JST-SH es el hermano "pequeño y avanzado" de la familia JST. Mientras que el PH es de 2.0 mm y el Dupont es de 2.54 mm, el SH es mucho más compacto y está diseñado para dispositivos de alta densidad y tecnología moderna.
+
+![JST-SH](../assets/Conector_JST-SH.png)
+
+Aquí tienes la descripción técnica:
+
+### 60.6.1	Especificaciones Principales
+-	Paso (Pitch): 1.0 mm. Es la mitad del tamaño del JST-PH.
+-	Perfil: Es extremadamente bajo (muy "bajito" una vez conectado), ideal para dispositivos donde el espacio es crítico.
+-	Tipo: Conector de tipo SMT (Surface Mount Technology). Esto significa que los zócalos están diseñados para soldarse directamente sobre la superficie de la placa (PCB), no atravesándola.
+-	Mecanismo de seguridad: Posee un sistema de bloqueo positivo que asegura que el conector no se suelte accidentalmente, incluso ante vibraciones fuertes.
+
+### 60.4.2	Diferencias visuales clave
+
+Para no confundirte con otros conectores pequeños:
+
+-	JST-PH (2.0mm): Es un poco más robusto y se siente "normal" al tacto. Es muy común en baterías de drones 1S.
+-	JST-SH (1.0mm): Es notablemente diminuto. Si intentas meterle un cable JST-PH, no entrará ni de lejos. Se utiliza frecuentemente en periféricos de alta gama o en placas donde el espacio es tan reducido que no cabe nada más grande.
+
+### 60.4.3 ¿Dónde lo encontrarás?
+Drones y cámaras de alta gama: Muchos sistemas de transmisión de video (como los VTX de drones de carreras) usan SH para ahorrar peso y espacio.
+Dispositivos portátiles: Relojes inteligentes, rastreadores GPS diminutos o sensores médicos portátiles.
+Conectividad Qwiic / Stemma QT: Aunque muchas placas modernas usan conectores JST-SH de 4 pines para sus sistemas de conexión rápida (como los buses I2C), ten mucho cuidado: estos suelen ser una variante de JST-SH 1.0mm.
+
+Esta serie es para casos de miniaturización. 
+
+|Serie JST|Paso (Pitch)|Características
+|:---|:---|:---
+|SH|1.00 mm|El más pequeño, usado en drones y cámaras. Es la serie diseñada para ultraminiaturización
+|GH|1.25 mm|Muy común en controladores de vuelo modernos (Pixhawk)
+|ZH|1.50 mm|Intermedio, usado en impresoras 3D
+|PH|2.00 mm|El estándar para baterías pequeñas y sensores
 
 
 # 70. CONEXIONES
